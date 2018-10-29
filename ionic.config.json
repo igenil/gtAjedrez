@@ -1,0 +1,7 @@
+{
+  "name": "gtAjedrez",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
