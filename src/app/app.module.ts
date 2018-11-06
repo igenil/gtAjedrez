@@ -17,6 +17,10 @@ import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { firebaseConfig } from '../config';
+import { JugadoresPage } from '../pages/jugadores/jugadores';
+import { CalendarioPage } from '../pages/calendario/calendario';
+import { EquipoPage } from '../pages/equipo/equipo';
+import { JornadasPage } from '../pages/jornadas/jornadas';
 
 
 @NgModule({
@@ -26,7 +30,12 @@ import { firebaseConfig } from '../config';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    JugadoresPage,
+    CalendarioPage,
+    EquipoPage,
+    JornadasPage
+
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,11 @@ import { firebaseConfig } from '../config';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    JugadoresPage,
+    CalendarioPage,
+    EquipoPage,
+    JornadasPage
   ],
   providers: [
     StatusBar,
