@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { EQUIPOS } from '../../data/data.equipos';
+import { Equipo } from '../../interface/equipo.interfaces'; 
 /**
  * Generated class for the EquipoPage page.
  *
@@ -14,8 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'equipo.html',
 })
 export class EquipoPage {
+  equipos:Equipo[]=[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.equipos=EQUIPOS.slice(0);
   }
 
   ionViewDidLoad() {
