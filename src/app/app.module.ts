@@ -22,8 +22,13 @@ import { JugadoresPage } from '../pages/jugadores/jugadores';
 import { CalendarioPage } from '../pages/calendario/calendario';
 import { EquipoPage } from '../pages/equipo/equipo';
 import { JornadasPage } from '../pages/jornadas/jornadas';
+<<<<<<< HEAD
 import { JugadoresmodalPage } from '../pages/jugadoresmodal/jugadoresmodal';
 
+=======
+import { NgCalendarModule } from 'ionic2-calendar';
+import { JugadoresmodalPage } from '../pages/jugadoresmodal/jugadoresmodal';
+>>>>>>> fcf079cb53c9174ec82951f4f1d570cd1729f687
 
 @NgModule({
   declarations: [
@@ -44,7 +49,8 @@ import { JugadoresmodalPage } from '../pages/jugadoresmodal/jugadoresmodal';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     NgxErrorsModule,
-    AngularFireModule.initializeApp(firebaseConfig.fire)
+    AngularFireModule.initializeApp(firebaseConfig.fire),
+    NgCalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
