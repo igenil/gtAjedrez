@@ -19,6 +19,27 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+        this.auth.afAuth.authState
+          .subscribe(
+            user => {
+              if (user) {
+                this.rootPage = TabsPage;
+              } else {
+                this.rootPage = LoginPage;
+              }
+            },
+            () => {
+              this.rootPage = LoginPage;
+            }
+          );
     });
+  }
+  logout() {
+    this.auth.signOut();
+    this.rootPage(LoginPage);
+  }
+  login() {
+    this.auth.signOut();
+    this.rootPage(TabsPage);
   }
 }
