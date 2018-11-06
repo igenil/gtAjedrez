@@ -27,8 +27,11 @@
     "@ultimate/ngxerrors": "^1.4.0",
     "angularfire2": "^5.1.0",
     "firebase": "^5.5.7",
+    "intl": "^1.2.5",
     "ionic-angular": "3.9.2",
+    "ionic2-calendar": "^0.4.5",
     "ionicons": "3.0.0",
+    "moment": "^2.22.2",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
