@@ -13,7 +13,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireModule } from 'angularfire2';
+import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { firebaseConfig } from '../config';
 
 
@@ -29,6 +31,7 @@ import { firebaseConfig } from '../config';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    NgxErrorsModule,
     AngularFireModule.initializeApp(firebaseConfig.fire)
   ],
   bootstrap: [IonicApp],
@@ -44,6 +47,7 @@ import { firebaseConfig } from '../config';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService,
     AngularFireAuth
   ]
 })
