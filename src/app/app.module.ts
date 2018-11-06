@@ -22,6 +22,7 @@ import { JugadoresPage } from '../pages/jugadores/jugadores';
 import { CalendarioPage } from '../pages/calendario/calendario';
 import { EquipoPage } from '../pages/equipo/equipo';
 import { JornadasPage } from '../pages/jornadas/jornadas';
+import { JugadoresmodalPage } from '../pages/jugadoresmodal/jugadoresmodal';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { JornadasPage } from '../pages/jornadas/jornadas';
     JugadoresPage,
     CalendarioPage,
     EquipoPage,
-    JornadasPage
+    JornadasPage,
+    JugadoresmodalPage
 
   ],
   imports: [
@@ -55,7 +57,8 @@ import { JornadasPage } from '../pages/jornadas/jornadas';
     JugadoresPage,
     CalendarioPage,
     EquipoPage,
-    JornadasPage
+    JornadasPage,
+    JugadoresmodalPage
   ],
   providers: [
     StatusBar,

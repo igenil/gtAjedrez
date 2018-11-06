@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { EQUIPOS } from '../../data/data.equipos';
 import { Equipo } from '../../interface/equipo.interfaces'; 
+import { JugadoresmodalPage } from '../jugadoresmodal/jugadoresmodal'
 /**
  * Generated class for the EquipoPage page.
  *
@@ -17,10 +18,14 @@ import { Equipo } from '../../interface/equipo.interfaces';
 export class EquipoPage {
   equipos:Equipo[]=[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
     this.equipos=EQUIPOS.slice(0);
   }
 
+  mostrar_modal(){
+    let modal=this.modalCtrl.create(JugadoresmodalPage);
+    modal.present();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad EquipoPage');
   }
