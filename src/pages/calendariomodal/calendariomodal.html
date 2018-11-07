@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>Fecha</ion-title>
   </ion-navbar>
 
@@ -26,12 +26,8 @@
         <ion-label>Fin</ion-label>
         <ion-datetime displayFormat="DD/MM/YYYY HH:mm"  pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="event.endTime" [min]="minDate"></ion-datetime>
     </ion-item>
-    <ion-item>
-      <ion-label>¿Todos los días?</ion-label>
-      <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
-    </ion-item>
   </ion-list>
-  <button ion-button full icon-left (click)="save()">
-    <ion-icon name="checkmark"> Añadir Fecha</ion-icon>
+  <button ion-button color="dark" full icon-left (click)="save()">
+    <ion-icon name="checkmark"> Añadir Fecha </ion-icon>
   </button>
 </ion-content>

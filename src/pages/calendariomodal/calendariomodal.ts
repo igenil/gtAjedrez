@@ -20,7 +20,7 @@ export class CalendariomodalPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController) {
     let preselectedDate = moment(this.navParams.get('selectedDay')).format();
     this.event.startTime = preselectedDate;
-    //this.event.endTime = preselectedDate;
+    this.event.endTime = preselectedDate;
   }
   save(){
     this.viewCtrl.dismiss(this.event)
@@ -28,5 +28,5 @@ export class CalendariomodalPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalendariomodalPage');
   }
-
+  
 }
