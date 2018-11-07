@@ -58,8 +58,8 @@ export class CalendarioPage {
     let end = moment(event.endTime).format('LLLL');
     let alert = this.alertCtrl.create({
       title: '' + event.title,
-      subTitle: 'From: ' + start + '<br>To: ' + end,
-      buttons: ['OK']
+      subTitle: 'Desde: ' + start + '<br>Hasta: ' + end,
+      buttons: ['Volver']
     });
     alert.present();
   }
