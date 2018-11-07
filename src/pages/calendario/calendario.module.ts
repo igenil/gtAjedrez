@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { CalendarioPage } from './calendario';
+import { CalendariomodalPage } from '../../pages/calendariomodal/calendariomodal';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { CalendarioPage } from './calendario';
   ],
   imports: [
     IonicPageModule.forChild(CalendarioPage),
+    CalendariomodalPage
   ],
 })
 export class CalendarioPageModule {}

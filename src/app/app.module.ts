@@ -22,11 +22,9 @@ import { JugadoresPage } from '../pages/jugadores/jugadores';
 import { CalendarioPage } from '../pages/calendario/calendario';
 import { EquipoPage } from '../pages/equipo/equipo';
 import { JornadasPage } from '../pages/jornadas/jornadas';
-
 import { JugadoresmodalPage } from '../pages/jugadoresmodal/jugadoresmodal';
-
-
 import { NgCalendarModule } from 'ionic2-calendar';
+import { CalendariomodalPage } from '../pages/calendariomodal/calendariomodal';
 
 
 
@@ -42,7 +40,8 @@ import { NgCalendarModule } from 'ionic2-calendar';
     CalendarioPage,
     EquipoPage,
     JornadasPage,
-    JugadoresmodalPage
+    JugadoresmodalPage,
+    CalendariomodalPage
 
   ],
   imports: [
@@ -64,7 +63,8 @@ import { NgCalendarModule } from 'ionic2-calendar';
     CalendarioPage,
     EquipoPage,
     JornadasPage,
-    JugadoresmodalPage
+    JugadoresmodalPage,
+    CalendariomodalPage
   ],
   providers: [
     StatusBar,
