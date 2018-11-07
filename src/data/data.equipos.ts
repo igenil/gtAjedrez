@@ -1,4 +1,3 @@
-
 export const EQUIPOS = [
     {
       nombre: "Equipo1",

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { JUGADORES } from '../../data/data.jugadores';
+import { Jugador } from '../../interface/jugador.interfaces'; 
+import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
 
 /**
  * Generated class for the JugadoresPage page.
@@ -14,8 +17,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'jugadores.html',
 })
 export class JugadoresPage {
+  jugadores:Jugador[]=[];
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
+    this.jugadores=JUGADORES.slice(0);
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  mostrar_modal(){
+    let modal=this.modalCtrl.create(DatosjugadormodalPage);
+    modal.present();
   }
 
   ionViewDidLoad() {
