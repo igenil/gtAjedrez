@@ -56,9 +56,10 @@ export class CalendarioPage {
   onEventSelected(event){
     let start = moment(event.startTime).format('LLLL');
     let end = moment(event.endTime).format('LLLL');
+
     let alert = this.alertCtrl.create({
       title: '' + event.title,
-      subTitle: 'Desde: ' + start + '<br>Hasta: ' + end,
+      subTitle: 'Desde: ' + start + '<br>Hasta: ' + end + '<br>Casa: ' + event.Casa + '<br>Fuera:  ' + event.Fuera,
       buttons: ['Volver']
     });
     alert.present();
