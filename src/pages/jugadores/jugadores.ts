@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { JUGADORES } from '../../data/data.jugadores';
 import { Jugador } from '../../interface/jugador.interfaces';
-import { EQUIPOS } from '../../data/data.equipos';
-import { equipo } from '../../interface/equipo.interfaces';
 import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
 import { AñadirjugadormodalPage } from '../añadirjugadormodal/añadirjugadormodal';
 
@@ -22,10 +20,8 @@ import { AñadirjugadormodalPage } from '../añadirjugadormodal/añadirjugadormo
 })
 export class JugadoresPage {
   jugadores:Jugador[]=[];
-  equipos:equipo[]=[];
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth) {
     this.jugadores=JUGADORES.slice(0);
-    this.equipos=EQUIPOS.slice(0);
   }
   signOut(): Promise<void> {
 		return this.AfAuth.auth.signOut();
