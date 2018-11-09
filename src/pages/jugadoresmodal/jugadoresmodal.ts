@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { JUGADORES } from '../../data/data.jugadores';
+import { Jugador } from '../../interface/jugador.interfaces'; 
 
 /**
  * Generated class for the JugadoresmodalPage page.
@@ -14,12 +16,16 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'jugadoresmodal.html',
 })
 export class JugadoresmodalPage {
-
+  jugadores:Jugador[]=[];
+  equipo:any={};
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController) {
+    this.jugadores=JUGADORES.slice(0);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad JugadoresmodalPage');
+    //console.log('ionViewDidLoad JugadoresmodalPage');
+    let data=this.navParams.get('equipo');
+    this.equipo=data;
   }
 
 }

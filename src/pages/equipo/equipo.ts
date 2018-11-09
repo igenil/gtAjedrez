@@ -23,8 +23,8 @@ export class EquipoPage {
     this.equipos=EQUIPOS.slice(0);
   }
 
-  mostrar_modal(){
-    let modal=this.modalCtrl.create(JugadoresmodalPage);
+  mostrar_modal(equipo){
+    let modal=this.modalCtrl.create(JugadoresmodalPage,{equipo});
     modal.present();
   }
 

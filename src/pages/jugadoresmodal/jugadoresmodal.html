@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="dark">
-    <ion-title>Jugadores de equipo X</ion-title>
+    <ion-title>Jugadores de {{equipo.nombre}}</ion-title>
     <ion-buttons left>
       <button ion-button icon-only (click)="viewCtrl.dismiss()">
         <ion-icon name="arrow-back"></ion-icon>
@@ -19,5 +19,16 @@
 
 
 <ion-content padding>
-  <h2>Prueba modal</h2>
+    <ion-list>
+        <span  *ngFor = "let jugador of jugadores">
+          <span *ngIf="jugador.equipo==equipo.nombre">
+            <h2>
+              <ion-item ion-item detail-none >
+                <ion-icon name="contact" item-left></ion-icon>
+                {{ jugador.nombre }}
+              </ion-item>
+            </h2>
+          </span>
+        </span>
+    </ion-list>
 </ion-content>
