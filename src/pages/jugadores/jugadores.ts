@@ -4,7 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { JUGADORES } from '../../data/data.jugadores';
 import { Jugador } from '../../interface/jugador.interfaces';
 import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
-import { AñadirjugadormodalPage } from '../añadirjugadormodal/añadirjugadormodal';
+import { AddjugadormodalPage } from '../addjugadormodal/addjugadormodal';
 
 /**
  * Generated class for the JugadoresPage page.
@@ -31,7 +31,7 @@ export class JugadoresPage {
     modal.present();
   }
   mostrar_modal_anadir(){
-    let modal=this.modalCtrl.create(AñadirjugadormodalPage);
+    let modal=this.modalCtrl.create(AddjugadormodalPage);
     modal.present();
   }
   ionViewDidLoad() {
