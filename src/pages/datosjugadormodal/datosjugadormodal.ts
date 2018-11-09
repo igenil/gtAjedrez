@@ -17,12 +17,16 @@ import { Jugador } from '../../interface/jugador.interfaces';
 })
 export class DatosjugadormodalPage {
   jugadores:any[] = [];
+  jugador:any={};
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController ) {
     this.jugadores=JUGADORES.slice(0);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DatosjugadormodalPage');
+    //console.log('ionViewDidLoad DatosjugadormodalPage');
+    let data=this.navParams.get('jugador');
+    console.log(data);
+    this.jugador=data;
   }
 
 }
