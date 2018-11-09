@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { EQUIPOS } from '../../data/data.equipos';
 import { Equipo } from '../../interface/equipo.interfaces'; 
 import { JugadoresmodalPage } from '../jugadoresmodal/jugadoresmodal';
@@ -18,7 +19,7 @@ import { JugadoresmodalPage } from '../jugadoresmodal/jugadoresmodal';
 export class EquipoPage {
   equipos:Equipo[]=[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth) {
     this.equipos=EQUIPOS.slice(0);
   }
 
@@ -26,6 +27,11 @@ export class EquipoPage {
     let modal=this.modalCtrl.create(JugadoresmodalPage);
     modal.present();
   }
+
+  signOut(): Promise<void> {
+		return this.AfAuth.auth.signOut();
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad EquipoPage');
   }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { JUGADORES } from '../../data/data.jugadores';
 import { Jugador } from '../../interface/jugador.interfaces'; 
 import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
@@ -18,10 +19,12 @@ import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
 })
 export class JugadoresPage {
   jugadores:Jugador[]=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth) {
     this.jugadores=JUGADORES.slice(0);
   }
-
+  signOut(): Promise<void> {
+		return this.AfAuth.auth.signOut();
+	}
   mostrar_modal(jugador){
     let modal=this.modalCtrl.create(DatosjugadormodalPage,{jugador});
     modal.present();

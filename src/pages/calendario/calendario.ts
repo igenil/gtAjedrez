@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as moment from 'moment';
 import { CalendariomodalPage } from '../../pages/calendariomodal/calendariomodal';
 import { Calendar } from '@ionic-native/calendar';
@@ -24,13 +25,18 @@ export class CalendarioPage {
     mode: 'month',
     currentDate: this.selectedDay
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, private alertCtrl: AlertController, public AfAuth: AngularFireAuth) {
   }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalendarioPage');
   }
+
+  signOut(): Promise<void> {
+		return this.AfAuth.auth.signOut();
+  }
+  
   anadirPartida(){
     let modal = this.modalCtrl.create(CalendariomodalPage, {selectedDay: this.selectedDay});
     modal.present();
