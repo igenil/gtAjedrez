@@ -21,6 +21,7 @@ export class CalendariomodalPage {
     let preselectedDate = moment(this.navParams.get('selectedDay')).format();
     this.event.startTime = preselectedDate;
     this.event.endTime = preselectedDate;
+    console.log( this.event.startTime)
   }
   save(){
     this.viewCtrl.dismiss(this.event)
