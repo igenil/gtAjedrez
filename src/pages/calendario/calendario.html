@@ -8,12 +8,9 @@
 
   <ion-navbar color="dark">
     <ion-title>Calendario</ion-title>
-    <button ion-button (click)="signOut()" color="primary">
-      Cerrar Sesion
-    </button>
     <ion-buttons end>
-      <button ion-button icon-only (click)="anadirPartida()">
-        <ion-icon name="add"></ion-icon>
+      <button ion-button (click)="signOut()" color="light">
+        Cerrar Sesion
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -22,6 +19,11 @@
 
 
 <ion-content>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="anadirPartida()" color="dark">
+          <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   <ion-item text-center>{{viewTitle}}</ion-item>
   <calendar [eventSource]="eventSource"
     [calendarMode]="calendar.mode"
