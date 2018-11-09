@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import * as moment from 'moment';
 import { CalendariomodalPage } from '../../pages/calendariomodal/calendariomodal';
+import { Calendar } from '@ionic-native/calendar';
 /**
  * Generated class for the CalendarioPage page.
  *
@@ -56,12 +57,31 @@ export class CalendarioPage {
   onEventSelected(event){
     let start = moment(event.startTime).format('LLLL');
     let end = moment(event.endTime).format('LLLL');
+    if (event.Casa) {
+      let alert = this.alertCtrl.create({
+        title: '' + event.title,
+        subTitle: 'Desde: ' + start + '<br>Hasta: ' + end + '<br> Jugado en casa',
+        buttons: ['Volver', 'Eliminar'] 
+      });
+      alert.present();
+    }else if(event.Fuera){
+      let alert = this.alertCtrl.create({
+        title: '' + event.title,
+        subTitle: 'Desde: ' + start + '<br>Hasta: ' + end + '<br>Jugado fuera de casa',
+        buttons: ['Volver', 'Eliminar'] 
+      });
+      alert.present();
+    }else{
+      let alert = this.alertCtrl.create({
+        title: '' + event.title,
+        subTitle: 'Desde: ' + start + '<br>Hasta: ' + end + '<br>Lugar no definido',
+        buttons: [{text:'Volver'}, {text:'Eliminar',handler:()=>{ 
+          window['plugins'].Calendar.deleteEvent(event.title,null,null,start,end,null,null,null)}}] 
+      });
+      alert.present();
+    }
 
-    let alert = this.alertCtrl.create({
-      title: '' + event.title,
-      subTitle: 'Desde: ' + start + '<br>Hasta: ' + end + '<br>Casa: ' + event.Casa + '<br>Fuera:  ' + event.Fuera,
-      buttons: ['Volver']
-    });
-    alert.present();
+    
+    
   }
 }

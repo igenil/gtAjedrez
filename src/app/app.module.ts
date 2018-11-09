@@ -26,6 +26,7 @@ import { JugadoresmodalPage } from '../pages/jugadoresmodal/jugadoresmodal';
 import { NgCalendarModule } from 'ionic2-calendar';
 import { CalendariomodalPage } from '../pages/calendariomodal/calendariomodal';
 import { DatosjugadormodalPage } from '../pages/datosjugadormodal/datosjugadormodal';
+import { Calendar } from '@ionic-native/calendar';
 
 
 
@@ -74,7 +75,8 @@ import { DatosjugadormodalPage } from '../pages/datosjugadormodal/datosjugadormo
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    AngularFireAuth
+    AngularFireAuth,
+    Calendar
   ]
 })
 export class AppModule {}
