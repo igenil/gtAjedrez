@@ -61,22 +61,21 @@ export class CalendarioPage {
       let alert = this.alertCtrl.create({
         title: '' + event.title,
         subTitle: 'Desde: ' + start + '<br>Hasta: ' + end + '<br> Jugado en casa',
-        buttons: ['Volver', 'Eliminar'] 
+        buttons: ['Volver'] 
       });
       alert.present();
     }else if(event.Fuera){
       let alert = this.alertCtrl.create({
         title: '' + event.title,
         subTitle: 'Desde: ' + start + '<br>Hasta: ' + end + '<br>Jugado fuera de casa',
-        buttons: ['Volver', 'Eliminar'] 
+        buttons: ['Volver'] 
       });
       alert.present();
     }else{
       let alert = this.alertCtrl.create({
         title: '' + event.title,
         subTitle: 'Desde: ' + start + '<br>Hasta: ' + end + '<br>Lugar no definido',
-        buttons: [{text:'Volver'}, {text:'Eliminar',handler:()=>{ 
-          window['plugins'].Calendar.deleteEvent(event.title,null,null,start,end,null,null,null)}}] 
+        buttons: ['Volver'] 
       });
       alert.present();
     }
