@@ -23,11 +23,11 @@ export class AddjugadormodalPage {
   jugador:{}={};
   nom;
   eq;
-  jugadores:[]=[];
+  //jugadores:[]=[];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.equipos=EQUIPOS.slice(0);
     this.eq = "no definido";
-    this.jugadores=this.navParams.get('jugadores');
+    //this.jugadores=this.navParams.get('jugadores');
   }
 
   ionViewDidLoad() {
