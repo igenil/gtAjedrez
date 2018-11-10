@@ -35,9 +35,9 @@ export class AddjugadormodalPage {
     
   }
   anadirjugador(){
-    this.jugador={nombre:this.nom,equipo:this.eq,j:null,g:null,e:null,p:null,c:null,f:null,ptos:null}
-    this.jugadores.push(this.jugador);
-    console.log(this.jugadores.join())
-    this.navCtrl.pop(this.jugadores);
+    //this.jugador={nombre:this.nom,equipo:this.eq,j:null,g:null,e:null,p:null,c:null,f:null,ptos:null}
+    //this.jugadores.push(this.jugador);
+    //console.log(this.jugadores.join())
+    //this.navCtrl.pop(this.jugadores);
   }
 }
