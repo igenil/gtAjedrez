@@ -20,11 +20,12 @@ import { AddjugadormodalPage } from '../addjugadormodal/addjugadormodal';
 })
 export class JugadoresPage {
   jugadores:Jugador[]=[];
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth) {
     this.jugadores=JUGADORES.slice(0);
   }
   signOut(): Promise<void> {
-		return this.AfAuth.auth.signOut();
+    return this.AfAuth.auth.signOut();
 	}
   mostrar_modal(jugador){
     let modal=this.modalCtrl.create(DatosjugadormodalPage,{jugador});

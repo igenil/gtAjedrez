@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>Añadir Jugador</ion-title>
   </ion-navbar>
 
@@ -16,16 +16,18 @@
 <ion-content padding>
     <ion-list>
         <ion-item>
-          <ion-label>Nombre</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="nom"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label>Equipos</ion-label>
-            <ion-select>
+            <ion-label  floating>Equipos</ion-label>
+            <ion-select [(ngModel)]="eq">
               <span *ngFor = "let equipo of equipos">
-                <ion-option value="equipo">{{ equipo.nombre }}</ion-option>
+                <ion-option value={{equipo.nombre}}>{{ equipo.nombre }}</ion-option>      
               </span>
             </ion-select>
           </ion-item>
       </ion-list>
+      <br> 
+      <button ion-button color="dark" (click)="anadirjugador()">Añadir</button>
 </ion-content>
