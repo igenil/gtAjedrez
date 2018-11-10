@@ -23,9 +23,11 @@
         <span  *ngFor = "let jugador of jugadores">
           <span *ngIf="jugador.equipo==equipo.nombre">
             <h2>
-              <ion-item ion-item detail-none >
+
+                <ion-item ion-item detail-none >
                 <ion-icon name="contact" item-left></ion-icon>
-                {{ jugador.nombre }}
+                <ion-label>{{ jugador.nombre }}</ion-label>
+                <ion-checkbox item-right></ion-checkbox>
               </ion-item>
             </h2>
           </span>
