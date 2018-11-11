@@ -31,8 +31,12 @@ export class JugadoresPage {
     let modal=this.modalCtrl.create(DatosjugadormodalPage,{jugador});
     modal.present();
   }
-  mostrar_modal_anadir(jugadores){
-    let modal=this.modalCtrl.create(AddjugadormodalPage, [jugadores]);
+  mostrar_modal_anadir(){
+    let modal=this.modalCtrl.create(AddjugadormodalPage, this.jugadores);
+    modal.onDidDismiss( parametros => {
+      this.jugadores=parametros;
+      })
+     
     modal.present();
   }
   ionViewDidLoad() {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,  ViewController } from 'ionic-angular';
 import { EQUIPOS } from '../../data/data.equipos';
 import { JUGADORES } from '../../data/data.jugadores';
 import { Equipo } from '../../interface/equipo.interfaces';
@@ -30,21 +30,27 @@ export class AddjugadormodalPage {
   c;
   f;
   ptos;
-  jugadores:[{}];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  jugadores:any[] = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
     this.equipos=EQUIPOS.slice(0);
+    this.jugadores=JUGADORES.slice(0);
     this.eq = "no definido";
-    this.jugadores=this.navParams.get('jugadores');
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AñadirjugadormodalPage');
+    //let data=this.navParams.get('jugadores');
+    //this.jugadores=data;
+    //console.log(JUGADORES);
     
   }
-  anadirjugador(){
-    this.jugador={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos}
-    this.jugadores.push(this.jugador)
-    console.log(this.jugadores.join())
-    this.navCtrl.pop();
+  anadirjugador(jugadores){
+    this.jugador={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos};
+    console.log(this.jugador);
+    //console.log(jugadores);
+    jugadores.push(this.jugador);
+    console.log(jugadores);
+    this.viewCtrl.dismiss(jugadores);
   }
 }
