@@ -26,11 +26,21 @@ export class JugadoresmodalPage {
   ionViewDidLoad() {
     //console.log('ionViewDidLoad JugadoresmodalPage');
     let data=this.navParams.get('equipo');
+    
     this.equipo=data;
+    console.log(this.cont)
   }
-  convocar(){
-    this.cont+=1;
-    console.log(this.cont);
+  convocar(jugador){
+    if(!jugador.juega){
+      this.cont+=1;
+      jugador.juega = true;
+      console.log(this.cont);
+    }else if(jugador.juega){
+      this.cont-=1;
+      jugador.juega = false;
+      console.log(this.cont)
+    }
+    
   }
 
 }
