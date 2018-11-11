@@ -20,7 +20,7 @@
 
 <ion-content padding>
   <ion-list>
-      <button ion-item detail-none *ngFor = "let equipo of equipos" (click)="mostrar_modal(equipo)">
+      <button ion-item detail-none *ngFor = "let equipo of equipos" (click)="mostrar_modal(equipo,cont)">
         <h2>{{ equipo.nombre }}</h2>
         <ion-icon name="contacts" item-left></ion-icon>
       </button>

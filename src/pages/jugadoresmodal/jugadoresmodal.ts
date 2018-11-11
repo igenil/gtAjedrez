@@ -26,7 +26,9 @@ export class JugadoresmodalPage {
   ionViewDidLoad() {
     //console.log('ionViewDidLoad JugadoresmodalPage');
     let data=this.navParams.get('equipo');
+    let data2=this.navParams.get('cont');
     this.equipo=data;
+    this.cont=data2;
     console.log(this.cont)
   }
   convocar(jugador){

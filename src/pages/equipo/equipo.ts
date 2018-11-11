@@ -18,13 +18,18 @@ import { JugadoresmodalPage } from '../jugadoresmodal/jugadoresmodal';
 })
 export class EquipoPage {
   equipos:Equipo[]=[];
+  cont:number= 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth) {
     this.equipos=EQUIPOS.slice(0);
   }
 
-  mostrar_modal(equipo){
-    let modal=this.modalCtrl.create(JugadoresmodalPage,{equipo});
+  mostrar_modal(equipo,cont){
+    let modal=this.modalCtrl.create(JugadoresmodalPage,{equipo},cont);
+    modal.onDidDismiss( parametros => {
+      this.cont=parametros;
+      })
+     
     modal.present();
   }
 
