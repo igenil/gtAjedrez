@@ -18,6 +18,7 @@ import { Jugador } from '../../interface/jugador.interfaces';
 export class JugadoresmodalPage {
   jugadores:Jugador[]=[];
   equipo:any={};
+  cont:number= 0;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController) {
     this.jugadores=JUGADORES.slice(0);
   }
@@ -26,6 +27,10 @@ export class JugadoresmodalPage {
     //console.log('ionViewDidLoad JugadoresmodalPage');
     let data=this.navParams.get('equipo');
     this.equipo=data;
+  }
+  convocar(){
+    this.cont+=1;
+    console.log(this.cont);
   }
 
 }

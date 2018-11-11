@@ -8,7 +8,8 @@ export const JUGADORES = [
       p: 1,
       c: 2,
       f: 2,
-      ptos: 7
+      ptos: 7,
+      juega: false
     },
     {
         nombre: "Jugador2",
@@ -19,7 +20,8 @@ export const JUGADORES = [
         p: 1,
         c: 2,
         f: 2,
-        ptos: 5
+        ptos: 5,
+        juega: false
     },
     {
         nombre: "Jugador3",
@@ -30,7 +32,8 @@ export const JUGADORES = [
         p: 1,
         c: 2,
         f: 2,
-        ptos: 5
+        ptos: 5,
+        juega: false
     },
     {
         nombre: "Jugador4",
@@ -41,7 +44,8 @@ export const JUGADORES = [
         p: 1,
         c: 2,
         f: 2,
-        ptos: 5
+        ptos: 5,
+        juega: false
     },
     {
         nombre: "Jugador5",
@@ -52,7 +56,8 @@ export const JUGADORES = [
         p: 1,
         c: 2,
         f: 2,
-        ptos: 5
+        ptos: 5,
+        juega: true
     },
     {
         nombre: "Jugador6",
@@ -63,6 +68,7 @@ export const JUGADORES = [
         p: 1,
         c: 2,
         f: 2,
-        ptos: 5
+        ptos: 5,
+        juega: true
     }
 ];

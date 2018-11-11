@@ -23,11 +23,20 @@
         <span  *ngFor = "let jugador of jugadores">
           <span *ngIf="jugador.equipo==equipo.nombre">
             <h2>
-
-                <ion-item ion-item detail-none >
+              <ion-item ion-item detail-none *ngIf="cont!=4">
                 <ion-icon name="contact" item-left></ion-icon>
                 <ion-label>{{ jugador.nombre }}</ion-label>
-                <ion-checkbox item-right></ion-checkbox>
+                <ion-checkbox item-right (click)="convocar()"></ion-checkbox>
+              </ion-item>
+              <ion-item ion-item detail-none *ngIf="cont==4 && jugador.juega==false">
+                <ion-icon name="contact" item-left></ion-icon>
+                <ion-label>{{ jugador.nombre }}</ion-label>
+                <ion-checkbox item-right disabled='true'></ion-checkbox> 
+              </ion-item>
+              <ion-item ion-item detail-none *ngIf="cont==4 && jugador.juega==true">
+                <ion-icon name="contact" item-left></ion-icon>
+                <ion-label>{{ jugador.nombre }}</ion-label>
+                <ion-checkbox item-right checked="true"></ion-checkbox> 
               </ion-item>
             </h2>
           </span>

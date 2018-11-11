@@ -8,4 +8,5 @@ export interface Jugador {
     c: number;
     f: number;
     ptos: number;
+    juega: boolean;
 }
