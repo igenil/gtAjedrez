@@ -26,7 +26,6 @@ export class JugadoresmodalPage {
   ionViewDidLoad() {
     //console.log('ionViewDidLoad JugadoresmodalPage');
     let data=this.navParams.get('equipo');
-    
     this.equipo=data;
     console.log(this.cont)
   }
@@ -40,7 +39,8 @@ export class JugadoresmodalPage {
       jugador.juega = false;
       console.log(this.cont)
     }
-    
   }
-
+  volver(){
+    this.viewCtrl.dismiss(this.cont);
+  }
 }
