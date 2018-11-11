@@ -57,7 +57,7 @@ export const JUGADORES = [
         c: 2,
         f: 2,
         ptos: 5,
-        juega: true
+        juega: false
     },
     {
         nombre: "Jugador6",
@@ -69,6 +69,6 @@ export const JUGADORES = [
         c: 2,
         f: 2,
         ptos: 5,
-        juega: true
+        juega: false
     }
 ];
