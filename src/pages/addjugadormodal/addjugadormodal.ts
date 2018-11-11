@@ -20,14 +20,21 @@ import { Jugador } from '../../interface/jugador.interfaces';
 })
 export class AddjugadormodalPage {
   equipos:Equipo[]=[];
-  jugador:{}={};
+  jugador:any;
   nom;
   eq;
-  //jugadores:[]=[];
+  j;
+  g;
+  e;
+  p;
+  c;
+  f;
+  ptos;
+  jugadores:[{}];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.equipos=EQUIPOS.slice(0);
     this.eq = "no definido";
-    //this.jugadores=this.navParams.get('jugadores');
+    this.jugadores=this.navParams.get('jugadores');
   }
 
   ionViewDidLoad() {
@@ -35,9 +42,9 @@ export class AddjugadormodalPage {
     
   }
   anadirjugador(){
-    //this.jugador={nombre:this.nom,equipo:this.eq,j:null,g:null,e:null,p:null,c:null,f:null,ptos:null}
-    //this.jugadores.push(this.jugador);
-    //console.log(this.jugadores.join())
-    //this.navCtrl.pop(this.jugadores);
+    this.jugador={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos}
+    this.jugadores.push(this.jugador)
+    console.log(this.jugadores.join())
+    this.navCtrl.pop();
   }
 }
