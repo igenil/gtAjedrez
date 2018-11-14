@@ -20,10 +20,9 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
   templateUrl: 'jugadores.html',
 })
 export class JugadoresPage {
-  jugadores:Jugador[]=[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
-    this.jugadores=listajugadores.capturarlista();
+
   }
   signOut(): Promise<void> {
     return this.AfAuth.auth.signOut();
@@ -33,11 +32,7 @@ export class JugadoresPage {
     modal.present();
   }
   mostrar_modal_anadir(){
-    let modal=this.modalCtrl.create(AddjugadormodalPage, this.jugadores);
-    modal.onDidDismiss( parametros => {
-      this.jugadores=parametros;
-      })
-     
+    let modal=this.modalCtrl.create(AddjugadormodalPage, this.listajugadores.jugadores);
     modal.present();
   }
   ionViewDidLoad() {

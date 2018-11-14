@@ -18,14 +18,11 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
   templateUrl: 'equipo.html',
 })
 export class EquipoPage {
-  equipos:Equipo[]=[];
-  cont:number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
-    this.equipos=listajugadores.capturarequipos();
   }
 
-  mostrar_modal(equipo,cont){
+  mostrar_modal(equipo){
     let modal=this.modalCtrl.create(JugadoresmodalPage,{equipo});
     modal.present();
   }

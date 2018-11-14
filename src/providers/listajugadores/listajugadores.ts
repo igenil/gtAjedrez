@@ -6,19 +6,9 @@ import { EQUIPOS } from '../../data/data.equipos';
 import { Equipo } from '../../interface/equipo.interfaces';
 @Injectable()
 export class ListajugadoresProvider {
-  jugadores:Jugador[]=[];
-  equipos:Equipo[]=[];
+  jugadores=JUGADORES.slice(0);
+  equipos=EQUIPOS.slice(0);
   constructor() {
     
-  }
-
-  capturarlista(){
-    this.jugadores=JUGADORES.slice(0);
-    return this.jugadores;
-  }
-
-  capturarequipos(){
-    this.equipos=EQUIPOS.slice(0);
-    return this.equipos;
   }
 }

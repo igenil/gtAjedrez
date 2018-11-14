@@ -22,7 +22,7 @@
         <ion-item>
             <ion-label  floating>Equipos</ion-label>
             <ion-select [(ngModel)]="eq">
-              <span *ngFor = "let equipo of equipos">
+              <span *ngFor = "let equipo of listajugadores.equipos">
                 <ion-option value={{equipo.nombre}}>{{ equipo.nombre }}</ion-option>      
               </span>
             </ion-select>

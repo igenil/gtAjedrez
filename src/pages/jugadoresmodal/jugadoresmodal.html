@@ -20,10 +20,10 @@
 
 <ion-content padding>
     <ion-list>
-        <span  *ngFor = "let jugador of jugadores">
+        <span  *ngFor = "let jugador of listajugadores.jugadores">
           <span *ngIf="jugador.equipo==equipo.nombre">
             <h2>
-              <ion-item ion-item detail-none *ngIf="numJugadores.cargar_numJugadores()!=4 && jugador.juega==true">
+              <ion-item ion-item detail-none *ngIf="numJugadores.numJugadores!=4 && jugador.juega==true">
                 <ion-icon name="contact" item-left></ion-icon>
                 <ion-label>{{ jugador.nombre }}</ion-label>
                 <ion-checkbox item-right checked="true" (click)="convocar(jugador)"></ion-checkbox>

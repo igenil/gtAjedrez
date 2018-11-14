@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { JUGADORES } from '../../data/data.jugadores';
 import { Jugador } from '../../interface/jugador.interfaces'; 
 import { NumJugadoresProvider } from '../../providers/num-jugadores/num-jugadores';
+import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 /**
  * Generated class for the JugadoresmodalPage page.
  *
@@ -16,28 +17,28 @@ import { NumJugadoresProvider } from '../../providers/num-jugadores/num-jugadore
   templateUrl: 'jugadoresmodal.html',
 })
 export class JugadoresmodalPage {
-  jugadores:Jugador[]=[];
+
   equipo:any={};
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController,
-              public numJugadores:NumJugadoresProvider) {
-    this.jugadores=JUGADORES.slice(0);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
+
   }
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad JugadoresmodalPage');
     let data=this.navParams.get('equipo');
     this.equipo=data;
-    console.log(this.numJugadores.numJugadores);
   }
   
   convocar(jugador){
     if(!jugador.juega){
-      this.numJugadores.sumar_numJugadores;
+      this.numJugadores.sumar_numJugadores();
       jugador.juega = true;
+      console.log(this.numJugadores.numJugadores);
 
     }else if(jugador.juega){
-      this.numJugadores.restar_numJugadores
+      this.numJugadores.restar_numJugadores()
       jugador.juega = false;
+      console.log(this.numJugadores.numJugadores);
     }
   }
   volver(){

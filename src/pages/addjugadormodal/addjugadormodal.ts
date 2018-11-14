@@ -20,8 +20,6 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
   templateUrl: 'addjugadormodal.html',
 })
 export class AddjugadormodalPage {
-  equipos:Equipo[]=[];
-  jugador:any;
   nom;
   eq;
   j;
@@ -31,25 +29,19 @@ export class AddjugadormodalPage {
   c;
   f;
   ptos;
-  jugadores:any[] = [];
+  jugador:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
-    this.equipos=listajugadores.capturarequipos();
-    this.jugadores=listajugadores.capturarlista();
-    this.eq = "no definido";
     
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AñadirjugadormodalPage');
-    //let data=this.navParams.get('jugadores');
-    //this.jugadores=data;
-    //console.log(JUGADORES);
+
     
   }
-  anadirjugador(jugadores){
+  anadirjugador(){
     this.jugador={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos};
-    jugadores.push(this.jugador);
-    console.log(jugadores);
-    this.viewCtrl.dismiss(jugadores);
+    this.listajugadores.jugadores.push(this.jugador);
+    this.viewCtrl.dismiss();
   }
 }
