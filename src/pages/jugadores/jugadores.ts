@@ -5,6 +5,7 @@ import { JUGADORES } from '../../data/data.jugadores';
 import { Jugador } from '../../interface/jugador.interfaces';
 import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
 import { AddjugadormodalPage } from '../addjugadormodal/addjugadormodal';
+import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 
 /**
  * Generated class for the JugadoresPage page.
@@ -21,8 +22,8 @@ import { AddjugadormodalPage } from '../addjugadormodal/addjugadormodal';
 export class JugadoresPage {
   jugadores:Jugador[]=[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth) {
-    this.jugadores=JUGADORES.slice(0);
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+    this.jugadores=listajugadores.capturarlista();
   }
   signOut(): Promise<void> {
     return this.AfAuth.auth.signOut();

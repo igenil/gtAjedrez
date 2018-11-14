@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { EQUIPOS } from '../../data/data.equipos';
 import { Equipo } from '../../interface/equipo.interfaces'; 
 import { JugadoresmodalPage } from '../jugadoresmodal/jugadoresmodal';
+import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 /**
  * Generated class for the EquipoPage page.
  *
@@ -20,8 +21,8 @@ export class EquipoPage {
   equipos:Equipo[]=[];
   cont:number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth) {
-    this.equipos=EQUIPOS.slice(0);
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+    this.equipos=listajugadores.capturarequipos();
     if (this.cont=null){
       this.cont=0;
     }

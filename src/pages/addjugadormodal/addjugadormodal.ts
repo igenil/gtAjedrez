@@ -4,6 +4,7 @@ import { EQUIPOS } from '../../data/data.equipos';
 import { JUGADORES } from '../../data/data.jugadores';
 import { Equipo } from '../../interface/equipo.interfaces';
 import { Jugador } from '../../interface/jugador.interfaces';
+import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 
 
 /**
@@ -31,9 +32,9 @@ export class AddjugadormodalPage {
   f;
   ptos;
   jugadores:any[] = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-    this.equipos=EQUIPOS.slice(0);
-    this.jugadores=JUGADORES.slice(0);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
+    this.equipos=listajugadores.capturarequipos();
+    this.jugadores=listajugadores.capturarlista();
     this.eq = "no definido";
     
   }
@@ -47,8 +48,6 @@ export class AddjugadormodalPage {
   }
   anadirjugador(jugadores){
     this.jugador={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos};
-    console.log(this.jugador);
-    //console.log(jugadores);
     jugadores.push(this.jugador);
     console.log(jugadores);
     this.viewCtrl.dismiss(jugadores);

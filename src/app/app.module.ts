@@ -28,6 +28,7 @@ import { DatosjugadormodalPage } from '../pages/datosjugadormodal/datosjugadormo
 import { Calendar } from '@ionic-native/calendar';
 import { AddjugadormodalPage } from '../pages/addjugadormodal/addjugadormodal';
 import { NumJugadoresProvider } from '../providers/num-jugadores/num-jugadores';
+import { ListajugadoresProvider } from '../providers/listajugadores/listajugadores';
 
 
 
@@ -78,7 +79,8 @@ import { NumJugadoresProvider } from '../providers/num-jugadores/num-jugadores';
     AuthService,
     AngularFireAuth,
     Calendar,
-    NumJugadoresProvider
+    NumJugadoresProvider,
+    ListajugadoresProvider
   ]
 })
 export class AppModule {}
