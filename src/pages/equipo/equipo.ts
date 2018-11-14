@@ -23,17 +23,10 @@ export class EquipoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
     this.equipos=listajugadores.capturarequipos();
-    if (this.cont=null){
-      this.cont=0;
-    }
   }
 
   mostrar_modal(equipo,cont){
-    let modal=this.modalCtrl.create(JugadoresmodalPage,{equipo,cont});
-    modal.onDidDismiss( parametros => {
-      cont=parametros;
-      })
-     
+    let modal=this.modalCtrl.create(JugadoresmodalPage,{equipo});
     modal.present();
   }
 

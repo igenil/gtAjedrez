@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { JUGADORES } from '../../data/data.jugadores';
 import { Jugador } from '../../interface/jugador.interfaces'; 
-
+import { NumJugadoresProvider } from '../../providers/num-jugadores/num-jugadores';
 /**
  * Generated class for the JugadoresmodalPage page.
  *
@@ -18,31 +18,29 @@ import { Jugador } from '../../interface/jugador.interfaces';
 export class JugadoresmodalPage {
   jugadores:Jugador[]=[];
   equipo:any={};
-  cont:number= 0;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController,
+              public numJugadores:NumJugadoresProvider) {
     this.jugadores=JUGADORES.slice(0);
   }
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad JugadoresmodalPage');
     let data=this.navParams.get('equipo');
-    let data2=this.navParams.get('cont');
     this.equipo=data;
-    this.cont=data2;
-    console.log(this.cont)
+    console.log(this.numJugadores.numJugadores);
   }
+  
   convocar(jugador){
     if(!jugador.juega){
-      this.cont+=1;
+      this.numJugadores.sumar_numJugadores;
       jugador.juega = true;
-      console.log(this.cont);
+
     }else if(jugador.juega){
-      this.cont-=1;
+      this.numJugadores.restar_numJugadores
       jugador.juega = false;
-      console.log(this.cont)
     }
   }
   volver(){
-    this.viewCtrl.dismiss(this.cont);
+    this.viewCtrl.dismiss();
   }
 }
