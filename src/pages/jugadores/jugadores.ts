@@ -38,8 +38,8 @@ export class JugadoresPage {
     modal.present();
   }
 
-  mostrar_modal_editar(){
-    let modal=this.modalCtrl.create(EditjugadormodalPage, this.listajugadores.jugadores);
+  mostrar_modal_editar(jugador){
+    let modal=this.modalCtrl.create(EditjugadormodalPage, {jugador});
     modal.present();
   }
 

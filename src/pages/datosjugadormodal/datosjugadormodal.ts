@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { JUGADORES } from '../../data/data.jugadores';
-import { Jugador } from '../../interface/jugador.interfaces';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 
 /**

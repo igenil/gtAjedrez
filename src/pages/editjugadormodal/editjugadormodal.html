@@ -1,18 +1,60 @@
-<!--
-  Generated template for the EditjugadormodalPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>editjugadormodal</ion-title>
+  <ion-navbar color="dark">
+      
+    <ion-title>Editar Jugador</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-list>
+        <ion-item>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="jugador.nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label  floating>Equipos</ion-label>
+            <ion-select [(ngModel)]="jugador.eq">
+              <span *ngFor = "let equipo of listajugadores.equipos">
+                <ion-option value={{equipo.nombre}}>{{ equipo.nombre }}</ion-option>      
+              </span>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>j</ion-label>
+          <ion-input type="text" label="jugador.j" [(ngModel)]="j"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>g</ion-label>
+          <ion-input type="text" label="jugador.g" [(ngModel)]="g"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>e</ion-label>
+          <ion-input type="text" label="jugador.e" [(ngModel)]="e"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>p</ion-label>
+          <ion-input type="text" label="jugador.p" [(ngModel)]="p"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>c</ion-label>
+          <ion-input type="text" label="jugador.c" [(ngModel)]="c"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>f</ion-label>
+          <ion-input type="text" label="jugador.f" [(ngModel)]="f"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>ptos</ion-label>
+          <ion-input type="text" label="jugador.ptos" [(ngModel)]="ptos"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br> 
+      <button ion-button color="dark" (click)="editarjugador()">Editar</button>
 </ion-content>
