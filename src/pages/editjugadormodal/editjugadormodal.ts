@@ -17,16 +17,6 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
 export class EditjugadormodalPage {
 
   jugador:any={};
-  nom;
-  eq;
-  j;
-  g;
-  e;
-  p;
-  c;
-  f;
-  ptos;
-  juega:boolean=false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,  public listajugadores:ListajugadoresProvider) {
   }
 
@@ -39,7 +29,7 @@ export class EditjugadormodalPage {
   editarjugador(){
     for (let index = 0; index < this.listajugadores.jugadores.length; index++) {
       if (this.listajugadores.jugadores[index].nombre==this.jugador.nombre) {
-        this.listajugadores.jugadores[index]={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos,juega:this.juega};
+        this.listajugadores.jugadores[index]=this.jugador
       }
       
     }
