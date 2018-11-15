@@ -29,6 +29,7 @@ export class AddjugadormodalPage {
   c;
   f;
   ptos;
+  juega:boolean=false;
   jugador:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
     
@@ -40,7 +41,7 @@ export class AddjugadormodalPage {
     
   }
   anadirjugador(){
-    this.jugador={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos};
+    this.jugador={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos,juega:this.juega};
     this.listajugadores.jugadores.push(this.jugador);
     this.viewCtrl.dismiss();
   }

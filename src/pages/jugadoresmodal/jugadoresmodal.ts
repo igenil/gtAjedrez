@@ -20,7 +20,7 @@ export class JugadoresmodalPage {
 
   equipo:any={};
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
-
+ console.log(listajugadores.jugadores);
   }
 
   ionViewDidLoad() {
