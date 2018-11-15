@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,  ViewController } from 'ionic-angular';
-import { EQUIPOS } from '../../data/data.equipos';
-import { JUGADORES } from '../../data/data.jugadores';
-import { Equipo } from '../../interface/equipo.interfaces';
-import { Jugador } from '../../interface/jugador.interfaces';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 
 

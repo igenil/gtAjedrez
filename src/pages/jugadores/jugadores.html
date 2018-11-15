@@ -23,9 +23,19 @@
 <ion-content padding>
 
   <ion-list>
-      <button ion-item detail-none  *ngFor = "let jugador of listajugadores.jugadores" (click)="mostrar_modal(jugador)">
-        <h2>{{ jugador.nombre }}</h2>
-        <ion-icon name="contact" item-left></ion-icon>
-      </button>
+      <span *ngFor = "let jugador of listajugadores.jugadores">
+        <h4>
+          <ion-icon name="contact" item-start></ion-icon>
+          {{ jugador.nombre }}
+          <ion-buttons end>
+            <button ion-button (click)="mostrar_modal(jugador)" color="dark">
+              <ion-icon name="eye" ></ion-icon>
+            </button>
+            <button ion-button (click)="mostrar_modal_eliminar(jugador)" color="dark">
+                <ion-icon name="trash" ></ion-icon>
+            </button>
+          </ion-buttons>
+        </h4>
+    </span>
   </ion-list>
 </ion-content>
