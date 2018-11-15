@@ -29,16 +29,16 @@ export class JugadoresmodalPage {
     this.equipo=data;
   }
   
-  convocar(jugador){
+  convocar(jugador, equipo){
     if(!jugador.juega){
-      this.numJugadores.sumar_numJugadores();
+      equipo.convocados+=1;
+      console.log(equipo.convocados)
       jugador.juega = true;
-      console.log(this.numJugadores.numJugadores);
 
-    }else if(jugador.juega){
-      this.numJugadores.restar_numJugadores()
+    }else if(jugador.juega, equipo){
+      equipo.convocados-=1;
+      console.log(equipo.convocados)
       jugador.juega = false;
-      console.log(this.numJugadores.numJugadores);
     }
   }
   volver(){
