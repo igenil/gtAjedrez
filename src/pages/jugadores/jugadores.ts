@@ -21,7 +21,6 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
 export class JugadoresPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
-
   }
 
   signOut(): Promise<void> {
@@ -41,6 +40,14 @@ export class JugadoresPage {
   mostrar_modal_editar(jugador){
     let modal=this.modalCtrl.create(EditjugadormodalPage, {jugador});
     modal.present();
+  }
+
+  eliminar_jugador(jugador){
+    for (let index = 0; index < this.listajugadores.jugadores.length; index++) {
+      if (this.listajugadores.jugadores[index].nombre==jugador.nombre) {
+        this.listajugadores.jugadores.splice(index,1);
+      }
+    }
   }
 
   ionViewDidLoad() {

@@ -29,7 +29,16 @@ export class EditjugadormodalPage {
   editarjugador(){
     for (let index = 0; index < this.listajugadores.jugadores.length; index++) {
       if (this.listajugadores.jugadores[index].nombre==this.jugador.nombre) {
-        this.listajugadores.jugadores[index]=this.jugador
+        this.listajugadores.jugadores[index]=this.jugador;
+        this.listajugadores.jugadores.sort(function(a,b){ 
+          if (Number(a.ptos)>Number(b.ptos)) {
+            return -1;
+          } else if(Number(a.ptos)<Number(b.ptos)){
+            return 1;
+          } else {
+            return 0;
+          }
+        });
       }
       
     }

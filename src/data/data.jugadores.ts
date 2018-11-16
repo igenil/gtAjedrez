@@ -44,7 +44,7 @@ export const JUGADORES = [
         p: 1,
         c: 2,
         f: 2,
-        ptos: 5,
+        ptos: 6,
         juega: false
     },
     {
@@ -56,7 +56,7 @@ export const JUGADORES = [
         p: 1,
         c: 2,
         f: 2,
-        ptos: 5,
+        ptos: 2,
         juega: false
     },
     {
@@ -68,7 +68,7 @@ export const JUGADORES = [
         p: 1,
         c: 2,
         f: 2,
-        ptos: 5,
+        ptos: 8,
         juega: false
     }
 ];

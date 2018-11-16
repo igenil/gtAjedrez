@@ -39,6 +39,15 @@ export class AddjugadormodalPage {
   anadirjugador(){
     this.jugador={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos,juega:this.juega};
     this.listajugadores.jugadores.push(this.jugador);
+    this.listajugadores.jugadores.sort(function(a,b){ 
+      if (Number(a.ptos)>Number(b.ptos)) {
+        return -1;
+      } else if(Number(a.ptos)<Number(b.ptos)){
+        return 1;
+      } else {
+        return 0;
+      }
+    });
     this.viewCtrl.dismiss();
   }
 }
