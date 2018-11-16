@@ -19,7 +19,7 @@
           <ion-input type="text" [(ngModel)]="jugador.nombre"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label  floating>Equipos</ion-label>
+            <ion-label  floating>Equipo</ion-label>
             <ion-select [(ngModel)]="jugador.equipo">
               <span *ngFor = "let equipo of listajugadores.equipos">
                 <ion-option value={{equipo.nombre}}>{{ equipo.nombre }}</ion-option>      
@@ -27,31 +27,31 @@
             </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label floating>j</ion-label>
+          <ion-label floating>Partidos Jugados</ion-label>
           <ion-input type="text" [(ngModel)]="jugador.j"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label floating>g</ion-label>
+          <ion-label floating>Partidos Ganados</ion-label>
           <ion-input type="text" [(ngModel)]="jugador.g"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label floating>e</ion-label>
+          <ion-label floating>Partidos Empatados</ion-label>
           <ion-input type="text" label="jugador.e" [(ngModel)]="jugador.e"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label floating>p</ion-label>
+          <ion-label floating>Partidos Perdidos</ion-label>
           <ion-input type="text" label="jugador.p" [(ngModel)]="jugador.p"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label floating>c</ion-label>
+          <ion-label floating>Jugados en Casa</ion-label>
           <ion-input type="text" label="jugador.c" [(ngModel)]="jugador.c"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label floating>f</ion-label>
+          <ion-label floating>Jugados fuera de casa</ion-label>
           <ion-input type="text" label="jugador.f" [(ngModel)]="jugador.f"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label floating>ptos</ion-label>
+          <ion-label floating>Puntos</ion-label>
           <ion-input type="text" label="jugador.ptos" [(ngModel)]="jugador.ptos"></ion-input>
         </ion-item>
       </ion-list>
