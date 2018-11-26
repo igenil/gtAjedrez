@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class JornadasProvider {
+export class ListajornadasProvider {
   jornadas:any;
   constructor() {
     

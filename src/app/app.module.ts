@@ -29,7 +29,7 @@ import { Calendar } from '@ionic-native/calendar';
 import { AddjugadormodalPage } from '../pages/addjugadormodal/addjugadormodal';
 import { NumJugadoresProvider } from '../providers/num-jugadores/num-jugadores';
 import { ListajugadoresProvider } from '../providers/listajugadores/listajugadores';
-import { JornadasProvider } from '../providers/jornadas/jornadas';
+import { ListajornadasProvider } from '../providers/listajornadas/listajornadas';
 import { EditjugadormodalPage } from '../pages/editjugadormodal/editjugadormodal';
 
 
@@ -85,7 +85,7 @@ import { EditjugadormodalPage } from '../pages/editjugadormodal/editjugadormodal
     Calendar,
     NumJugadoresProvider,
     ListajugadoresProvider,
-    JornadasProvider
+    ListajornadasProvider
   ]
 })
 export class AppModule {}

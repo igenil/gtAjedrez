@@ -6,22 +6,28 @@
 -->
 <ion-header>
 
-  <ion-header>
-
-    <ion-navbar color="dark">
-      <ion-title>Jornadas</ion-title>
-      <ion-buttons end>
-        <button ion-button (click)="signOut()" color="light">
-          Cerrar Sesion
-        </button>
-      </ion-buttons>
-    </ion-navbar>
-  
-  </ion-header>
-
+  <ion-navbar color="dark">
+    <ion-title>Jornadas</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="mostrar_modal_anadir()" color="light">
+          <ion-icon name="person-add"></ion-icon>
+      </button>
+      <button ion-button (click)="signOut()" color="light">
+        Cerrar Sesion
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
+  <ion-list>
+      <span *ngFor = "let jornada of listajornadas.jornadas">
+        <h4>
+          <ion-icon name="contact" item-start></ion-icon>
+          {{ jornada.nombre }}
+        </h4>
+    </span>
+  </ion-list>
 </ion-content>

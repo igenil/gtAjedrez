@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ListajornadasProvider } from '../../providers/listajornadas/listajornadas';
 
 /**
  * Generated class for the JornadasPage page.
@@ -16,7 +17,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class JornadasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public AfAuth: AngularFireAuth) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public AfAuth: AngularFireAuth,public listajornadas:ListajornadasProvider) {
   }
 
   ionViewDidLoad() {
