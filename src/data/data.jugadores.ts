@@ -13,7 +13,7 @@ export const JUGADORES = [
     },
     {
         nombre: "Jugador2",
-        equipo:"Equipo2",
+        equipo:"Equipo1",
         j: 4,
         g: 1,
         e: 2,
@@ -25,7 +25,7 @@ export const JUGADORES = [
     },
     {
         nombre: "Jugador3",
-        equipo:"Equipo2",
+        equipo:"Equipo1",
         j: 4,
         g: 1,
         e: 2,
@@ -37,7 +37,7 @@ export const JUGADORES = [
     },
     {
         nombre: "Jugador4",
-        equipo:"Equipo2",
+        equipo:"Equipo1",
         j: 4,
         g: 1,
         e: 2,
@@ -49,7 +49,7 @@ export const JUGADORES = [
     },
     {
         nombre: "Jugador5",
-        equipo:"Equipo2",
+        equipo:"Equipo1",
         j: 4,
         g: 1,
         e: 2,
@@ -61,7 +61,7 @@ export const JUGADORES = [
     },
     {
         nombre: "Jugador6",
-        equipo:"Equipo2",
+        equipo:"Libre",
         j: 4,
         g: 1,
         e: 2,

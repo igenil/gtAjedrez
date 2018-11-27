@@ -31,6 +31,7 @@ import { NumJugadoresProvider } from '../providers/num-jugadores/num-jugadores';
 import { ListajugadoresProvider } from '../providers/listajugadores/listajugadores';
 import { ListajornadasProvider } from '../providers/listajornadas/listajornadas';
 import { EditjugadormodalPage } from '../pages/editjugadormodal/editjugadormodal';
+import { JornadasmodalPage } from '../pages/jornadasmodal/jornadasmodal';
 
 
 
@@ -49,7 +50,8 @@ import { EditjugadormodalPage } from '../pages/editjugadormodal/editjugadormodal
     CalendariomodalPage,
     DatosjugadormodalPage,
     AddjugadormodalPage,
-    EditjugadormodalPage 
+    EditjugadormodalPage,
+    JornadasmodalPage 
 
   ],
   imports: [
@@ -74,7 +76,8 @@ import { EditjugadormodalPage } from '../pages/editjugadormodal/editjugadormodal
     CalendariomodalPage,
     DatosjugadormodalPage,
     AddjugadormodalPage,
-    EditjugadormodalPage  
+    EditjugadormodalPage ,
+    JornadasmodalPage 
   ],
   providers: [
     StatusBar,

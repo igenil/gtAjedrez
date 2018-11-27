@@ -9,9 +9,6 @@
   <ion-navbar color="dark">
     <ion-title>Jornadas</ion-title>
     <ion-buttons end>
-      <button ion-button (click)="mostrar_modal_anadir()" color="light">
-          <ion-icon name="person-add"></ion-icon>
-      </button>
       <button ion-button (click)="signOut()" color="light">
         Cerrar Sesion
       </button>
@@ -24,10 +21,9 @@
 
   <ion-list>
       <span *ngFor = "let jornada of listajornadas.jornadas">
-        <h4>
-          <ion-icon name="contact" item-start></ion-icon>
+        <button ion-button (click)="mostrar_modal(jornada)" color="light">
           {{ jornada.nombre }}
-        </h4>
+        </button>
     </span>
   </ion-list>
 </ion-content>

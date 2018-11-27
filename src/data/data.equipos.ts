@@ -4,7 +4,7 @@ export const EQUIPOS = [
       convocados: 0,
     },
     {
-        nombre: "Sin Equipo",
+        nombre: "Libre",
         convocados: 0,
       }
 ];
