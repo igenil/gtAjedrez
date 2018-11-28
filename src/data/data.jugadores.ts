@@ -9,7 +9,7 @@ export const JUGADORES = [
       c: 2,
       f: 2,
       ptos: 9,
-      juega: false
+      juega: true
     },
     {
         nombre: "Jugador2",
@@ -21,7 +21,7 @@ export const JUGADORES = [
         c: 2,
         f: 2,
         ptos: 5,
-        juega: false
+        juega: true
     },
     {
         nombre: "Jugador3",
@@ -33,7 +33,7 @@ export const JUGADORES = [
         c: 2,
         f: 2,
         ptos: 5,
-        juega: false
+        juega: true
     },
     {
         nombre: "Jugador4",
@@ -45,7 +45,7 @@ export const JUGADORES = [
         c: 2,
         f: 2,
         ptos: 5,
-        juega: false
+        juega: true
     },
     {
         nombre: "Jugador5",

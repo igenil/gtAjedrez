@@ -1,7 +1,7 @@
 export const EQUIPOS = [
     {
       nombre: "Equipo1",
-      convocados: 0,
+      convocados: 4,
     },
     {
         nombre: "Libre",

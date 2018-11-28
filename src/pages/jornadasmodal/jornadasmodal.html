@@ -27,11 +27,28 @@
           <span style="font-weight: bold;">    
           Titular 1:
           </span>
-          {{ jornada.titular1 }}
+          {{ nombre1 }}
           &ensp;&ensp;&ensp;&ensp;
-          G &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
-          E &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
-          P &ensp;<ion-checkbox ></ion-checkbox>
+          <span *ngIf="jornada.n_titular1==0">
+            G &ensp;<ion-checkbox (click)="gana(jornada.titular1,1)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox (click)="empata(jornada.titular1,1)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox (click)="pierde(jornada.titular1,1)"></ion-checkbox>
+          </span>
+          <span *ngIf="jornada.n_titular1==1">
+            G &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
+          </span>  
+          <span *ngIf="jornada.n_titular1==2">
+            G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
+          </span>  
+          <span *ngIf="jornada.n_titular1==3">
+            G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>
+          </span> 
         </ion-label>
       </p>
       <p>
@@ -39,18 +56,28 @@
             <span style="font-weight: bold;">    
             Titular 2:
             </span>
-            {{ jornada.titular2 }}
+            {{ nombre2  }}
             &ensp;&ensp;&ensp;&ensp;
             <span *ngIf="jornada.n_titular2==0">
-              G &ensp;<ion-checkbox (click)="gana(paco,2)"></ion-checkbox>&ensp;&ensp;
-              E &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
-              P &ensp;<ion-checkbox ></ion-checkbox>
-            </span>
-            <span *ngIf="jornada.n_titular2==1">
-              G &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-              E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-              P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
-            </span>  
+                G &ensp;<ion-checkbox (click)="gana(jornada.titular2,2)"></ion-checkbox>&ensp;&ensp;
+                E &ensp;<ion-checkbox (click)="empata(jornada.titular2,2)"></ion-checkbox>&ensp;&ensp;
+                P &ensp;<ion-checkbox (click)="pierde(jornada.titular2,2)"></ion-checkbox>
+              </span>
+              <span *ngIf="jornada.n_titular2==1">
+                G &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
+                E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+                P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
+              </span>  
+              <span *ngIf="jornada.n_titular2==2">
+                G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
+                E &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
+                P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
+              </span>  
+              <span *ngIf="jornada.n_titular2==3">
+                G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
+                E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+                P &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>
+              </span>  
           </ion-label>
         </p>
         <p>
@@ -58,11 +85,28 @@
               <span style="font-weight: bold;">    
               Titular 3:
               </span>
-              {{ jornada.titular3 }}
+              {{ nombre3  }}
               &ensp;&ensp;&ensp;&ensp;
-              G &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
-              E &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
-              P &ensp;<ion-checkbox ></ion-checkbox>
+              <span *ngIf="jornada.n_titular3==0">
+                  G &ensp;<ion-checkbox (click)="gana(jornada.titular3,3)"></ion-checkbox>&ensp;&ensp;
+                  E &ensp;<ion-checkbox (click)="empata(jornada.titular3,3)"></ion-checkbox>&ensp;&ensp;
+                  P &ensp;<ion-checkbox (click)="pierde(jornada.titular3,3)"></ion-checkbox>
+                </span>
+                <span *ngIf="jornada.n_titular3==1">
+                  G &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
+                  E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+                  P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
+                </span>  
+                <span *ngIf="jornada.n_titular3==2">
+                  G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
+                  E &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
+                  P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
+                </span>  
+                <span *ngIf="jornada.n_titular3==3">
+                  G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
+                  E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+                  P &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>
+                </span> 
             </ion-label>
           </p>
           <p>
@@ -70,11 +114,28 @@
                 <span style="font-weight: bold;">    
                 Titular 4:
                 </span>
-                {{ jornada.titular4 }}
+                {{ nombre4 }}
                 &ensp;&ensp;&ensp;&ensp;
-                G &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
-                E &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
-                P &ensp;<ion-checkbox ></ion-checkbox>
+                <span *ngIf="jornada.n_titular4==0">
+                    G &ensp;<ion-checkbox (click)="gana(jornada.titular4,4)"></ion-checkbox>&ensp;&ensp;
+                    E &ensp;<ion-checkbox (click)="empata(jornada.titular4,4)"></ion-checkbox>&ensp;&ensp;
+                    P &ensp;<ion-checkbox (click)="pierde(jornada.titular4,4)"></ion-checkbox>
+                  </span>
+                  <span *ngIf="jornada.n_titular4==1">
+                    G &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
+                    E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+                    P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
+                  </span>  
+                  <span *ngIf="jornada.n_titular4==2">
+                    G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
+                    E &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
+                    P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
+                  </span>  
+                  <span *ngIf="jornada.n_titular4==3">
+                    G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
+                    E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+                    P &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>
+                  </span>  
               </ion-label>
             </p>
     </ion-list>
