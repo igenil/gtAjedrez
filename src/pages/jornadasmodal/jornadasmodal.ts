@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the JornadasmodalPage page.
@@ -14,12 +14,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'jornadasmodal.html',
 })
 export class JornadasmodalPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  jornada:any={};
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public viewCtrl:ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JornadasmodalPage');
+    let data=this.navParams.get('jornada');
+    this.jornada=data;
   }
 
 }
