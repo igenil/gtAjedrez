@@ -22,9 +22,60 @@
     <ion-list>
       <p><span style="font-weight: bold;"> Nombre: </span> {{ jornada.nombre }}</p>
       <p><span style="font-weight: bold;"> Fecha: </span> {{ jornada.fecha }}</p>
-      <p><span style="font-weight: bold;">Titular 1: </span> {{ jornada.titular1 }}</p>
-      <p><span style="font-weight: bold;">Titular 2: </span> {{ jornada.titular2 }}</p>
-      <p><span style="font-weight: bold;">Titular 3: </span> {{ jornada.titular3 }}</p>
-      <p><span style="font-weight: bold;">Titular 4: </span> {{ jornada.titular4 }}</p>
+      <p>
+        <ion-label> 
+          <span style="font-weight: bold;">    
+          Titular 1:
+          </span>
+          {{ jornada.titular1 }}
+          &ensp;&ensp;&ensp;&ensp;
+          G &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
+          E &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
+          P &ensp;<ion-checkbox ></ion-checkbox>
+        </ion-label>
+      </p>
+      <p>
+          <ion-label> 
+            <span style="font-weight: bold;">    
+            Titular 2:
+            </span>
+            {{ jornada.titular2 }}
+            &ensp;&ensp;&ensp;&ensp;
+            <span *ngIf="jornada.n_titular2==0">
+              G &ensp;<ion-checkbox (click)="gana(paco,2)"></ion-checkbox>&ensp;&ensp;
+              E &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
+              P &ensp;<ion-checkbox ></ion-checkbox>
+            </span>
+            <span *ngIf="jornada.n_titular2==1">
+              G &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+              E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
+              P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
+            </span>  
+          </ion-label>
+        </p>
+        <p>
+            <ion-label> 
+              <span style="font-weight: bold;">    
+              Titular 3:
+              </span>
+              {{ jornada.titular3 }}
+              &ensp;&ensp;&ensp;&ensp;
+              G &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
+              E &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
+              P &ensp;<ion-checkbox ></ion-checkbox>
+            </ion-label>
+          </p>
+          <p>
+              <ion-label> 
+                <span style="font-weight: bold;">    
+                Titular 4:
+                </span>
+                {{ jornada.titular4 }}
+                &ensp;&ensp;&ensp;&ensp;
+                G &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
+                E &ensp;<ion-checkbox ></ion-checkbox>&ensp;&ensp;
+                P &ensp;<ion-checkbox ></ion-checkbox>
+              </ion-label>
+            </p>
     </ion-list>
 </ion-content>
