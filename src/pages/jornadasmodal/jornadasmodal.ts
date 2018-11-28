@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { ListajornadasProvider } from '../../providers/listajornadas/listajornadas';
-import { convertUrlToDehydratedSegments } from 'ionic-angular/umd/navigation/url-serializer';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 /**
  * Generated class for the JornadasmodalPage page.

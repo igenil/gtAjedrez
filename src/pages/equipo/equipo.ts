@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { EQUIPOS } from '../../data/data.equipos';
-import { Equipo } from '../../interface/equipo.interfaces'; 
 import { JugadoresmodalPage } from '../jugadoresmodal/jugadoresmodal';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 /**

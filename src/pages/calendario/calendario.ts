@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, ModalController, AlertController }
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as moment from 'moment';
 import { CalendariomodalPage } from '../../pages/calendariomodal/calendariomodal';
-import { Calendar } from '@ionic-native/calendar';
 /**
  * Generated class for the CalendarioPage page.
  *
