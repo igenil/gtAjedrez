@@ -21,7 +21,7 @@
 <ion-content padding>
     <ion-list>
         <span  *ngFor = "let jugador of listajugadores.jugadores">
-          <span *ngIf="jugador.equipo==equipo.nombre">
+          <span *ngIf="jugador.equipo==equipo.nombre && jugador.equipo!='Libre'">
             <h2>
               <ion-item ion-item detail-none *ngIf="equipo.convocados!=4 && jugador.juega==true">
                 <ion-icon name="contact" item-left></ion-icon>
@@ -44,7 +44,16 @@
                 <ion-checkbox item-right checked="true" (click)="convocar(jugador, equipo)"></ion-checkbox> 
               </ion-item>
             </h2>
-          </span>
         </span>
+        <span *ngIf="jugador.equipo=='Libre' && equipo.nombre!='Equipo1'">
+            <h2>
+              <ion-item ion-item detail-none>
+                <ion-icon name="contact" item-left></ion-icon>
+                <ion-label>{{ jugador.nombre }}</ion-label>
+              </ion-item>
+            </h2>
+          </span>
+      </span>
+      
     </ion-list>
 </ion-content>
