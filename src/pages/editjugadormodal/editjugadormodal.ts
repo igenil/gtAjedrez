@@ -30,6 +30,9 @@ export class EditjugadormodalPage {
     for (let index = 0; index < this.listajugadores.jugadores.length; index++) {
       if (this.listajugadores.jugadores[index].nombre==this.jugador.nombre) {
         this.listajugadores.jugadores[index]=this.jugador;
+        this.listajugadores.jugadores[index].j=Number(this.jugador.g)+Number(this.jugador.e)+Number(this.jugador.p)
+        this.listajugadores.jugadores[index].f=Number(this.jugador.g)+Number(this.jugador.e)+Number(this.jugador.p)-Number(this.jugador.c)
+        this.listajugadores.jugadores[index].ptos=Number(this.jugador.g)*3+Number(this.jugador.e)
         this.listajugadores.jugadores.sort(function(a,b){ 
           if (Number(a.ptos)>Number(b.ptos)) {
             return -1;

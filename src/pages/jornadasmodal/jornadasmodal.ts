@@ -37,26 +37,26 @@ export class JornadasmodalPage {
     this.nombre4 = this.jornada.titular4.nombre;
     this.jornada.fecha = this.jornada.fecha.substring(0, 10);;
   }
-  gana(jugador, n_titular){
+  gana(jugador, n_titular:number){
     if(n_titular==1){
-      jugador.j += 1
-      jugador.g += 1
-      jugador.ptos += 3
+      jugador.j =Number(jugador.j)+ 1;
+      jugador.g =Number(jugador.g)+ 1;
+      jugador.ptos = Number(jugador.ptos)+3;
       this.jornada.n_titular1 = 1
     }else if(n_titular==2){
-      jugador.j += 1
-      jugador.g += 1
-      jugador.ptos += 3
+      jugador.j = Number(jugador.j)+1;
+      jugador.g = Number(jugador.g)+1
+      jugador.ptos = Number(jugador.ptos)+3
       this.jornada.n_titular2 = 1
     }else if(n_titular==3){
-      jugador.j += 1
-      jugador.g += 1
-      jugador.ptos += 3
+      jugador.j = Number(jugador.j)+1
+      jugador.g = Number(jugador.g)+1
+      jugador.ptos =Number(jugador.ptos)+ 3
       this.jornada.n_titular3 = 1
     }else if(n_titular==4){
-      jugador.j += 1
-      jugador.g += 1
-      jugador.ptos += 3
+      jugador.j = Number(jugador.j)+1
+      jugador.g = Number(jugador.g)+1
+      jugador.ptos = Number(jugador.ptos)+3
       this.jornada.n_titular4 = 1
     }
     this.listajugadores.jugadores.sort(function(a,b){ 
@@ -71,24 +71,24 @@ export class JornadasmodalPage {
   }
   empata(jugador, n_titular){
     if(n_titular==1){
-      jugador.j += 1
-      jugador.e += 1
-      jugador.ptos += 1
+      jugador.j = Number(jugador.j)+1
+      jugador.e = Number(jugador.g)+1
+      jugador.ptos =Number(jugador.ptos)+ 3
       this.jornada.n_titular1 = 2
     }else if(n_titular==2){
-      jugador.j += 1
-      jugador.e += 1
-      jugador.ptos += 1
+      jugador.j = Number(jugador.j)+1
+      jugador.e = Number(jugador.g)+1
+      jugador.ptos =Number(jugador.ptos)+ 3
       this.jornada.n_titular2 = 2
     }else if(n_titular==3){
-      jugador.j += 1
-      jugador.e += 1
-      jugador.ptos += 1
+      jugador.j = Number(jugador.j)+1
+      jugador.e = Number(jugador.g)+1
+      jugador.ptos =Number(jugador.ptos)+ 3
       this.jornada.n_titular3 = 2
     }else if(n_titular==4){
-      jugador.j += 1
-      jugador.e += 1
-      jugador.ptos += 1
+      jugador.j = Number(jugador.j)+1
+      jugador.e = Number(jugador.g)+1
+      jugador.ptos =Number(jugador.ptos)+ 3
       this.jornada.n_titular4 = 2
     }
     this.listajugadores.jugadores.sort(function(a,b){ 
@@ -103,20 +103,20 @@ export class JornadasmodalPage {
   }
   pierde(jugador, n_titular){
     if(n_titular==1){
-      jugador.j += 1
-      jugador.p += 1
+      jugador.j =Number(jugador.j)+1
+      jugador.p = Number(jugador.p)+1
       this.jornada.n_titular1 = 3
     }else if(n_titular==2){
-      jugador.j += 1
-      jugador.p += 1
+      jugador.j =Number(jugador.j)+1
+      jugador.p = Number(jugador.p)+1
       this.jornada.n_titular2 = 3
     }else if(n_titular==3){
-      jugador.j += 1
-      jugador.p += 1
+      jugador.j =Number(jugador.j)+1
+      jugador.p = Number(jugador.p)+1
       this.jornada.n_titular3 = 3
     }else if(n_titular==4){
-      jugador.j += 1
-      jugador.p += 1
+      jugador.j =Number(jugador.j)+1
+      jugador.p = Number(jugador.p)+1
       this.jornada.n_titular4 = 3
     }
   }

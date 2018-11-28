@@ -27,32 +27,20 @@
             </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label floating>Partidos Jugados</ion-label>
-          <ion-input type="text" [(ngModel)]="jugador.j"></ion-input>
-        </ion-item>
-        <ion-item>
           <ion-label floating>Partidos Ganados</ion-label>
-          <ion-input type="text" [(ngModel)]="jugador.g"></ion-input>
+          <ion-input type="number" [(ngModel)]="jugador.g"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Partidos Empatados</ion-label>
-          <ion-input type="text" label="jugador.e" [(ngModel)]="jugador.e"></ion-input>
+          <ion-input type="number" label="jugador.e" [(ngModel)]="jugador.e"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Partidos Perdidos</ion-label>
-          <ion-input type="text" label="jugador.p" [(ngModel)]="jugador.p"></ion-input>
+          <ion-input type="number" label="jugador.p" [(ngModel)]="jugador.p"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Jugados en Casa</ion-label>
-          <ion-input type="text" label="jugador.c" [(ngModel)]="jugador.c"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Jugados fuera de casa</ion-label>
-          <ion-input type="text" label="jugador.f" [(ngModel)]="jugador.f"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Puntos</ion-label>
-          <ion-input type="text" label="jugador.ptos" [(ngModel)]="jugador.ptos"></ion-input>
+          <ion-input type="number" label="jugador.c" [(ngModel)]="jugador.c"></ion-input>
         </ion-item>
       </ion-list>
       <br> 

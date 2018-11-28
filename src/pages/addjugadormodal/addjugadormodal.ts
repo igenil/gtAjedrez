@@ -16,15 +16,14 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
   templateUrl: 'addjugadormodal.html',
 })
 export class AddjugadormodalPage {
-  nom;
-  eq;
-  j;
-  g;
-  e;
-  p;
-  c;
-  f;
-  ptos;
+  nom:string;
+  eq:string;
+  j:number;
+  g:number;
+  e:number;
+  p:number;
+  c:number;
+  f:number;
   juega:boolean=false;
   jugador:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
@@ -37,7 +36,7 @@ export class AddjugadormodalPage {
     
   }
   anadirjugador(){
-    this.jugador={nombre:this.nom,equipo:this.eq,j:this.j,g:this.g,e:this.e,p:this.p,c:this.c,f:this.f,ptos:this.ptos,juega:this.juega};
+    this.jugador={nombre:this.nom,equipo:this.eq,j:Number(this.g)+Number(this.e)+Number(this.p),g:this.g,e:this.e,p:this.p,c:this.c,f:Number(this.g)+Number(this.e)+Number(this.p)-Number(this.c),ptos:Number(this.g)*3+Number(this.e),juega:this.juega};
     this.listajugadores.jugadores.push(this.jugador);
     this.listajugadores.jugadores.sort(function(a,b){ 
       if (Number(a.ptos)>Number(b.ptos)) {
