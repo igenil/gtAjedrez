@@ -6,13 +6,25 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Datos {{jornada.nombre}}</ion-title>
+  <ion-navbar color="dark"> 
+    <ion-title>Datos de {{ jornada.nombre }} </ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-list>
+      <p><span style="font-weight: bold;"> Nombre: </span> {{ jornada.nombre }}</p>
+      <p><span style="font-weight: bold;"> Fecha: </span> {{ jornada.fecha }}</p>
+      <p><span style="font-weight: bold;">Titular 1: </span> {{ jornada.titular1 }}</p>
+      <p><span style="font-weight: bold;">Titular 2: </span> {{ jornada.titular2 }}</p>
+      <p><span style="font-weight: bold;">Titular 3: </span> {{ jornada.titular3 }}</p>
+      <p><span style="font-weight: bold;">Titular 4: </span> {{ jornada.titular4 }}</p>
+    </ion-list>
 </ion-content>
