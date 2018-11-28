@@ -18,12 +18,10 @@
 
 
 <ion-content padding>
-
-  <ion-list>
-      <span *ngFor = "let jornada of listajornadas.jornadas">
-        <button ion-button (click)="mostrar_modal(jornada)" color="light">
-          {{ jornada.nombre }}
+    <ion-list>
+        <button *ngFor = "let jornada of listajornadas.jornadas" ion-item detail-none (click)="mostrar_modal(jornada)">
+          <h2>{{ jornada.nombre }}</h2>
+          <ion-icon name="game-controller-a" item-left></ion-icon>
         </button>
-    </span>
   </ion-list>
 </ion-content>
