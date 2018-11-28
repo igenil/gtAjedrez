@@ -21,7 +21,7 @@ export class CalendariomodalPage {
   event = { startTime: new Date().toISOString(), endTime: new Date().toISOString(), Casa: false, Fuera: false, title:''}
   minDate = new Date().toISOString();
   jornada:Jornada;
-  titulares:any;
+  titulares:any = [];
   titular1:any;
   titular2:any;
   tirtular3:any;
@@ -34,7 +34,6 @@ export class CalendariomodalPage {
   }
   save(){
     for (let index = 0; index < this.listajugadores.jugadores.length; index++) {
-      
       if (this.listajugadores.jugadores[index].juega) {
         this.titulares.push=this.listajugadores[index];
       }
