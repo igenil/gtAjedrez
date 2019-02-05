@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { JugadoresmodalPage } from '../jugadoresmodal/jugadoresmodal';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
+import { AngularFireDatabase } from 'angularfire2/database';
+
 /**
  * Generated class for the EquipoPage page.
  *
@@ -17,7 +19,8 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
 })
 export class EquipoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+  constructor(private fdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+    
   }
 
   mostrar_modal(equipo){

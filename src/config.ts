@@ -1,10 +1,10 @@
 export const firebaseConfig = {
 	fire: {
-        apiKey: "AIzaSyAfYBU0sojw6WmDmjPvx3GrFSnKg6OiVjw",
-        authDomain: "login-205b5.firebaseapp.com",
-        databaseURL: "https://login-205b5.firebaseio.com",
-        projectId: "login-205b5",
-        storageBucket: "login-205b5.appspot.com",
-        messagingSenderId: "994457813758"
+        apiKey: "AIzaSyCpKi9igxm5ID4x7-9l3B3mE-jWwldlhWE",
+        authDomain: "ajedrez2.firebaseapp.com",
+        databaseURL: "https://ajedrez2.firebaseio.com",
+        projectId: "ajedrez2",
+        storageBucket: "ajedrez2.appspot.com",
+        messagingSenderId: "616548515975"
 	}
 };

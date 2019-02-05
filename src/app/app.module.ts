@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
@@ -59,6 +60,7 @@ import { JornadasmodalPage } from '../pages/jornadasmodal/jornadasmodal';
     IonicModule.forRoot(MyApp),
     NgxErrorsModule,
     AngularFireModule.initializeApp(firebaseConfig.fire),
+    AngularFireDatabaseModule,
     NgCalendarModule
   ],
   bootstrap: [IonicApp],

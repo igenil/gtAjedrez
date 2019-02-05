@@ -27967,3 +27967,14 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
+
+.toast {
+  text-align: center;
+}
+
+page-login .bg-image {
+  background-image: url("/assets/imgs/figuras.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}

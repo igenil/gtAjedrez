@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,  ViewController } from 'ionic-angular';
-import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
-
+import { IonicPage, NavController, ToastController, NavParams,  ViewController } from 'ionic-angular';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { jugador } from '../../models/jugador';
+import { CalendarioPage } from '../../pages/calendario/calendario';
 
 /**
  * Generated class for the AñadirjugadormodalPage page.
@@ -16,37 +17,38 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
   templateUrl: 'addjugadormodal.html',
 })
 export class AddjugadormodalPage {
-  nom:string;
-  eq:string;
-  j:number;
-  g:number;
-  e:number;
-  p:number;
-  c:number;
-  f:number;
-  juega:boolean=false;
-  jugador:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
+  jugador: jugador = {
+    nombre: '',
+    email: '',
+    casa:0,
+    fuera:0,
+    empate:0,
+    ganado:0,
+    perdidos:0,
+    jugados:0,
+    elo:0
     
+  };
+
+  constructor(public navCtrl: NavController, private afdb: AngularFireDatabase, private toastCtrl: ToastController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AñadirjugadormodalPage');
-
-    
+  anadir(){
+    this.afdb.list("/jugador/").push(this.jugador);
+    this.navCtrl.setRoot(CalendarioPage);
+    this.mostrar_mensaje("Jugador " + this.jugador.nombre + " añadido correctamente.");
   }
-  anadirjugador(){
-    this.jugador={nombre:this.nom,equipo:this.eq,j:Number(this.g)+Number(this.e)+Number(this.p),g:this.g,e:this.e,p:this.p,c:this.c,f:Number(this.g)+Number(this.e)+Number(this.p)-Number(this.c),ptos:Number(this.g)*3+Number(this.e),juega:this.juega};
-    this.listajugadores.jugadores.push(this.jugador);
-    this.listajugadores.jugadores.sort(function(a,b){ 
-      if (Number(a.ptos)>Number(b.ptos)) {
-        return -1;
-      } else if(Number(a.ptos)<Number(b.ptos)){
-        return 1;
-      } else {
-        return 0;
-      }
+
+  mostrar_mensaje( mensaje:string ){
+    let toast = this.toastCtrl.create({
+    message: mensaje,
+    duration: 3500,
+    cssClass: "toast"
     });
-    this.viewCtrl.dismiss();
+    toast.present();
+   }
+
+  volver(){
+    this.navCtrl.setRoot(CalendarioPage);
   }
 }

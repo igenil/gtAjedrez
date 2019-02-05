@@ -5,6 +5,11 @@ import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
 import { AddjugadormodalPage } from '../addjugadormodal/addjugadormodal';
 import { EditjugadormodalPage } from '../editjugadormodal/editjugadormodal';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import { jugador } from '../../models/jugador';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 /**
  * Generated class for the JugadoresPage page.
@@ -20,7 +25,23 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
 })
 export class JugadoresPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+  jugadores: Observable<jugador[]>;
+  listaJugadores: AngularFireList<any>;
+
+  constructor(private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+    
+    this.listaJugadores = afdb.list("/jugador");
+    this.jugadores =  this.listaJugadores.snapshotChanges().pipe(
+       map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
+    );
+
+    // let hola = afdb.database.ref("/jugador").orderByChild('nombre').on('child_added', function(data){
+    //   this.jugadores.
+    //   // console.log(data.val().nombre);
+    //   // console.log("hola");
+    //   console.log(this.jugadores);
+    // })
+ 
   }
 
   signOut(): Promise<void> {

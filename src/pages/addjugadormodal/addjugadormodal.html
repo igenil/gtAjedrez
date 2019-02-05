@@ -10,45 +10,23 @@
       
     <ion-title>Añadir Jugador</ion-title>
     <ion-buttons left>
-      <button ion-button icon-only (click)="viewCtrl.dismiss()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </button>
+      <button ion-button
+        icon-only (click)="volver()">
+          <ion-icon name="md-arrow-back"></ion-icon>
+        </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-
+    
 <ion-content padding>
-    <ion-list>
-        <ion-item>
-          <ion-label floating>Nombre</ion-label>
-          <ion-input type="text" [(ngModel)]="nom"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label  floating>Equipo</ion-label>
-            <ion-select [(ngModel)]="eq">
-              <span *ngFor = "let equipo of listajugadores.equipos">
-                <ion-option value={{equipo.nombre}}>{{ equipo.nombre }}</ion-option>      
-              </span>
-            </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Partidos Ganados</ion-label>
-          <ion-input type="number" [(ngModel)]="g"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Partidos Empatados</ion-label>
-          <ion-input type="number" [(ngModel)]="e"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Partidos Perdidos</ion-label>
-          <ion-input type="number" [(ngModel)]="p"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Partidos en Casa</ion-label>
-          <ion-input type="number" [(ngModel)]="c"></ion-input>
-        </ion-item>
-      </ion-list>
-      <br> 
-      <button ion-button color="dark" (click)="anadirjugador(jugadores)">Añadir</button>
+  <ion-item>
+    <ion-label floating>Nombre</ion-label>
+    <ion-input name="nombre" [(ngModel)]="jugador.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Correo</ion-label>
+    <ion-input name="email" [(ngModel)]="jugador.email"></ion-input>
+  </ion-item>
+  <br>
+  <button ion-button block clear (click)="anadir()">Añadir</button>
 </ion-content>
