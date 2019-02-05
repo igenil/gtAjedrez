@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, ToastController, NavParams,  ViewController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { jugador } from '../../models/jugador';
-import { CalendarioPage } from '../../pages/calendario/calendario';
+import { JugadoresPage } from '../../pages/jugadores/jugadores';
 
 /**
  * Generated class for the AñadirjugadormodalPage page.
@@ -35,7 +35,7 @@ export class AddjugadormodalPage {
 
   anadir(){
     this.afdb.list("/jugador/").push(this.jugador);
-    this.navCtrl.setRoot(CalendarioPage);
+    this.navCtrl.setRoot(JugadoresPage);
     this.mostrar_mensaje("Jugador " + this.jugador.nombre + " añadido correctamente.");
   }
 
@@ -49,6 +49,6 @@ export class AddjugadormodalPage {
    }
 
   volver(){
-    this.navCtrl.setRoot(CalendarioPage);
+    this.navCtrl.setRoot(JugadoresPage);
   }
 }

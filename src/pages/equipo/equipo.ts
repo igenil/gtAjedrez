@@ -3,7 +3,11 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { JugadoresmodalPage } from '../jugadoresmodal/jugadoresmodal';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AddequiposmodalPage } from '../../pages/addequiposmodal/addequiposmodal';
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import { equipo } from '../../models/equipo';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 /**
  * Generated class for the EquipoPage page.
@@ -19,8 +23,19 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class EquipoPage {
 
-  constructor(private fdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
-    
+  equipos: Observable<equipo[]>;
+  listEquipos: AngularFireList<any>;
+
+  constructor(private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+    this.listEquipos = afdb.list("/equipo");
+    this.equipos =  this.listEquipos.snapshotChanges().pipe(
+       map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
+    );
+  }
+
+  mostrar_modal_anadir(){
+    let modal=this.modalCtrl.create(AddequiposmodalPage, this.listajugadores.jugadores);
+    modal.present();
   }
 
   mostrar_modal(equipo){

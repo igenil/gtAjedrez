@@ -1,0 +1,28 @@
+<!--
+  Generated template for the AddequiposmodalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="dark">
+      
+    <ion-title>Añadir Equipo</ion-title>
+    <ion-buttons left>
+      <button ion-button
+        icon-only (click)="volver()">
+          <ion-icon name="md-arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+    
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Nombre</ion-label>
+    <ion-input name="nombre" [(ngModel)]="equipo.nombre"></ion-input>
+  </ion-item>
+  <br>
+  <button ion-button block clear (click)="anadir()">Añadir</button>
+</ion-content>
