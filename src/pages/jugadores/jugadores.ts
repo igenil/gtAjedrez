@@ -50,6 +50,11 @@ export class JugadoresPage {
     modal.present();
   }
 
+  hacer_capitan(jugador){
+    jugador.capitan=true;
+    this.afdb.list("/jugador").update(jugador.key, jugador);
+  }
+
   eliminar_jugador(jugador){
     for (let index = 0; index < this.listajugadores.jugadores.length; index++) {
       if (this.listajugadores.jugadores[index].nombre==jugador.nombre) {
