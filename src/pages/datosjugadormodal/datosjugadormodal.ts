@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
+import { jugador } from '../../models/jugador';
 
 /**
  * Generated class for the DatosjugadormodalPage page.
@@ -15,14 +16,14 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
   templateUrl: 'datosjugadormodal.html',
 })
 export class DatosjugadormodalPage {
-  jugador:any={};
+  jugador:jugador;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public listajugadores:ListajugadoresProvider ) {
-
+    let data=this.navParams.get('jugador');
+    this.jugador=data;
   }
 
   ionViewDidLoad() {
-    let data=this.navParams.get('jugador');
-    this.jugador=data;
+   
   }
 
 }

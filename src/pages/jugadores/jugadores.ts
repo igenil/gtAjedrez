@@ -41,7 +41,7 @@ export class JugadoresPage {
   }
   
   mostrar_modal(jugador){
-    let modal=this.modalCtrl.create(DatosjugadormodalPage,{jugador});
+    let modal=this.modalCtrl.create(DatosjugadormodalPage,{'jugador':jugador});
     modal.present();
   }
   
