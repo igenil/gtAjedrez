@@ -21,4 +21,8 @@ export class AuthService {
 	signOut(): Promise<void> {
 		return this.afAuth.auth.signOut();
 	}
+
+	signUp(credentials) {
+		return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
+	}
 }

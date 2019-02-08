@@ -27,13 +27,13 @@ import { NgCalendarModule } from 'ionic2-calendar';
 import { CalendariomodalPage } from '../pages/calendariomodal/calendariomodal';
 import { DatosjugadormodalPage } from '../pages/datosjugadormodal/datosjugadormodal';
 import { Calendar } from '@ionic-native/calendar';
-import { AddjugadormodalPage } from '../pages/addjugadormodal/addjugadormodal';
 import { NumJugadoresProvider } from '../providers/num-jugadores/num-jugadores';
 import { ListajugadoresProvider } from '../providers/listajugadores/listajugadores';
 import { ListajornadasProvider } from '../providers/listajornadas/listajornadas';
 import { EditjugadormodalPage } from '../pages/editjugadormodal/editjugadormodal';
 import { JornadasmodalPage } from '../pages/jornadasmodal/jornadasmodal';
 import { AddequiposmodalPage } from '../pages/addequiposmodal/addequiposmodal';
+import { RegistroPage } from '../pages/registro/registro';
 
 
 
@@ -52,9 +52,9 @@ import { AddequiposmodalPage } from '../pages/addequiposmodal/addequiposmodal';
     JugadoresmodalPage,
     CalendariomodalPage,
     DatosjugadormodalPage,
-    AddjugadormodalPage,
     EditjugadormodalPage,
     JornadasmodalPage,
+    RegistroPage,
 
   ],
   imports: [
@@ -80,9 +80,9 @@ import { AddequiposmodalPage } from '../pages/addequiposmodal/addequiposmodal';
     AddequiposmodalPage,
     CalendariomodalPage,
     DatosjugadormodalPage,
-    AddjugadormodalPage,
     EditjugadormodalPage ,
     JornadasmodalPage,
+    RegistroPage,
   ],
   providers: [
     StatusBar,

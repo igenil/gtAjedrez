@@ -8,5 +8,7 @@ export interface jugador{
     ganado:number,
     perdidos:number,
     jugados:number,
-    elo:number
+    elo:number,
+    capitan:boolean,
+    admin:boolean
 }

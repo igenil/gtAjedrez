@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavController, IonicPage } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { AuthService } from '../../services/auth.service';
+import { RegistroPage } from '../../pages/registro/registro';
 
 @IonicPage()
 @Component({
@@ -42,4 +43,7 @@ login() {
     );
 }
 
+signup(){
+  this.navCtrl.push(RegistroPage);
+}
 }

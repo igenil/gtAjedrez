@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
-import { AddjugadormodalPage } from '../addjugadormodal/addjugadormodal';
 import { EditjugadormodalPage } from '../editjugadormodal/editjugadormodal';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
@@ -53,10 +52,7 @@ export class JugadoresPage {
     modal.present();
   }
 
-  mostrar_modal_anadir(){
-    let modal=this.modalCtrl.create(AddjugadormodalPage, this.listajugadores.jugadores);
-    modal.present();
-  }
+  
 
   mostrar_modal_editar(jugador){
     let modal=this.modalCtrl.create(EditjugadormodalPage, {jugador});
