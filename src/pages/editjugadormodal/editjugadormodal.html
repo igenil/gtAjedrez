@@ -19,28 +19,40 @@
           <ion-input type="text" [(ngModel)]="jugador.nombre"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label  floating>Equipo</ion-label>
-            <ion-select [(ngModel)]="jugador.equipo">
-              <span *ngFor = "let equipo of listajugadores.equipos">
-                <ion-option value={{equipo.nombre}}>{{ equipo.nombre }}</ion-option>      
-              </span>
-            </ion-select>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="text" [(ngModel)]="jugador.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Partidos Jugados</ion-label>
+          <ion-input type="number" [(ngModel)]="jugador.jugados"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Partidos Ganados</ion-label>
-          <ion-input type="number" [(ngModel)]="jugador.g"></ion-input>
+          <ion-input type="number" [(ngModel)]="jugador.ganado"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Partidos Empatados</ion-label>
-          <ion-input type="number" label="jugador.e" [(ngModel)]="jugador.e"></ion-input>
+          <ion-input type="number" label="jugador.e" [(ngModel)]="jugador.empate"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Partidos Perdidos</ion-label>
-          <ion-input type="number" label="jugador.p" [(ngModel)]="jugador.p"></ion-input>
+          <ion-input type="number" label="jugador.p" [(ngModel)]="jugador.perdidos"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Jugados en Casa</ion-label>
-          <ion-input type="number" label="jugador.c" [(ngModel)]="jugador.c"></ion-input>
+          <ion-input type="number" label="jugador.c" [(ngModel)]="jugador.casa"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Elo</ion-label>
+          <ion-input type="number" label="jugador.elo" [(ngModel)]="jugador.casa"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Capitan</ion-label>
+          <ion-input type="number" label="jugador.capitan" [(ngModel)]="jugador.capitan"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Admin</ion-label>
+          <ion-input type="number" label="jugador.admin" [(ngModel)]="jugador.admin"></ion-input>
         </ion-item>
       </ion-list>
       <br> 

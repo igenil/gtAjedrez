@@ -33,13 +33,6 @@ export class JugadoresPage {
     this.jugadores =  this.listaJugadores.snapshotChanges().pipe(
        map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
     );
-
-    // let hola = afdb.database.ref("/jugador").orderByChild('nombre').on('child_added', function(data){
-    //   this.jugadores.
-    //   // console.log(data.val().nombre);
-    //   // console.log("hola");
-    //   console.log(this.jugadores);
-    // })
  
   }
 
@@ -51,11 +44,9 @@ export class JugadoresPage {
     let modal=this.modalCtrl.create(DatosjugadormodalPage,{jugador});
     modal.present();
   }
-
   
-
   mostrar_modal_editar(jugador){
-    let modal=this.modalCtrl.create(EditjugadormodalPage, {jugador});
+    let modal=this.modalCtrl.create(EditjugadormodalPage, {'jugador':jugador});
     modal.present();
   }
 
