@@ -48,7 +48,7 @@ export class CalendariomodalPage {
     this.jornada = {nombre: this.event.title, fecha: this.event.startTime,titular1:this.titulares[0],titular2:this.titulares[1],titular3:this.titulares[2],titular4:this.titulares[3], n_titular1:0, n_titular2:0,n_titular3:0,n_titular4:0};
     console.log(this.jornada.titular1.nombre)
     this.listajornadas.jornadas.push(this.jornada);
-    this.viewCtrl.dismiss(this.event)
+    this.viewCtrl.dismiss(this.event);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalendariomodalPage');
