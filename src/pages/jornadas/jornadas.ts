@@ -3,7 +3,10 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ListajornadasProvider } from '../../providers/listajornadas/listajornadas';
 import { JornadasmodalPage } from '../jornadasmodal/jornadasmodal';
-
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import { jornadas } from '../../models/jornadas';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 /**
  * Generated class for the JornadasPage page.
  *
@@ -18,16 +21,26 @@ import { JornadasmodalPage } from '../jornadasmodal/jornadasmodal';
 })
 export class JornadasPage {
 
-  constructor(private modalCtrl:ModalController ,public navCtrl: NavController, public navParams: NavParams, public AfAuth: AngularFireAuth,public listajornadas:ListajornadasProvider) {
+  jornadas: Observable<jornadas[]>;
+  listJornadas: AngularFireList<any>;
+
+  constructor(private afdb: AngularFireDatabase, private modalCtrl:ModalController ,public navCtrl: NavController, public navParams: NavParams, public AfAuth: AngularFireAuth,public listajornadas:ListajornadasProvider) {
+    
+    this.listJornadas = afdb.list("/jornada");
+    this.jornadas =  this.listJornadas.snapshotChanges().pipe(
+       map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
+    );
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JornadasPage');
   }
+
   mostrar_modal(jornada){
     let modal = this.modalCtrl.create(JornadasmodalPage,{jornada});
     modal.present();
   }
+  
   signOut(): Promise<void> {
     return this.AfAuth.auth.signOut();
 	}

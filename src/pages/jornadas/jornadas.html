@@ -18,10 +18,9 @@
 
 
 <ion-content padding>
-    <ion-list>
-        <button *ngFor = "let jornada of listajornadas.jornadas" ion-item detail-none (click)="mostrar_modal(jornada)">
-          <h2>{{ jornada.nombre }}</h2>
-          <ion-icon name="game-controller-a" item-left></ion-icon>
-        </button>
+  <ion-list>
+    <ion-item *ngFor="let jornada of jornadas | async">
+      {{jornada.titulo}}
+    </ion-item>
   </ion-list>
 </ion-content>

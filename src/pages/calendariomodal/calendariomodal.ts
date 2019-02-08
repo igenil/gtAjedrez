@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { Jornada } from '../../interface/jornada.interfaces';
 import { ListajornadasProvider } from '../../providers/listajornadas/listajornadas';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 import * as moment from 'moment';
+import { jornadas } from '../../models/jornadas';
+import { AngularFireDatabase } from 'angularfire2/database';
+
 
 /**
  * Generated class for the CalendariomodalPage page.
@@ -26,32 +29,38 @@ export class CalendariomodalPage {
   titular2:any;
   tirtular3:any;
   titular4:any;
-  constructor(public listajornadas:ListajornadasProvider,public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
+  jorna: jornadas = {
+    titulo: '',
+    casa:false,
+    fecha:null
+  };
+
+  constructor(private toastCtrl: ToastController,private afdb: AngularFireDatabase,public listajornadas:ListajornadasProvider,public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
     let preselectedDate = moment(this.navParams.get('selectedDay')).format();
     this.event.startTime = preselectedDate;
     this.event.endTime = preselectedDate;
     console.log( this.event.startTime)
   }
   save(){
-    for (let index = 0; index < this.listajugadores.jugadores.length; index++) {
-      if (this.listajugadores.jugadores[index].juega) {
-        this.titulares.push(this.listajugadores.jugadores[index]);
-        if(this.event.Casa==true){
-          this.listajugadores.jugadores[index].c+=1
-        }else if(this.event.Fuera==true){
-          this.listajugadores.jugadores[index].f+=1
-        }
-
-      }
+    this.jorna.titulo = this.event.title;
+    if (this.event.Casa) {
+      this.jorna.casa = true;
+    }else{
+      this.jorna.casa = false;
     }
-    
-    this.jornada = {nombre: this.event.title, fecha: this.event.startTime,titular1:this.titulares[0],titular2:this.titulares[1],titular3:this.titulares[2],titular4:this.titulares[3], n_titular1:0, n_titular2:0,n_titular3:0,n_titular4:0};
-    console.log(this.jornada.titular1.nombre)
-    this.listajornadas.jornadas.push(this.jornada);
+    this.jorna.fecha = new Date(this.event.startTime);
+    this.afdb.list("/jornada/").push(this.jorna);
+    this.mostrar_mensaje(this.jorna.titulo + " añadida correctamente.");
     this.viewCtrl.dismiss(this.event);
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalendariomodalPage');
-  }
+
+  mostrar_mensaje( mensaje:string ){
+    let toast = this.toastCtrl.create({
+    message: mensaje,
+    duration: 3500,
+    cssClass: "toast"
+    });
+    toast.present();
+   }
   
 }
