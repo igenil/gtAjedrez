@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
 import { EditjugadormodalPage } from '../editjugadormodal/editjugadormodal';
@@ -24,24 +24,37 @@ import { map } from 'rxjs/operators';
 })
 export class JugadoresPage {
 
-  jugadores: Observable<jugador[]>;
+  jugadores: Observable<any>;
   listaJugadores: AngularFireList<any>;
 
-  constructor(private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+  constructor(private toastCtrl: ToastController, private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
     
     this.listaJugadores = afdb.list("/jugador");
-    this.jugadores =  this.listaJugadores.snapshotChanges().pipe(
-       map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
-    );
- 
+    this.jugadores = this.afdb.list('/jugador', ref => ref.orderByChild('elo')).valueChanges();
+    this.jugadores.forEach(element => {
+      for (let index = 0; index < element.length; index++) {
+        const ws = element[index];
+        console.log(ws);
+      }
+    });
   }
 
   signOut(): Promise<void> {
     return this.AfAuth.auth.signOut();
   }
-  
+
+  mostrar_mensaje( mensaje:string ){
+    let toast = this.toastCtrl.create({
+    message: mensaje,
+    duration: 3500,
+    cssClass: "toast"
+    });
+    toast.present();
+   }
+
   mostrar_modal(jugador){
-    let modal=this.modalCtrl.create(DatosjugadormodalPage,{'jugador':jugador});
+    var equipo = this.afdb.list('/equipo', ref => ref.orderByKey().equalTo(jugador.equipo)).valueChanges();
+    let modal=this.modalCtrl.create(DatosjugadormodalPage,{'jugador':jugador,'equipo':equipo});
     modal.present();
   }
   
@@ -56,11 +69,10 @@ export class JugadoresPage {
   }
 
   eliminar_jugador(jugador){
-    for (let index = 0; index < this.listajugadores.jugadores.length; index++) {
-      if (this.listajugadores.jugadores[index].nombre==jugador.nombre) {
-        this.listajugadores.jugadores.splice(index,1);
-      }
-    }
+    var id = jugador.key;
+    console.log(jugador.key);
+    this.afdb.database.ref('/jugador/'+ jugador.key).remove();
+    this.mostrar_mensaje("Jugador " + jugador.nombre + " elimanado con exito.");
   }
 
   ionViewDidLoad() {

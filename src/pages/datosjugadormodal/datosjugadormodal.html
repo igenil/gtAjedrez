@@ -20,7 +20,10 @@
 
 <ion-content padding>
     <ion-list>
-      <h3><span style="font-weight: bold;"> Nombre: </span> {{ jugador.nombre }}</h3>
+      <h3><span style="font-weight: bold;">Nombre: </span> {{ jugador.nombre }}</h3>
+      <span *ngFor="let equip of equipo | async">
+        <h3><span style="font-weight: bold;">Equipo: </span> {{ equip.nombre }}</h3>
+      </span>
       <h3><span style="font-weight: bold;">Partidos Jugados: </span> {{ jugador.jugados }}</h3>
       <h3><span style="font-weight: bold;">Partidos Ganados: </span> {{ jugador.ganado }}</h3>
       <h3><span style="font-weight: bold;">Partidos Empatados: </span> {{ jugador.empate }}</h3>

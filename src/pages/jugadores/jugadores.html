@@ -20,21 +20,28 @@
 <ion-content padding>
   <ion-list>
       <span *ngFor="let jugador of jugadores | async">
-        <h4>
-          <ion-icon name="contact" item-start></ion-icon>
-          {{jugador.nombre}}, {{jugador.elo}}
-          <ion-buttons end>
-            <button ion-button (click)="mostrar_modal(jugador)" color="dark">
-              <ion-icon name="eye" ></ion-icon>
-            </button>
-            <button ion-button (click)="mostrar_modal_editar(jugador)" color="dark">
-              <ion-icon name="build" ></ion-icon>
-            </button>
-            <button ion-button (click)="hacer_capitan(jugador)" color="dark">
-              <ion-icon name="school" ></ion-icon>
-            </button>
-          </ion-buttons>
-        </h4>
-    </span>
+         <ion-list>
+          <ion-item-sliding #item>
+            <ion-item>
+              <ion-icon name="contact" item-start></ion-icon>
+              <h2>{{jugador.nombre}}, {{jugador.elo}}</h2> 
+            </ion-item>
+            <ion-item-options side="right">
+              <button ion-button (click)="mostrar_modal(jugador)" color="secondary">
+                <ion-icon name="eye" ></ion-icon>
+                Ver
+              </button>
+              <button ion-button (click)="mostrar_modal_editar(jugador)" color="primary">
+                <ion-icon name="build" ></ion-icon>
+                Editar
+              </button>
+              <button ion-button (click)="eliminar_jugador(jugador)" color="danger">
+                <ion-icon name="trash" ></ion-icon>
+                Eliminar
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </span>
   </ion-list>
 </ion-content>

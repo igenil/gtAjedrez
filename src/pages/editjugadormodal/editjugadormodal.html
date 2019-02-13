@@ -40,7 +40,13 @@
         </ion-item>
         <ion-item>
           <ion-label floating>Elo</ion-label>
-          <ion-input type="number" label="jugador.elo" [(ngModel)]="jugador.casa"></ion-input>
+          <ion-input type="number" label="jugador.elo" [(ngModel)]="jugador.elo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Equipo</ion-label>
+          <ion-select value="" [(ngModel)]="jugador.equipo" okText="Aceptar" cancelText="Cancelar">
+            <ion-option *ngFor="let equipo of equipos | async" value="{{equipo.key}}">{{equipo.nombre}}</ion-option>
+          </ion-select>
         </ion-item>
         <ion-item>
           <ion-label floating>Capitan</ion-label>

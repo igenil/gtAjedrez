@@ -34,7 +34,8 @@ export class RegistroPage {
     jugados:0,
     elo:0,
     capitan:false,
-    admin:false
+    admin:false,
+    equipo:"sin equipo"
   };
 
 	constructor(

@@ -34,6 +34,7 @@ import { EditjugadormodalPage } from '../pages/editjugadormodal/editjugadormodal
 import { JornadasmodalPage } from '../pages/jornadasmodal/jornadasmodal';
 import { AddequiposmodalPage } from '../pages/addequiposmodal/addequiposmodal';
 import { RegistroPage } from '../pages/registro/registro';
+import { EditequipomodalPage } from '../pages/editequipomodal/editequipomodal';
 
 
 
@@ -55,6 +56,7 @@ import { RegistroPage } from '../pages/registro/registro';
     EditjugadormodalPage,
     JornadasmodalPage,
     RegistroPage,
+    EditequipomodalPage,
 
   ],
   imports: [
@@ -83,6 +85,7 @@ import { RegistroPage } from '../pages/registro/registro';
     EditjugadormodalPage ,
     JornadasmodalPage,
     RegistroPage,
+    EditequipomodalPage,
   ],
   providers: [
     StatusBar,

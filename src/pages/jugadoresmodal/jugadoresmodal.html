@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="dark">
-    <ion-title>Jugadores de {{equipo.nombre}}</ion-title>
+    <ion-title>Jugadores</ion-title>
     <ion-buttons left>
       <button ion-button icon-only (click)="viewCtrl.dismiss()">
         <ion-icon name="arrow-back"></ion-icon>
@@ -19,42 +19,13 @@
 
 
 <ion-content padding>
-    <ion-list>
-        <span  *ngFor = "let jugador of listajugadores.jugadores">
-          <span *ngIf="jugador.equipo==equipo.nombre && jugador.equipo!='Libre'">
-            <h2>
-              <ion-item ion-item detail-none *ngIf="equipo.convocados!=4 && jugador.juega==true">
-                <ion-icon name="contact" item-left></ion-icon>
-                <ion-label>{{ jugador.nombre }}</ion-label>
-                <ion-checkbox item-right checked="true" (click)="convocar(jugador, equipo)"></ion-checkbox>
-              </ion-item>
-              <ion-item ion-item detail-none *ngIf="equipo.convocados!=4 && jugador.juega==false">
-                  <ion-icon name="contact" item-left></ion-icon>
-                  <ion-label>{{ jugador.nombre }}</ion-label>
-                  <ion-checkbox item-right (click)="convocar(jugador, equipo)"></ion-checkbox>
-                </ion-item>
-              <ion-item ion-item detail-none *ngIf="equipo.convocados==4 && jugador.juega==false">
-                <ion-icon name="contact" item-left></ion-icon>
-                <ion-label>{{ jugador.nombre }}</ion-label>
-                <ion-checkbox item-right disabled='true'></ion-checkbox> 
-              </ion-item>
-              <ion-item ion-item detail-none *ngIf="equipo.convocados==4 && jugador.juega==true">
-                <ion-icon name="contact" item-left></ion-icon>
-                <ion-label>{{ jugador.nombre }}</ion-label>
-                <ion-checkbox item-right checked="true" (click)="convocar(jugador, equipo)"></ion-checkbox> 
-              </ion-item>
-            </h2>
-        </span>
-        <span *ngIf="jugador.equipo=='Libre' && equipo.nombre!='Equipo1'">
-            <h2>
-              <ion-item ion-item detail-none>
-                <ion-icon name="contact" item-left></ion-icon>
-                <ion-label>{{ jugador.nombre }}</ion-label>
-              </ion-item>
-            </h2>
-          </span>
-      </span>
-      
+    <ion-list> 
+      <span *ngFor="let jugador of equipo | async">
+      <h4>
+        {{jugador.nombre}}
+
+      </h4>
+    </span>
     </ion-list>
     <button ion-button color="dark" (click)="viewCtrl.dismiss()">Listo</button>
     

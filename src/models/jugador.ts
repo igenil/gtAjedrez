@@ -10,5 +10,6 @@ export interface jugador{
     jugados:number,
     elo:number,
     capitan:boolean,
-    admin:boolean
+    admin:boolean,
+    equipo:string
 }

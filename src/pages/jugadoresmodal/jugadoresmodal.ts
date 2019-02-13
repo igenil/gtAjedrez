@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { NumJugadoresProvider } from '../../providers/num-jugadores/num-jugadores';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { jugador } from '../../models/jugador';
+
 /**
  * Generated class for the JugadoresmodalPage page.
  *
@@ -16,15 +20,14 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
 })
 export class JugadoresmodalPage {
 
-  equipo:any={};
+  equipo:Array<jugador>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
- console.log(listajugadores.jugadores);
   }
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad JugadoresmodalPage');
-    let data=this.navParams.get('equipo');
-    this.equipo=data;
+
+    this.equipo= this.navParams.get('listaJugadores');
   }
   
   convocar(jugador, equipo){
