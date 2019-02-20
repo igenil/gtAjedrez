@@ -21,15 +21,28 @@
 <ion-content padding>
     <ion-list> 
       <span *ngFor="let jugador of equipo | async">
-       <ion-item ion-item detail-none *ngIf="jugador.juega==false">
+
+        <ion-item ion-item detail-none *ngIf="jugador.juega==false && rolCapitan">
+            <ion-label>{{ jugador.nombre }}</ion-label>
+            <ion-checkbox item-right checked="false"  (click)="convocar(jugador)"></ion-checkbox>
+        </ion-item>
+
+        <ion-item ion-item detail-none *ngIf="jugador.juega==false && !rolCapitan">
+            <ion-label>{{ jugador.nombre }}</ion-label>
+            <ion-checkbox item-right checked="false" disabled='true' (click)="convocar(jugador)"></ion-checkbox>
+        </ion-item>
+
+        <ion-item ion-item detail-none *ngIf="jugador.juega==true && rolCapitan">
           <ion-label>{{ jugador.nombre }}</ion-label>
-          <ion-checkbox item-right checked="false"  (click)="convocar(jugador)"></ion-checkbox>
-      </ion-item>
-      <ion-item ion-item detail-none *ngIf="jugador.juega==true">
-        <ion-label>{{ jugador.nombre }}</ion-label>
-        <ion-checkbox item-right checked="true" (click)="convocar(jugador)"></ion-checkbox>
-      </ion-item>
-    </span>
+          <ion-checkbox item-right checked="true" (click)="convocar(jugador)"></ion-checkbox>
+        </ion-item>
+
+        <ion-item ion-item detail-none *ngIf="jugador.juega==true && !rolCapitan">
+          <ion-label>{{ jugador.nombre }}</ion-label>
+          <ion-checkbox item-right checked="true" disabled='true' (click)="convocar(jugador)"></ion-checkbox>
+        </ion-item>
+
+      </span>
     </ion-list>
     <button ion-button color="dark" (click)="viewCtrl.dismiss()">Listo</button>
     

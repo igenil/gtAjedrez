@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { jugador } from '../../models/jugador';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { JUGADORES } from '../../data/data.jugadores';
+import firebase from 'firebase';
 
 /**
  * Generated class for the JugadoresmodalPage page.
@@ -23,13 +24,40 @@ import { JUGADORES } from '../../data/data.jugadores';
 export class JugadoresmodalPage {
 
   equipo:Array<jugador>;
-  constructor(private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
+  rolAdmin: boolean;
+  rolCapitan:boolean = false;
+  Nconvocados:Number;
+  convocados: any = [];
+
+  constructor(private prov: ListajugadoresProvider,private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
+    
   }
 
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad JugadoresmodalPage');
-
+    console.log('ionViewDidLoad JugadoresmodalPage');
+    
     this.equipo= this.navParams.get('listaJugadores');
+    let key = this.navParams.get('keyEquipo');
+    console.log(key); 
+
+    this.listajugadores.Covocados(key).then(existe =>{
+      if(existe) {
+          console.log(this.prov.convocados); 
+      }
+    })
+
+      
+
+    var user = firebase.auth().currentUser;
+    this.prov.verificarUsuario(user.email).then(existe =>{
+      if(existe) {
+        if (this.prov.admin[0].admin) {
+          this.rolAdmin = true;
+        }
+      }if(this.prov.admin[0].capitan){
+          this.rolCapitan = true;
+      }
+    })
   }
   
   convocar(jugador){
