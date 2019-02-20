@@ -6,7 +6,7 @@ export class ListajugadoresProvider {
 
   email: string;
   admin: {};
-  convocados: string;
+  convocados: {};
   constructor(private afDB: AngularFireDatabase) {
     
   }
@@ -34,7 +34,7 @@ export class ListajugadoresProvider {
             ref.orderByChild('equipo').equalTo(key)).valueChanges().subscribe(data => {
               console.log(data);
               if(data){
-                this.convocados = data.toString();
+                this.convocados = data;
                 resolve(true);
               } else {
                 resolve(false);

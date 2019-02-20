@@ -26,8 +26,8 @@ export class JugadoresmodalPage {
   equipo:Array<jugador>;
   rolAdmin: boolean;
   rolCapitan:boolean = false;
-  Nconvocados:Number;
-  convocados: any = [];
+  Nconvocados:Number = 0;
+  key: string;
 
   constructor(private prov: ListajugadoresProvider,private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
     
@@ -37,16 +37,7 @@ export class JugadoresmodalPage {
     console.log('ionViewDidLoad JugadoresmodalPage');
     
     this.equipo= this.navParams.get('listaJugadores');
-    let key = this.navParams.get('keyEquipo');
-    console.log(key); 
-
-    this.listajugadores.Covocados(key).then(existe =>{
-      if(existe) {
-          console.log(this.prov.convocados); 
-      }
-    })
-
-      
+    this.key = this.navParams.get('keyEquipo');
 
     var user = firebase.auth().currentUser;
     this.prov.verificarUsuario(user.email).then(existe =>{
@@ -56,6 +47,17 @@ export class JugadoresmodalPage {
         }
       }if(this.prov.admin[0].capitan){
           this.rolCapitan = true;
+      }
+    })
+
+    this.listajugadores.Covocados(this.key).then(existe =>{
+      if(existe) {
+          for (let i = 0; i < Object.keys(this.prov.convocados).length; i++) {
+            if (this.prov.convocados[i].juega) {
+              this.Nconvocados = Number(this.Nconvocados) + 1;
+            }
+          }
+          console.log(this.Nconvocados); 
       }
     })
   }
@@ -68,6 +70,18 @@ export class JugadoresmodalPage {
       jugador.juega  = false;
       this.afdb.list("/jugador").update(jugador.key, jugador);
     }
+
+    this.listajugadores.Covocados(this.key).then(existe =>{
+      if(existe) {
+          for (let i = 0; i < Object.keys(this.prov.convocados).length; i++) {
+            if (this.prov.convocados[i].juega) {
+              this.Nconvocados = Number(this.Nconvocados) + 1;
+            }
+          }
+          console.log(this.Nconvocados); 
+      }
+    })
+    this.Nconvocados = 0;
   }
   volver(){
     this.viewCtrl.dismiss();
