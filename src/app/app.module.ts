@@ -35,6 +35,8 @@ import { JornadasmodalPage } from '../pages/jornadasmodal/jornadasmodal';
 import { AddequiposmodalPage } from '../pages/addequiposmodal/addequiposmodal';
 import { RegistroPage } from '../pages/registro/registro';
 import { EditequipomodalPage } from '../pages/editequipomodal/editequipomodal';
+import { CapitanesPage } from '../pages/capitanes/capitanes';
+import { CapitanesmodalPage } from '../pages/capitanesmodal/capitanesmodal';
 
 
 
@@ -57,6 +59,8 @@ import { EditequipomodalPage } from '../pages/editequipomodal/editequipomodal';
     JornadasmodalPage,
     RegistroPage,
     EditequipomodalPage,
+    CapitanesPage,
+    CapitanesmodalPage
 
   ],
   imports: [
@@ -86,6 +90,8 @@ import { EditequipomodalPage } from '../pages/editequipomodal/editequipomodal';
     JornadasmodalPage,
     RegistroPage,
     EditequipomodalPage,
+    CapitanesPage,
+    CapitanesmodalPage
   ],
   providers: [
     StatusBar,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { CapitanesmodalPage } from '../capitanesmodal/capitanesmodal';
 
 
 @IonicPage()
