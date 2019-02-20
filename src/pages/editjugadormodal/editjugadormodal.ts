@@ -21,30 +21,55 @@ import { equipo } from '../../models/equipo';
 })
 export class EditjugadormodalPage {
   jugador:jugador;
+  nombre:string;
+  email:string;
+  casa:number;
+  fuera:number;
+  empate:number;
+  ganado:number;
+  perdidos:number;
+  jugados:number;
+  elo:number;
+  capitan:boolean;
+  admin:boolean;
+  equipo:string;
+  juega:boolean;
 
   equipos: Observable<equipo[]>;
   listEquipos: AngularFireList<any>;
 
   constructor(private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,  public listajugadores:ListajugadoresProvider) {
     let data=this.navParams.get('jugador');
-    data.elo = parseInt(data.elo);
+    data.elo = Number(data.elo);
     this.jugador=data;
 
     this.listEquipos = afdb.list("/equipo");
     this.equipos =  this.listEquipos.snapshotChanges().pipe(
        map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
     );
-    console.log(this.jugador);
   }
 
   ionViewDidLoad() {
     
-    console.log('ionViewDidLoad EditjugadormodalPage');
   }
 
   editarjugador(){
-    this.afdb.list("/jugador").update(this.jugador.key, this.jugador)
+    this.jugador.admin=this.admin;
+    this.jugador.capitan=this.capitan;
+    this.jugador.casa=this.casa;
+    this.jugador.elo=this.elo;
+    this.jugador.empate=this.empate;
+    this.jugador.equipo=this.equipo;
+    this.jugador.fuera=this.fuera;
+    this.jugador.ganado=this.fuera;
+    this.jugador.juega=this.juega;
+    this.jugador.jugados=this.jugados;
+    this.jugador.nombre=this.nombre;
+    this.jugador.perdidos=this.perdidos;
+    this.jugador.admin=this.admin;
+    this.afdb.list("/jugador").update(this.jugador.key, this.jugador);
     this.viewCtrl.dismiss();
+    console.log(this.jugador);
     
   }
 }
