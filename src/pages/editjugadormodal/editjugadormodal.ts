@@ -21,17 +21,17 @@ import { equipo } from '../../models/equipo';
 })
 export class EditjugadormodalPage {
   jugador:jugador;
-  // nombre:string;
-  // email:string;
-  // casa:number;
-  // fuera:number;
-  // empate:number;
-  // ganado:number;
-  // perdidos:number;
-  // jugados:number;
-  // elo:number;
-  // capitan:boolean;
-  // admin:boolean;
+  nombre:string;
+  email:string;
+  casa:number;
+  fuera:number;
+  empate:number;
+  ganado:number;
+  perdidos:number;
+  jugados:number;
+  elo:number;
+  capitan:boolean;
+  admin:boolean;
   equipo:string;
   juega:boolean;
 
@@ -54,12 +54,12 @@ export class EditjugadormodalPage {
 
   editarjugador(){
 
+    console.log(this.jugador.key);
     this.jugador.elo = Number(this.jugador.elo);
-    if (this.jugador.equipo!=this.equipo){
-      this.jugador.juega=false;
-    };
+    console.log(typeof(this.jugador.elo));
     this.afdb.list("/jugador").update(this.jugador.key, this.jugador);
     this.viewCtrl.dismiss();
+    console.log(this.jugador);
     
   }
 }

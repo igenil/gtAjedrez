@@ -28,19 +28,19 @@ export class ListajugadoresProvider {
     })
   }
 
-  Covocados( key: string ) {
-    return new Promise((resolve, reject) => {
-      this.afDB.list("/jugador", ref => 
-        ref.orderByChild('equipo').equalTo(key)).valueChanges().subscribe(data => {
-          console.log(data);
-          if(data){
-            this.convocados = data;
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-          
+      Covocados( key: string ) {
+        return new Promise((resolve, reject) => {
+          this.afDB.list("/jugador", ref => 
+            ref.orderByChild('equipo').equalTo(key)).valueChanges().subscribe(data => {
+              console.log(data);
+              if(data){
+                this.convocados = data;
+                resolve(true);
+              } else {
+                resolve(false);
+              }
+              
+            })
         })
-    })
-  }
+      }
 }
