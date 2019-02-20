@@ -29,14 +29,11 @@ export class JugadoresPage {
 
   constructor(private toastCtrl: ToastController, private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
     
-    this.listaJugadores = afdb.list("/jugador");
-    this.jugadores = this.afdb.list('/jugador', ref => ref.orderByChild('elo')).valueChanges();
-    this.jugadores.forEach(element => {
-      for (let index = 0; index < element.length; index++) {
-        const ws = element[index];
-        console.log(ws);
-      }
-    });
+    this.listaJugadores = afdb.list("/jugador", ref => ref.orderByChild('elo'));
+    this.jugadores = this.listaJugadores.snapshotChanges().pipe(
+      map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
+   );;
+
   }
 
   signOut(): Promise<void> {

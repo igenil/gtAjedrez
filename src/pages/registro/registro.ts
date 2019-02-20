@@ -60,10 +60,11 @@ export class RegistroPage {
     }; 
     this.jugador.email = data.email;
     this.jugador.nombre = data.Usuario;
-    this.afdb.list("/jugador/").push(this.jugador); 
-		this.auth.signUp(credentials).then(
+    this.auth.signUp(credentials).then(
 			() => this.navCtrl.setRoot(TabsPage),
 			error => this.signupError = error.message
 		);
+    this.afdb.list("/jugador/").push(this.jugador); 
+		
 }
 }

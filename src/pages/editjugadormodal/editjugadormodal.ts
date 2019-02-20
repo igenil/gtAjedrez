@@ -40,7 +40,6 @@ export class EditjugadormodalPage {
 
   constructor(private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,  public listajugadores:ListajugadoresProvider) {
     let data=this.navParams.get('jugador');
-    data.elo = Number(data.elo);
     this.jugador=data;
 
     this.listEquipos = afdb.list("/equipo");
@@ -54,19 +53,10 @@ export class EditjugadormodalPage {
   }
 
   editarjugador(){
-    this.jugador.admin=this.admin;
-    this.jugador.capitan=this.capitan;
-    this.jugador.casa=this.casa;
-    this.jugador.elo=this.elo;
-    this.jugador.empate=this.empate;
-    this.jugador.equipo=this.equipo;
-    this.jugador.fuera=this.fuera;
-    this.jugador.ganado=this.fuera;
-    this.jugador.juega=this.juega;
-    this.jugador.jugados=this.jugados;
-    this.jugador.nombre=this.nombre;
-    this.jugador.perdidos=this.perdidos;
-    this.jugador.admin=this.admin;
+
+    console.log(this.jugador.key);
+    this.jugador.elo = Number(this.jugador.elo);
+    console.log(typeof(this.jugador.elo));
     this.afdb.list("/jugador").update(this.jugador.key, this.jugador);
     this.viewCtrl.dismiss();
     console.log(this.jugador);
