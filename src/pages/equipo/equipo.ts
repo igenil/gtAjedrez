@@ -31,8 +31,10 @@ export class EquipoPage {
   listEquipos: AngularFireList<any>;
   jugadores: Array<jugador>;
   admin: Observable<any>;
+  rolAdmin: boolean;
+  rolCapitan:boolean = false;
 
-  constructor(private toastCtrl: ToastController, private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+  constructor(private prov: ListajugadoresProvider, private toastCtrl: ToastController, private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
     this.listEquipos = afdb.list("/equipo");
     this.equipos =  this.listEquipos.snapshotChanges().pipe(
        map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
@@ -48,7 +50,7 @@ export class EquipoPage {
   mostrar_modal(equipo){
     var jugadoresequipo = this.afdb.list('/jugador', ref => ref.orderByChild('equipo').equalTo(equipo.key)).valueChanges();
     console.log(jugadoresequipo);
-    let modal=this.modalCtrl.create(JugadoresmodalPage,{'listaJugadores':jugadoresequipo});
+    let modal=this.modalCtrl.create(JugadoresmodalPage,{'listaJugadores':jugadoresequipo,'keyEquipo':equipo.key});
     modal.present();
   }
 
@@ -80,8 +82,15 @@ export class EquipoPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EquipoPage');
     var user = firebase.auth().currentUser;
-    this.admin = this.afdb.list("/jugador", ref =>ref.equalTo(user.email)).valueChanges();
-    console.log(this.admin);
+    this.prov.verificarUsuario(user.email).then(existe =>{
+      if(existe) {
+        if (this.prov.admin[0].admin) {
+          this.rolAdmin = true;
+        }
+      }else if(this.prov.admin[0].capitan){
+          this.rolCapitan = true;
+      }
+    })
   }
 
 }
