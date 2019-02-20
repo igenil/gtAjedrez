@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { database } from 'firebase';
 import { EditequipomodalPage } from '../editequipomodal/editequipomodal';
+import firebase from 'firebase';
 
 /**
  * Generated class for the EquipoPage page.
@@ -29,6 +30,7 @@ export class EquipoPage {
   equipos: Observable<equipo[]>;
   listEquipos: AngularFireList<any>;
   jugadores: Array<jugador>;
+  admin: Observable<any>;
 
   constructor(private toastCtrl: ToastController, private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
     this.listEquipos = afdb.list("/equipo");
@@ -77,6 +79,9 @@ export class EquipoPage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad EquipoPage');
+    var user = firebase.auth().currentUser;
+    this.admin = this.afdb.list("/jugador", ref =>ref.equalTo(user.email)).valueChanges();
+    console.log(this.admin);
   }
 
 }
