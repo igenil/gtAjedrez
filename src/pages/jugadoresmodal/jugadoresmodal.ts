@@ -5,6 +5,8 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { jugador } from '../../models/jugador';
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import { JUGADORES } from '../../data/data.jugadores';
 
 /**
  * Generated class for the JugadoresmodalPage page.
@@ -21,7 +23,7 @@ import { jugador } from '../../models/jugador';
 export class JugadoresmodalPage {
 
   equipo:Array<jugador>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
+  constructor(private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
   }
 
   ionViewDidLoad() {
@@ -30,16 +32,13 @@ export class JugadoresmodalPage {
     this.equipo= this.navParams.get('listaJugadores');
   }
   
-  convocar(jugador, equipo){
+  convocar(jugador){
     if(!jugador.juega){
-      equipo.convocados+=1;
-      console.log(equipo.convocados)
-      jugador.juega = true;
-
-    }else if(jugador.juega, equipo){
-      equipo.convocados-=1;
-      console.log(equipo.convocados)
-      jugador.juega = false;
+      jugador.juega  = true;
+      this.afdb.list("/jugador").update(jugador.key, jugador);
+    }else if(jugador.juega){
+      jugador.juega  = false;
+      this.afdb.list("/jugador").update(jugador.key, jugador);
     }
   }
   volver(){

@@ -21,12 +21,14 @@
 <ion-content padding>
     <ion-list> 
       <span *ngFor="let jugador of equipo | async">
-       <ion-item ion-item detail-none *ngIf="equipo.convocados!=4 && jugador.juega==true">
-          <ion-icon name="contact" item-left></ion-icon>
-            {{jugador.nombre}}
-            <ion-checkbox item-right checked="false" ></ion-checkbox>
-        </ion-item>
-
+       <ion-item ion-item detail-none *ngIf="jugador.juega==false">
+          <ion-label>{{ jugador.nombre }}</ion-label>
+          <ion-checkbox item-right checked="false"  (click)="convocar(jugador)"></ion-checkbox>
+      </ion-item>
+      <ion-item ion-item detail-none *ngIf="jugador.juega==true">
+        <ion-label>{{ jugador.nombre }}</ion-label>
+        <ion-checkbox item-right checked="true" (click)="convocar(jugador)"></ion-checkbox>
+      </ion-item>
     </span>
     </ion-list>
     <button ion-button color="dark" (click)="viewCtrl.dismiss()">Listo</button>
