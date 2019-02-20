@@ -53,13 +53,13 @@ export class EditjugadormodalPage {
   }
 
   editarjugador(){
-
     console.log(this.jugador.key);
     this.jugador.elo = Number(this.jugador.elo);
     console.log(typeof(this.jugador.elo));
     this.afdb.list("/jugador").update(this.jugador.key, this.jugador);
     this.viewCtrl.dismiss();
     console.log(this.jugador);
+    console.log("t");
     
   }
 }
