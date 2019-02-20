@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { CapitanesmodalPage } from '../capitanesmodal/capitanesmodal';
+import { Observable } from 'rxjs';
 
 
 @IonicPage()
@@ -10,10 +11,11 @@ import { CapitanesmodalPage } from '../capitanesmodal/capitanesmodal';
   templateUrl: 'capitanes.html',
 })
 export class CapitanesPage {
-  listEquipos: AngularFireList<any>;
+  listEquipos: Observable<any>;
+  capitanes: Observable<any>;
 
   constructor(public navCtrl: NavController, private afdb: AngularFireDatabase, private modalCtrl: ModalController, public navParams: NavParams) {
-    var capitanes = this.afdb.list('/jugador', ref => ref.orderByChild('capitan'));
+    this.capitanes = this.afdb.list('/jugador', ref => ref.orderByChild('capitan').equalTo(true)).valueChanges();
 
   }
 
@@ -21,9 +23,9 @@ export class CapitanesPage {
     console.log('ionViewDidLoad CapitanesPage');
   }
 
-  mostrar_modal(){
-    this.listEquipos = this.afdb.list("/equipo");
-    let modal=this.modalCtrl.create(CapitanesmodalPage,{'listEquipos':this.listEquipos});
+  mostrar_modal(capitan){
+    this.listEquipos = this.afdb.list("/equipo").valueChanges();
+    let modal=this.modalCtrl.create(CapitanesmodalPage,{'listEquipos':this.listEquipos, 'capitan':capitan});
     modal.present();
   }
 }
