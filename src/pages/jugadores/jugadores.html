@@ -19,11 +19,12 @@
 
 <ion-content padding>
   <ion-list>
-      <span *ngFor="let jugador of jugadores | async">
+      <span *ngFor="let jugador of jugadores | async ">
          <ion-list>
           <ion-item-sliding #item>
             <ion-item>
               <ion-icon name="contact" item-start></ion-icon>
+
               <h2>{{jugador.nombre}}, {{jugador.elo}}</h2> 
             </ion-item>
             <ion-item-options side="right">

@@ -9,7 +9,7 @@ import { jugador } from '../../models/jugador';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import firebase from 'firebase';
-
+import { Pipe, PipeTransform } from '@angular/core';
 
 /**
  * Generated class for the JugadoresPage page.
@@ -23,9 +23,11 @@ import firebase from 'firebase';
   selector: 'page-jugadores',
   templateUrl: 'jugadores.html',
 })
+
+
 export class JugadoresPage {
 
-  jugadores: Observable<any>;
+  jugadores: Observable<jugador[]>;
   listaJugadores: AngularFireList<any>;
   admin: {};
   rolAdmin:boolean = false;
@@ -35,7 +37,7 @@ export class JugadoresPage {
     
     this.listaJugadores = afdb.list("/jugador", ref => ref.orderByChild('elo'));
     this.jugadores = this.listaJugadores.snapshotChanges().pipe(
-      map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
+      map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })).reverse())
    );;
 
   }
