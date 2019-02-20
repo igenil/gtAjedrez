@@ -27,6 +27,7 @@ export class EditjugadormodalPage {
 
   constructor(private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,  public listajugadores:ListajugadoresProvider) {
     let data=this.navParams.get('jugador');
+    data.elo = parseInt(data.elo);
     this.jugador=data;
 
     this.listEquipos = afdb.list("/equipo");

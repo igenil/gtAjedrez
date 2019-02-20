@@ -11,5 +11,6 @@ export interface jugador{
     elo:number,
     capitan:boolean,
     admin:boolean,
-    equipo:string
+    equipo:string,
+    juega:boolean
 }
