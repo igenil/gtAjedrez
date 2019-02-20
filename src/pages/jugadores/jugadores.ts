@@ -28,6 +28,7 @@ export class JugadoresPage {
   jugadores: Observable<any>;
   listaJugadores: AngularFireList<any>;
   admin: {};
+  rolAdmin:boolean = false;
 
   constructor( private prov: ListajugadoresProvider ,private toastCtrl: ToastController, private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
     
@@ -78,10 +79,11 @@ export class JugadoresPage {
     console.log('ionViewDidLoad JugadoresPage');
     console.log('ionViewDidLoad EquipoPage');
     var user = firebase.auth().currentUser;
-    
     this.prov.verificarUsuario(user.email).then(existe =>{
       if(existe) {
-        console.log(this.prov.admin);
+        if (this.prov.admin[0].admin) {
+          this.rolAdmin = true;
+        }
       }else {
 
       }

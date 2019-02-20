@@ -41,7 +41,7 @@ export class EquipoPage {
   }
 
   mostrar_modal_anadir(){
-    let modal=this.modalCtrl.create(AddequiposmodalPage, this.listajugadores.jugadores);
+    let modal=this.modalCtrl.create(AddequiposmodalPage, this.listajugadores);
     modal.present();
   }
 
