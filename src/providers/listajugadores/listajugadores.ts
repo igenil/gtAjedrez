@@ -28,6 +28,7 @@ export class ListajugadoresProvider {
     })
   }
 
+  
       Covocados( key: string ) {
         return new Promise((resolve, reject) => {
           this.afDB.list("/jugador", ref => 
