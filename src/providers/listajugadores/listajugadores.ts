@@ -1,20 +1,30 @@
 
 import { Injectable } from '@angular/core';
-import { JUGADORES } from '../../data/data.jugadores';
-import { EQUIPOS } from '../../data/data.equipos';
+import { AngularFireDatabase } from "angularfire2/database";
 @Injectable()
 export class ListajugadoresProvider {
-  jugadores=JUGADORES.slice(0).sort(function(a,b){ 
-    if (Number(a.ptos)>Number(b.ptos)) {
-      return -1;
-    } else if(Number(a.ptos)<Number(b.ptos)){
-      return 1;
-    } else {
-      return 0;
-    }
-  });
-  equipos=EQUIPOS.slice(0);
-  constructor() {
+
+  email: string;
+  admin: {};
+
+  constructor(private afDB: AngularFireDatabase) {
     
+  }
+
+  verificarUsuario( email: string ) {
+    return new Promise((resolve, reject) => {
+      this.afDB.list('/jugador/',  ref => ref.orderByChild('email').equalTo(email))
+        .valueChanges().subscribe(data => {
+          console.log(data);
+          if(data){
+            this.email = email;
+            this.admin = data;
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+          
+        })
+    })
   }
 }

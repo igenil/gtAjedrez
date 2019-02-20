@@ -8,6 +8,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { jugador } from '../../models/jugador';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import firebase from 'firebase';
 
 
 /**
@@ -26,8 +27,9 @@ export class JugadoresPage {
 
   jugadores: Observable<any>;
   listaJugadores: AngularFireList<any>;
+  admin: {};
 
-  constructor(private toastCtrl: ToastController, private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
+  constructor( private prov: ListajugadoresProvider ,private toastCtrl: ToastController, private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public AfAuth: AngularFireAuth, public listajugadores:ListajugadoresProvider) {
     
     this.listaJugadores = afdb.list("/jugador", ref => ref.orderByChild('elo'));
     this.jugadores = this.listaJugadores.snapshotChanges().pipe(
@@ -74,6 +76,16 @@ export class JugadoresPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JugadoresPage');
-  }
+    console.log('ionViewDidLoad EquipoPage');
+    var user = firebase.auth().currentUser;
+    
+    this.prov.verificarUsuario(user.email).then(existe =>{
+      if(existe) {
+        console.log(this.prov.admin);
+      }else {
 
+      }
+    })
+  }
+  
 }
