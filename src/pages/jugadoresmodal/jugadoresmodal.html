@@ -27,7 +27,7 @@
             <ion-checkbox item-right checked="false"  (click)="convocar(jugador)"></ion-checkbox>
         </ion-item>
 
-        <ion-item ion-item detail-none *ngIf="jugador.juega==false && rolCapitan && Nconvocados==5">
+        <ion-item ion-item detail-none *ngIf="jugador.juega==false && rolCapitan && Nconvocados>=5">
             <ion-label>{{ jugador.nombre }}</ion-label>
             <ion-checkbox item-right checked="false" disabled='true' (click)="convocar(jugador)"></ion-checkbox>
         </ion-item>
