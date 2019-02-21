@@ -6,13 +6,171 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>editjornadamodal</ion-title>
+   <ion-navbar color="dark"> 
+    <ion-title>Editar {{ jornada.titulo }} </ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+<ion-list>
+    
+      <p><span style="font-weight: bold;"> Nombre: </span> {{ jornada.titulo }}</p>
+      <p><span style="font-weight: bold;"> Fecha: </span> {{ jornada.fecha }}</p>
+      <span *ngFor="let equip of equipo | async">
+        <p><span style="font-weight: bold;"> Equipo: </span> {{ equip.nombre }}</p>
+      </span>
 
+      <span *ngFor="let titularUno of titular1 | async">
+        <p>
+          <span style="font-weight: bold;"> Titular 1: </span> {{ titularUno.nombre }},
+          <span *ngIf="jornada.resultado1 == 0">
+            G &ensp;<ion-checkbox (click)="ganatitular1(jornada, titularUno)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox (click)="empatatitular1(jornada, titularUno)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox (click)="pierdetitular1(jornada, titularUno)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado1 == 1">
+            G &ensp;<ion-checkbox checked = "true" (click)="ganatitular1(jornada, titularUno)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular1(jornada, titularUno)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular1(jornada, titularUno)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado1 == 2">
+            G &ensp;<ion-checkbox disabled='true' (click)="ganatitular1(jornada, titularUno)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox checked = "true"(click)="empatatitular1(jornada, titularUno)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular1(jornada, titularUno)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado1 == 3">
+            G &ensp;<ion-checkbox  disabled='true' (click)="ganatitular1(jornada, titularUno)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular1(jornada, titularUno)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox checked = "true" (click)="pierdetitular1(jornada, titularUno)"></ion-checkbox>
+          </span>
+        </p>
+      </span>
+
+      <span *ngFor="let titularDos of titular2 | async">
+         <p>
+          <span style="font-weight: bold;"> Titular 2: </span> {{ titularDos.nombre }},
+          <span *ngIf="jornada.resultado2 == 0">
+            G &ensp;<ion-checkbox (click)="ganatitular2(jornada, titularDos)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox (click)="empatatitular2(jornada, titularDos)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox (click)="pierdetitular2(jornada, titularDos)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado2 == 1">
+            G &ensp;<ion-checkbox checked = "true" (click)="ganatitular2(jornada, titularDos)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular2(jornada, titularDos)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular2(jornada, titularDos)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado2 == 2">
+            G &ensp;<ion-checkbox disabled='true' (click)="ganatitular2(jornada, titularDos)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox checked = "true"(click)="empatatitular2(jornada, titularDos)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular2(jornada, titularDos)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado2 == 3">
+            G &ensp;<ion-checkbox  disabled='true' (click)="ganatitular2(jornada, titularDos)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular2(jornada, titularDos)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox checked = "true" (click)="pierdetitular2(jornada, titularDos)"></ion-checkbox>
+          </span>
+        </p>
+      </span>
+      
+      <span *ngFor="let titularTres of titular3 | async">
+           <p>
+          <span style="font-weight: bold;"> Titular 2: </span> {{ titularTres.nombre }},
+          <span *ngIf="jornada.resultado3 == 0">
+            G &ensp;<ion-checkbox (click)="ganatitular3(jornada, titularTres)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox (click)="empatatitular3(jornada, titularTres)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox (click)="pierdetitular3(jornada, titularTres)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado3 == 1">
+            G &ensp;<ion-checkbox checked = "true" (click)="ganatitular3(jornada, titularTres)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular3(jornada, titularTres)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular3(jornada, titularTres)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado3 == 2">
+            G &ensp;<ion-checkbox disabled='true' (click)="ganatitular3(jornada, titularTres)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox checked = "true"(click)="empatatitular3(jornada, titularTres)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular3(jornada, titularTres)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado3 == 3">
+            G &ensp;<ion-checkbox  disabled='true' (click)="ganatitular3(jornada, titularTres)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular3(jornada, titularTres)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox checked = "true" (click)="pierdetitular3(jornada, titularTres)"></ion-checkbox>
+          </span>
+        </p>
+      </span>
+
+      <span *ngFor="let titularCuatro of titular4 | async">
+         <p>
+          <span style="font-weight: bold;"> Titular 4: </span> {{ titularCuatro.nombre }},
+          <span *ngIf="jornada.resultado4 == 0">
+            G &ensp;<ion-checkbox (click)="ganatitular4(jornada, titularCuatro)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox (click)="empatatitular4(jornada, titularCuatro)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox (click)="pierdetitular4(jornada, titularCuatro)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado4 == 1">
+            G &ensp;<ion-checkbox checked = "true" (click)="ganatitular4(jornada, titularCuatro)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular4(jornada, titularCuatro)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular4(jornada, titularCuatro)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado4 == 2">
+            G &ensp;<ion-checkbox disabled='true' (click)="ganatitular4(jornada, titularCuatro)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox checked = "true"(click)="empatatitular4(jornada, titularCuatro)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular4(jornada, titularCuatro)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado4 == 3">
+            G &ensp;<ion-checkbox  disabled='true' (click)="ganatitular4(jornada, titularCuatro)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular4(jornada, titularCuatro)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox checked = "true" (click)="pierdetitular4(jornada, titularCuatro)"></ion-checkbox>
+          </span>
+        </p>
+      </span>
+
+      <span *ngFor="let titularCinco of titular5 | async">
+        <p>
+          <span style="font-weight: bold;"> Titular 5: </span> {{ titularCinco.nombre }},
+          <span *ngIf="jornada.resultado5 == 0">
+            G &ensp;<ion-checkbox (click)="ganatitular5(jornada, titularCinco)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox (click)="empatatitular5(jornada, titularCinco)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox (click)="pierdetitular5(jornada, titularCinco)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado5 == 1">
+            G &ensp;<ion-checkbox checked = "true" (click)="ganatitular5(jornada, titularCinco)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular5(jornada, titularCinco)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular5(jornada, titularCinco)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado5 == 2">
+            G &ensp;<ion-checkbox disabled='true' (click)="ganatitular5(jornada, titularCinco)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox checked = "true"(click)="empatatitular5(jornada, titularCinco)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox disabled='true' (click)="pierdetitular5(jornada, titularCinco)"></ion-checkbox>
+          </span>
+
+          <span *ngIf="jornada.resultado5 == 3">
+            G &ensp;<ion-checkbox  disabled='true' (click)="ganatitular5(jornada)"></ion-checkbox>&ensp;&ensp;
+            E &ensp;<ion-checkbox disabled='true'(click)="empatatitular5(jornada)"></ion-checkbox>&ensp;&ensp;
+            P &ensp;<ion-checkbox checked = "true" (click)="pierdetitular5(jornada)"></ion-checkbox>
+          </span>
+        </p>
+      </span>
+    </ion-list>
+     <button ion-button color="dark" (click)="viewCtrl.dismiss()">Listo</button>
 </ion-content>
