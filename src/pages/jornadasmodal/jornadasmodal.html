@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="dark"> 
-    <ion-title>Datos de {{ jornada.nombre }} </ion-title>
+    <ion-title>Datos de {{ jornada.titulo }} </ion-title>
     <ion-buttons left>
       <button ion-button icon-only (click)="viewCtrl.dismiss()">
         <ion-icon name="arrow-back"></ion-icon>
@@ -19,9 +19,20 @@
 
 
 <ion-content padding>
+
+
+
+
     <ion-list>
-      <p><span style="font-weight: bold;"> Nombre: </span> {{ jornada.nombre }}</p>
+    
+      <p><span style="font-weight: bold;"> Nombre: </span> {{ jornada.titulo }}</p>
       <p><span style="font-weight: bold;"> Fecha: </span> {{ jornada.fecha }}</p>
+      <span *ngFor="let equip of equipo | async">
+        <p><span style="font-weight: bold;"> Equipo: </span> {{ equip.nombre }}</p>
+      </span>
+      
+      
+      <!--
       <p>
         <ion-label> 
           <span style="font-weight: bold;">    
@@ -138,6 +149,7 @@
                   </span>  
               </ion-label>
             </p>
+            -->
     </ion-list>
     <button ion-button color="dark" (click)="viewCtrl.dismiss()">Listo</button>
 </ion-content>

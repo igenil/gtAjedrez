@@ -31,6 +31,7 @@ export class CalendariomodalPage {
   }
   
   add(){
+    
     this.afdb.list("/jornada").push(this.jornada);
     this.viewCtrl.dismiss();
     this.mostrar_mensaje("Jornada añadida con exito!.");

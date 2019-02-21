@@ -29,12 +29,12 @@
             {{jornada.titulo}}
           </ion-item>
           <ion-item-options side="right">
-            <button ion-button (click)="mostrar_modal(jugador)" color="secondary">
+            <button ion-button (click)="mostrar_modal(jornada)" color="secondary">
               <ion-icon name="eye" ></ion-icon>
               Ver
             </button>
             <span *ngIf="rolAdmin==true">
-              <button ion-button (click)="mostrar_modal_editar(jugador)" color="primary">
+              <button ion-button (click)="mostrar_modal_editar(jornada)" color="primary">
                 <ion-icon name="build" ></ion-icon>
                 Editar
               </button>

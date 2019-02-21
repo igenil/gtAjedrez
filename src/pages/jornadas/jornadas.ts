@@ -53,7 +53,8 @@ export class JornadasPage {
   }
 
   mostrar_modal(jornada){
-    let modal = this.modalCtrl.create(JornadasmodalPage,{jornada});
+    var equipo = this.afdb.list('/equipo', ref => ref.orderByKey().equalTo(jornada.equipo)).valueChanges();
+    let modal = this.modalCtrl.create(JornadasmodalPage,{jornada, equipo});
     modal.present();
   }
   
