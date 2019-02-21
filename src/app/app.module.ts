@@ -37,7 +37,7 @@ import { RegistroPage } from '../pages/registro/registro';
 import { EditequipomodalPage } from '../pages/editequipomodal/editequipomodal';
 import { CapitanesPage } from '../pages/capitanes/capitanes';
 import { CapitanesmodalPage } from '../pages/capitanesmodal/capitanesmodal';
-
+import { EditjornadamodalPage } from '../pages/editjornadamodal/editjornadamodal';
 
 
 @NgModule({
@@ -60,7 +60,8 @@ import { CapitanesmodalPage } from '../pages/capitanesmodal/capitanesmodal';
     RegistroPage,
     EditequipomodalPage,
     CapitanesPage,
-    CapitanesmodalPage
+    CapitanesmodalPage,
+    EditjornadamodalPage
 
   ],
   imports: [
@@ -91,7 +92,8 @@ import { CapitanesmodalPage } from '../pages/capitanesmodal/capitanesmodal';
     RegistroPage,
     EditequipomodalPage,
     CapitanesPage,
-    CapitanesmodalPage
+    CapitanesmodalPage,
+    EditjornadamodalPage
   ],
   providers: [
     StatusBar,

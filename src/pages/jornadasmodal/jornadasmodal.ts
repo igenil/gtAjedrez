@@ -40,11 +40,7 @@ export class JornadasmodalPage {
     this.titular4 = this.navParams.get('titular4');
     this.titular5 = this.navParams.get('titular5');
     console.log(this.jornada);
-    // this.nombre1 = this.jornada.titular1.nombre;
-    // this.nombre2 = this.jornada.titular2.nombre;
-    // this.nombre3 = this.jornada.titular3.nombre;
-    // this.nombre4 = this.jornada.titular4.nombre;
-    // this.jornada.fecha = this.jornada.fecha.substring(0, 10);
+
   }
 
   // gana(jugador, n_titular:number){
