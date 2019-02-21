@@ -23,9 +23,11 @@
                 <h2><b>{{capitan.nombre}}</b></h2> 
               </ion-item>
               <ion-item-options side="right">
-                <button ion-button (click)="destituir(capitan)" style="background-color: transparent; border:none">
-                  <ion-icon color="danger" name="close" ></ion-icon>
-                </button>
+                <span *ngIf="rolAdmin==true">
+                  <button ion-button (click)="destituir(capitan)" style="background-color: transparent; border:none">
+                    <ion-icon color="danger" name="close" ></ion-icon>
+                  </button>
+                </span>
               </ion-item-options>
             </ion-item-sliding>
           </ion-list>

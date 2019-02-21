@@ -70,7 +70,7 @@ export class CalendariomodalPage {
           console.log(this.jornada);
           this.afdb.list("/jornada").push(this.jornada);
           this.viewCtrl.dismiss();
-          this.mostrar_mensaje("Jornada añadida con exito!.");
+          this.mostrar_mensaje("Jornada añadida con exito!");
       }
     })
     

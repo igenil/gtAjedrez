@@ -78,12 +78,6 @@ export class JornadasPage {
     modal.present();
   }
 
-  eliminar(jornada){
-    var id = jornada.key;
-    this.mostrar_mensaje("Jornada  eliminada con exito.");
-    this.afdb.database.ref('/jornada/'+ jornada.key).remove();
-  }
-
   mostrar_mensaje( mensaje:string ){
     let toast = this.toastCtrl.create({
     message: mensaje,
