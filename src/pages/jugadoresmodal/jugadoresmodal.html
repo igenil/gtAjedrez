@@ -22,7 +22,7 @@
     <ion-list> 
       <span *ngFor="let jugador of equipo | async">
 
-        <ion-item ion-item detail-none *ngIf="jugador.juega==false && rolCapitan && Nconvocados <5 || rolAdmin">
+        <ion-item ion-item detail-none *ngIf="(jugador.juega==false && (rolCapitan || rolAdmin) && Nconvocados <5 && !rolAdmin) || (jugador.juega==false && rolAdmin && Nconvocados <5)">
             <ion-label>{{ jugador.nombre }}</ion-label>
             <ion-checkbox item-right checked="false"  (click)="convocar(jugador)"></ion-checkbox>
             <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin">
@@ -33,7 +33,7 @@
           </button>
         </ion-item>
 
-        <ion-item ion-item detail-none *ngIf="jugador.juega==false && rolCapitan && Nconvocados>=5 || rolAdmin">
+        <ion-item ion-item detail-none *ngIf="(jugador.juega==false && rolCapitan && Nconvocados>=5 && !rolAdmin) || (jugador.juega==false && rolAdmin && Nconvocados>=5)">
             <ion-label>{{ jugador.nombre }}</ion-label>
             <ion-checkbox item-right checked="false" disabled='true' (click)="convocar(jugador)"></ion-checkbox>
             <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin">
@@ -44,7 +44,7 @@
           </button>
         </ion-item>
 
-        <ion-item ion-item detail-none *ngIf="jugador.juega==false && !rolCapitan">
+        <ion-item ion-item detail-none *ngIf="jugador.juega==false && !rolCapitan && !rolAdmin">
             <ion-label>{{ jugador.nombre }}</ion-label>
             <ion-checkbox item-right  checked="false" disabled='true' (click)="convocar(jugador)"></ion-checkbox>
             <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin ">
@@ -55,7 +55,7 @@
           </button>
         </ion-item>
 
-        <ion-item ion-item detail-none *ngIf="jugador.juega==true && rolCapitan || rolAdmin">
+        <ion-item ion-item detail-none *ngIf="(jugador.juega==true && rolCapitan && !rolAdmin) || (jugador.juega==true && rolAdmin)">
           <ion-label>{{ jugador.nombre }}</ion-label>
           <ion-checkbox item-right checked="true" (click)="convocar(jugador)"></ion-checkbox>
           <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin">
@@ -66,7 +66,7 @@
           </button>
         </ion-item>
 
-        <ion-item ion-item detail-none *ngIf="jugador.juega==true && !rolCapitan && rolAdmin">
+        <ion-item ion-item detail-none *ngIf="(jugador.juega==true && !rolCapitan && !rolAdmin )">
           <ion-label>{{ jugador.nombre }}</ion-label>
           <ion-checkbox item-right checked="true"  disabled='true' (click)="convocar(jugador)"></ion-checkbox>
           <button item-right ion-button icon-only color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin">

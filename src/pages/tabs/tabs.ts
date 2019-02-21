@@ -10,7 +10,6 @@ import { CapitanesPage } from '../capitanes/capitanes';
 })
 export class TabsPage {
 
-  tab2Root = CalendarioPage;
   tab3Root = EquipoPage;
   tab4Root = JugadoresPage;
   tab5Root = JornadasPage;
