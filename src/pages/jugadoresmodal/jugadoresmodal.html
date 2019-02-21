@@ -25,55 +25,55 @@
         <ion-item ion-item detail-none *ngIf="(jugador.juega==false && (rolCapitan || rolAdmin) && Nconvocados <5 && !rolAdmin) || (jugador.juega==false && rolAdmin && Nconvocados <5)">
             <ion-label>{{ jugador.nombre }}</ion-label>
             <ion-checkbox item-right checked="false"  (click)="convocar(jugador)"></ion-checkbox>
-            <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin">
-                <ion-icon color="whithe" name="ribbon"></ion-icon>
+            <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin"  style="background-color: transparent; border:none">
+                <ion-icon color="green" name="ribbon"></ion-icon>
             </button>
-            <button item-right ion-button color="dark" icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin">
-                <ion-icon color="whithe" name="ribbon"></ion-icon>
+            <button item-right ion-button color="dark" icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin"  style="background-color: transparent; border:none">
+                <ion-icon color="danger" name="ribbon"></ion-icon>
           </button>
         </ion-item>
 
         <ion-item ion-item detail-none *ngIf="(jugador.juega==false && rolCapitan && Nconvocados>=5 && !rolAdmin) || (jugador.juega==false && rolAdmin && Nconvocados>=5)">
             <ion-label>{{ jugador.nombre }}</ion-label>
             <ion-checkbox item-right checked="false" disabled='true' (click)="convocar(jugador)"></ion-checkbox>
-            <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin">
-                <ion-icon color="whithe"  name="ribbon"></ion-icon>
+            <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin"  style="background-color: transparent; border:none">
+                <ion-icon color="green"  name="ribbon"></ion-icon>
             </button>
-            <button item-right ion-button color="dark" icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin">
-                <ion-icon color="whithe" name="ribbon"></ion-icon>
+            <button item-right ion-button color="dark" icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin" style="background-color: transparent; border:none">
+                <ion-icon color="danger" name="ribbon"></ion-icon>
           </button>
         </ion-item>
 
-        <ion-item ion-item detail-none *ngIf="jugador.juega==false && !rolCapitan && !rolAdmin">
+        <ion-item ion-item detail-none *ngIf="jugador.juega==false && !rolCapitan && !rolAdmin" > 
             <ion-label>{{ jugador.nombre }}</ion-label>
             <ion-checkbox item-right  checked="false" disabled='true' (click)="convocar(jugador)"></ion-checkbox>
-            <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin ">
-                <ion-icon color="whithe" name="ribbon"></ion-icon>
+            <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin "  style="background-color: transparent; border:none">
+                <ion-icon color="green" name="ribbon"></ion-icon>
             </button>
-            <button item-right ion-button icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin">
-                <ion-icon color="whithe" name="ribbon"></ion-icon>
+            <button item-right ion-button icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin"  style="background-color: transparent; border:none">
+                <ion-icon color="danger" name="ribbon"></ion-icon>
           </button>
         </ion-item>
 
         <ion-item ion-item detail-none *ngIf="(jugador.juega==true && rolCapitan && !rolAdmin) || (jugador.juega==true && rolAdmin)">
           <ion-label>{{ jugador.nombre }}</ion-label>
           <ion-checkbox item-right checked="true" (click)="convocar(jugador)"></ion-checkbox>
-          <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin">
-                <ion-icon color="whithe" name="ribbon"></ion-icon>
+          <button item-right ion-button color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin"  style="background-color: transparent; border:none">
+                <ion-icon color="green" name="ribbon"></ion-icon>
           </button>
-          <button item-right ion-button icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin">
-                <ion-icon color="whithe" name="ribbon"></ion-icon>
+          <button item-right ion-button icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin"  style="background-color: transparent; border:none">
+                <ion-icon color="danger" name="ribbon"></ion-icon>
           </button>
         </ion-item>
 
         <ion-item ion-item detail-none *ngIf="(jugador.juega==true && !rolCapitan && !rolAdmin )">
           <ion-label>{{ jugador.nombre }}</ion-label>
           <ion-checkbox item-right checked="true"  disabled='true' (click)="convocar(jugador)"></ion-checkbox>
-          <button item-right ion-button icon-only color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin">
-                <ion-icon color="whithe" name="ribbon"></ion-icon>
+          <button item-right ion-button icon-only color="dark" (click)="capitan(jugador)" *ngIf="!isCapitan && rolAdmin"  style="background-color: transparent; border:none">
+                <ion-icon color="green" name="ribbon"></ion-icon>
           </button>
-          <button item-right ion-button icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin">
-                <ion-icon color="whithe" name="ribbon"></ion-icon>
+          <button item-right ion-button icon-only (click)="capitan(jugador)" *ngIf="jugador.capitan && rolAdmin"  style="background-color: transparent; border:none">
+                <ion-icon color="danger" name="ribbon"></ion-icon>
           </button>
 
         </ion-item>
