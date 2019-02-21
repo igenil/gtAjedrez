@@ -11,12 +11,6 @@ import { CalendariomodalPage } from '../calendariomodal/calendariomodal';
 import firebase from 'firebase';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 import { EditjornadamodalPage } from '../editjornadamodal/editjornadamodal';
-/**
- * Generated class for the JornadasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

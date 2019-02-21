@@ -1,13 +1,7 @@
-<!--
-  Generated template for the JornadasmodalPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="dark"> 
-    <ion-title>Datos de {{ jornada.titulo }} </ion-title>
+    <ion-title>{{ jornada.titulo }} </ion-title>
     <ion-buttons left>
       <button ion-button icon-only (click)="viewCtrl.dismiss()">
         <ion-icon name="arrow-back"></ion-icon>
@@ -19,12 +13,7 @@
 
 
 <ion-content padding>
-
-
-
-
     <ion-list>
-    
       <p><span style="font-weight: bold;"> Nombre: </span> {{ jornada.titulo }}</p>
       <p><span style="font-weight: bold;"> Fecha: </span> {{ jornada.fecha }}</p>
       <span *ngFor="let equip of equipo | async">
@@ -33,171 +22,53 @@
 
       <span *ngFor="let titularUno of titular1 | async">
         <p>
-          <span style="font-weight: bold;"> Titular 1: </span> {{ titularUno.nombre }},
+          <span style="font-weight: bold;"> Titular 1: </span> {{ titularUno.nombre }} 
           <span *ngIf="jornada.resultado1 == 0">Sin asignar</span>
-          <span color="secondary" *ngIf="jornada.resultado1 == 1">Victoria</span>
-          <span color="primary" *ngIf="jornada.resultado1 == 2">Empate</span>
-          <span color="danger" *ngIf="jornada.resultado1 == 3">Derrota</span>
+          <span color="secondary" *ngIf="jornada.resultado1 == 1"> - Victoria</span>
+          <span color="primary" *ngIf="jornada.resultado1 == 2"> - Empate</span>
+          <span color="danger" *ngIf="jornada.resultado1 == 3"> - Derrota</span>
         </p>
       </span>
 
       <span *ngFor="let titularDos of titular2 | async">
         <p>
-          <span style="font-weight: bold;"> Titular 2: </span> {{ titularDos.nombre }},
+          <span style="font-weight: bold;"> Titular 2: </span> {{ titularDos.nombre }}
           <span *ngIf="jornada.resultado2 == 0">Sin asignar</span>
-          <span color="secondary" *ngIf="jornada.resultado2 == 1">Victoria</span>
-          <span color="primary" *ngIf="jornada.resultado2 == 2">Empate</span>
-          <span color="danger" *ngIf="jornada.resultado2 == 3">Derrota</span>
+          <span color="secondary" *ngIf="jornada.resultado2 == 1"> - Victoria</span>
+          <span color="primary" *ngIf="jornada.resultado2 == 2"> - Empate</span>
+          <span color="danger" *ngIf="jornada.resultado2 == 3"> - Derrota</span>
         </p>
       </span>
       
       <span *ngFor="let titularTres of titular3 | async">
         <p>
-          <span style="font-weight: bold;"> Titular 3: </span> {{ titularTres.nombre }},
+          <span style="font-weight: bold;"> Titular 3: </span> {{ titularTres.nombre }}
           <span *ngIf="jornada.resultado3 == 0">Sin asignar</span>
-          <span color="secondary" *ngIf="jornada.resultado3 == 1">Victoria</span>
-          <span color="primary" *ngIf="jornada.resultado3 == 2">Empate</span>
-          <span color="danger" *ngIf="jornada.resultado3 == 3">Derrota</span>
+          <span color="secondary" *ngIf="jornada.resultado3 == 1"> - Victoria</span>
+          <span color="primary" *ngIf="jornada.resultado3 == 2"> - Empate</span>
+          <span color="danger" *ngIf="jornada.resultado3 == 3"> - Derrota</span>
         </p>
       </span>
 
       <span *ngFor="let titularCuatro of titular4 | async">
         <p>
-          <span style="font-weight: bold;"> Titular 4: </span> {{ titularCuatro.nombre }},
+          <span style="font-weight: bold;"> Titular 4: </span> {{ titularCuatro.nombre }}
           <span *ngIf="jornada.resultado4 == 0">Sin asignar</span>
-          <span color="secondary" *ngIf="jornada.resultado4 == 1">Victoria</span>
-          <span color="primary" *ngIf="jornada.resultado4 == 2">Empate</span>
-          <span color="danger" *ngIf="jornada.resultado4 == 3">Derrota</span>
+          <span color="secondary" *ngIf="jornada.resultado4 == 1"> - Victoria</span>
+          <span color="primary" *ngIf="jornada.resultado4 == 2"> - Empate</span>
+          <span color="danger" *ngIf="jornada.resultado4 == 3"> - Derrota</span>
         </p>
       </span>
 
       <span *ngFor="let titularCinco of titular5 | async">
         <p>
-          <span style="font-weight: bold;"> Titular 5: </span> {{ titularCinco.nombre }},
+          <span style="font-weight: bold;"> Titular 5: </span> {{ titularCinco.nombre }}
           <span *ngIf="jornada.resultado5 == 0">Sin asignar</span>
-          <span color="secondary" *ngIf="jornada.resultado5 == 1">Victoria</span>
-          <span color="primary" *ngIf="jornada.resultado5 == 2">Empate</span>
-          <span color="danger" *ngIf="jornada.resultado5 == 3">Derrota</span>
+          <span color="secondary" *ngIf="jornada.resultado5 == 1"> - Victoria</span>
+          <span color="primary" *ngIf="jornada.resultado5 == 2"> - Empate</span>
+          <span color="danger" *ngIf="jornada.resultado5 == 3"> - Derrota</span>
         </p>
       </span>
-      <!--
-      <p>
-        <ion-label> 
-          <span style="font-weight: bold;">    
-          Titular 1:
-          </span>
-          {{ nombre1 }}
-          &ensp;&ensp;&ensp;&ensp;
-          <span *ngIf="jornada.n_titular1==0">
-            G &ensp;<ion-checkbox (click)="gana(jornada.titular1,1)"></ion-checkbox>&ensp;&ensp;
-            E &ensp;<ion-checkbox (click)="empata(jornada.titular1,1)"></ion-checkbox>&ensp;&ensp;
-            P &ensp;<ion-checkbox (click)="pierde(jornada.titular1,1)"></ion-checkbox>
-          </span>
-          <span *ngIf="jornada.n_titular1==1">
-            G &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
-            E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-            P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
-          </span>  
-          <span *ngIf="jornada.n_titular1==2">
-            G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
-            E &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
-            P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
-          </span>  
-          <span *ngIf="jornada.n_titular1==3">
-            G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
-            E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-            P &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>
-          </span> 
-        </ion-label>
-      </p>
-      <p>
-          <ion-label> 
-            <span style="font-weight: bold;">    
-            Titular 2:
-            </span>
-            {{ nombre2  }}
-            &ensp;&ensp;&ensp;&ensp;
-            <span *ngIf="jornada.n_titular2==0">
-                G &ensp;<ion-checkbox (click)="gana(jornada.titular2,2)"></ion-checkbox>&ensp;&ensp;
-                E &ensp;<ion-checkbox (click)="empata(jornada.titular2,2)"></ion-checkbox>&ensp;&ensp;
-                P &ensp;<ion-checkbox (click)="pierde(jornada.titular2,2)"></ion-checkbox>
-              </span>
-              <span *ngIf="jornada.n_titular2==1">
-                G &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
-                E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-                P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
-              </span>  
-              <span *ngIf="jornada.n_titular2==2">
-                G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
-                E &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
-                P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
-              </span>  
-              <span *ngIf="jornada.n_titular2==3">
-                G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
-                E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-                P &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>
-              </span>  
-          </ion-label>
-        </p>
-        <p>
-            <ion-label> 
-              <span style="font-weight: bold;">    
-              Titular 3:
-              </span>
-              {{ nombre3  }}
-              &ensp;&ensp;&ensp;&ensp;
-              <span *ngIf="jornada.n_titular3==0">
-                  G &ensp;<ion-checkbox (click)="gana(jornada.titular3,3)"></ion-checkbox>&ensp;&ensp;
-                  E &ensp;<ion-checkbox (click)="empata(jornada.titular3,3)"></ion-checkbox>&ensp;&ensp;
-                  P &ensp;<ion-checkbox (click)="pierde(jornada.titular3,3)"></ion-checkbox>
-                </span>
-                <span *ngIf="jornada.n_titular3==1">
-                  G &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
-                  E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-                  P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
-                </span>  
-                <span *ngIf="jornada.n_titular3==2">
-                  G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
-                  E &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
-                  P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
-                </span>  
-                <span *ngIf="jornada.n_titular3==3">
-                  G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
-                  E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-                  P &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>
-                </span> 
-            </ion-label>
-          </p>
-          <p>
-              <ion-label> 
-                <span style="font-weight: bold;">    
-                Titular 4:
-                </span>
-                {{ nombre4 }}
-                &ensp;&ensp;&ensp;&ensp;
-                <span *ngIf="jornada.n_titular4==0">
-                    G &ensp;<ion-checkbox (click)="gana(jornada.titular4,4)"></ion-checkbox>&ensp;&ensp;
-                    E &ensp;<ion-checkbox (click)="empata(jornada.titular4,4)"></ion-checkbox>&ensp;&ensp;
-                    P &ensp;<ion-checkbox (click)="pierde(jornada.titular4,4)"></ion-checkbox>
-                  </span>
-                  <span *ngIf="jornada.n_titular4==1">
-                    G &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
-                    E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-                    P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
-                  </span>  
-                  <span *ngIf="jornada.n_titular4==2">
-                    G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
-                    E &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>&ensp;&ensp;
-                    P &ensp;<ion-checkbox disabled='true'></ion-checkbox>
-                  </span>  
-                  <span *ngIf="jornada.n_titular4==3">
-                    G &ensp;<ion-checkbox  disabled='true'></ion-checkbox>&ensp;&ensp;
-                    E &ensp;<ion-checkbox disabled='true'></ion-checkbox>&ensp;&ensp;
-                    P &ensp;<ion-checkbox checked = "true" disabled='true'></ion-checkbox>
-                  </span>  
-              </ion-label>
-            </p>
-            -->
     </ion-list>
     <button ion-button color="dark" (click)="viewCtrl.dismiss()">Listo</button>
 </ion-content>

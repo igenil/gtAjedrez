@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { equipo } from '../../models/equipo';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
-/**
- * Generated class for the EditequipomodalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireDatabase } from "angularfire2/database";
 
 @IonicPage()
 @Component({

@@ -9,16 +9,8 @@ import { equipo } from '../../models/equipo';
 import { jugador } from '../../models/jugador';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { database } from 'firebase';
 import { EditequipomodalPage } from '../editequipomodal/editequipomodal';
 import firebase from 'firebase';
-
-/**
- * Generated class for the EquipoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

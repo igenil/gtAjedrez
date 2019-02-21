@@ -3,14 +3,6 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 import { equipo } from '../../models/equipo';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs';
-import { jugador } from '../../models/jugador';
-/**
- * Generated class for the JornadasmodalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -42,88 +34,4 @@ export class JornadasmodalPage {
     console.log(this.jornada);
 
   }
-
-  // gana(jugador, n_titular:number){
-  //   if(n_titular==1){
-  //     jugador.j =Number(jugador.j)+ 1;
-  //     jugador.g =Number(jugador.g)+ 1;
-  //     jugador.ptos = Number(jugador.ptos)+3;
-  //     this.jornada.n_titular1 = 1
-  //   }else if(n_titular==2){
-  //     jugador.j = Number(jugador.j)+1;
-  //     jugador.g = Number(jugador.g)+1
-  //     jugador.ptos = Number(jugador.ptos)+3
-  //     this.jornada.n_titular2 = 1
-  //   }else if(n_titular==3){
-  //     jugador.j = Number(jugador.j)+1
-  //     jugador.g = Number(jugador.g)+1
-  //     jugador.ptos =Number(jugador.ptos)+ 3
-  //     this.jornada.n_titular3 = 1
-  //   }else if(n_titular==4){
-  //     jugador.j = Number(jugador.j)+1
-  //     jugador.g = Number(jugador.g)+1
-  //     jugador.ptos = Number(jugador.ptos)+3
-  //     this.jornada.n_titular4 = 1
-  //   }
-  //   this.listajugadores.jugadores.sort(function(a,b){ 
-  //     if (Number(a.ptos)>Number(b.ptos)) {
-  //       return -1;
-  //     } else if(Number(a.ptos)<Number(b.ptos)){
-  //       return 1;
-  //     } else {
-  //       return 0;
-  //     }
-  //   });
-  // }
-  // empata(jugador, n_titular){
-  //   if(n_titular==1){
-  //     jugador.j = Number(jugador.j)+1
-  //     jugador.e = Number(jugador.g)+1
-  //     jugador.ptos =Number(jugador.ptos)+ 3
-  //     this.jornada.n_titular1 = 2
-  //   }else if(n_titular==2){
-  //     jugador.j = Number(jugador.j)+1
-  //     jugador.e = Number(jugador.g)+1
-  //     jugador.ptos =Number(jugador.ptos)+ 3
-  //     this.jornada.n_titular2 = 2
-  //   }else if(n_titular==3){
-  //     jugador.j = Number(jugador.j)+1
-  //     jugador.e = Number(jugador.g)+1
-  //     jugador.ptos =Number(jugador.ptos)+ 3
-  //     this.jornada.n_titular3 = 2
-  //   }else if(n_titular==4){
-  //     jugador.j = Number(jugador.j)+1
-  //     jugador.e = Number(jugador.g)+1
-  //     jugador.ptos =Number(jugador.ptos)+ 3
-  //     this.jornada.n_titular4 = 2
-  //   }
-  //   this.listajugadores.jugadores.sort(function(a,b){ 
-  //     if (Number(a.ptos)>Number(b.ptos)) {
-  //       return -1;
-  //     } else if(Number(a.ptos)<Number(b.ptos)){
-  //       return 1;
-  //     } else {
-  //       return 0;
-  //     }
-  //   });
-  // }
-  // pierde(jugador, n_titular){
-  //   if(n_titular==1){
-  //     jugador.j =Number(jugador.j)+1
-  //     jugador.p = Number(jugador.p)+1
-  //     this.jornada.n_titular1 = 3
-  //   }else if(n_titular==2){
-  //     jugador.j =Number(jugador.j)+1
-  //     jugador.p = Number(jugador.p)+1
-  //     this.jornada.n_titular2 = 3
-  //   }else if(n_titular==3){
-  //     jugador.j =Number(jugador.j)+1
-  //     jugador.p = Number(jugador.p)+1
-  //     this.jornada.n_titular3 = 3
-  //   }else if(n_titular==4){
-  //     jugador.j =Number(jugador.j)+1
-  //     jugador.p = Number(jugador.p)+1
-  //     this.jornada.n_titular4 = 3
-  //   }
-  // }
 }

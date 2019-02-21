@@ -6,13 +6,6 @@ import { TabsPage } from '../tabs/tabs';
 import { jugador } from '../../models/jugador';
 import { AngularFireDatabase } from 'angularfire2/database';
 
-/**
- * Generated class for the RegistroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-registro',

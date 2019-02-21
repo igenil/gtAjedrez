@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 
-/**
- * Generated class for the CapitanesmodalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-capitanesmodal',

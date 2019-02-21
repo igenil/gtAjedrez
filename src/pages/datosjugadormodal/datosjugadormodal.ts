@@ -4,13 +4,6 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
 import { jugador } from '../../models/jugador';
 import { equipo } from '../../models/equipo';
 
-/**
- * Generated class for the DatosjugadormodalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-datosjugadormodal',

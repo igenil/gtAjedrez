@@ -4,13 +4,6 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
 import { equipo } from '../../models/equipo';
 import { AngularFireDatabase  } from 'angularfire2/database';
 
-/**
- * Generated class for the EditjornadamodalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-editjornadamodal',

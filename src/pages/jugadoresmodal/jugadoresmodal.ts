@@ -2,19 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { NumJugadoresProvider } from '../../providers/num-jugadores/num-jugadores';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { jugador } from '../../models/jugador';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
-import { JUGADORES } from '../../data/data.jugadores';
 import firebase from 'firebase';
-
-/**
- * Generated class for the JugadoresmodalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
