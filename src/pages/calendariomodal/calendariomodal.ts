@@ -44,23 +44,29 @@ export class CalendariomodalPage {
     console.log(this.jornada.equipo);
     this.listajugadores.Covocados(this.jornada.equipo).then(existe =>{
       if(existe) {
+        let cont = 0;
           for (let i = 0; i < Object.keys(this.prov.convocados).length; i++) {
             if (this.prov.convocados[i].juega) {
-              console.log(i);
-              if (i == 0) {
+              console.log( this.jornada.titular1.length)
+              if (cont == 0) {
                 this.jornada.titular1 = this.prov.convocados[i].email
- 
-              }else if(i == 1){
+                cont += 1;
+              }else if(cont == 1){
                 this.jornada.titular2 = this.prov.convocados[i].email
-              }else if(i == 2){
+                cont += 1;
+              }else if(cont == 2){
                 this.jornada.titular3 = this.prov.convocados[i].email
-              }else if(i == 3){
+                cont += 1;
+              }else if(cont == 3){
                 this.jornada.titular4 = this.prov.convocados[i].email
-              }else if(i == 4){
+                cont += 1;
+              }else if(cont == 4){
                 this.jornada.titular5 = this.prov.convocados[i].email
+                cont += 1;
               }
             }
           } 
+          cont =0;
           console.log(this.jornada);
           this.afdb.list("/jornada").push(this.jornada);
           this.viewCtrl.dismiss();
