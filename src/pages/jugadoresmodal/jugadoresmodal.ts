@@ -78,11 +78,31 @@ export class JugadoresmodalPage {
               this.Nconvocados = Number(this.Nconvocados) + 1;
             }
           }
-          console.log(this.Nconvocados); 
       }
     })
     this.Nconvocados = 0;
   }
+
+  capitan(jugador){
+    if(!jugador.capitan){
+      jugador.capitan  = true;
+      this.afdb.list("/jugador").update(jugador.key, jugador);
+    }else if(jugador.capitan){
+      jugador.capitan  = false;
+      this.afdb.list("/jugador").update(jugador.key, jugador);
+    
+    }
+    this.listajugadores.Covocados(this.key).then(existe =>{
+      if(existe) {
+          for (let i = 0; i < Object.keys(this.prov.convocados).length; i++) {
+            if (this.prov.convocados[i].capitan) {
+              this.isCapitan = true;
+            }
+          }
+      }
+    })
+  }
+
   volver(){
     this.viewCtrl.dismiss();
   }
