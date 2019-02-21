@@ -28,6 +28,7 @@ export class JugadoresmodalPage {
   rolCapitan:boolean = false;
   Nconvocados:Number = 0;
   key: string;
+  isCapitan: boolean;
 
   constructor(private prov: ListajugadoresProvider,private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
     
@@ -60,6 +61,16 @@ export class JugadoresmodalPage {
           console.log(this.Nconvocados); 
       }
     })
+
+    this.listajugadores.Covocados(this.key).then(existe =>{
+      if(existe) {
+          for (let i = 0; i < Object.keys(this.prov.convocados).length; i++) {
+            if (this.prov.convocados[i].capitan) {
+              this.isCapitan = true;
+            }
+          }
+      }
+    })
   }
   
   convocar(jugador){
@@ -86,21 +97,14 @@ export class JugadoresmodalPage {
   capitan(jugador){
     if(!jugador.capitan){
       jugador.capitan  = true;
+      this.isCapitan = true;
       this.afdb.list("/jugador").update(jugador.key, jugador);
     }else if(jugador.capitan){
       jugador.capitan  = false;
+      this.isCapitan = false;
       this.afdb.list("/jugador").update(jugador.key, jugador);
     
     }
-    this.listajugadores.Covocados(this.key).then(existe =>{
-      if(existe) {
-          for (let i = 0; i < Object.keys(this.prov.convocados).length; i++) {
-            if (this.prov.convocados[i].capitan) {
-              this.isCapitan = true;
-            }
-          }
-      }
-    })
   }
 
   volver(){
