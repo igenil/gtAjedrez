@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { NumJugadoresProvider } from '../../providers/num-jugadores/num-jugadores';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
 import { Observable } from 'rxjs';
@@ -30,7 +30,7 @@ export class JugadoresmodalPage {
   key: string;
   isCapitan: boolean;
 
-  constructor(private prov: ListajugadoresProvider,private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
+  constructor(private toastCtrl: ToastController,private prov: ListajugadoresProvider,private afdb: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, public viewCtrl:ViewController, public numJugadores:NumJugadoresProvider, public listajugadores:ListajugadoresProvider) {
     
   }
 
@@ -72,14 +72,28 @@ export class JugadoresmodalPage {
       }
     })
   }
+
+  mostrar_mensaje( mensaje:string ){
+    let toast = this.toastCtrl.create({
+    message: mensaje,
+    duration: 3500,
+    cssClass: "toast"
+    });
+    toast.present();
+   }
   
   convocar(jugador){
     if(!jugador.juega){
       jugador.juega  = true;
       this.afdb.list("/jugador").update(jugador.key, jugador);
+      let mensaje = "Jugador " + jugador.nombre + " convocado";
+      this.mostrar_mensaje(mensaje);
     }else if(jugador.juega){
       jugador.juega  = false;
       this.afdb.list("/jugador").update(jugador.key, jugador);
+      let mensaje = "Jugador " + jugador.nombre + " desconvocado";
+      this.mostrar_mensaje(mensaje);
+      
     }
 
     this.listajugadores.Covocados(this.key).then(existe =>{
@@ -99,11 +113,14 @@ export class JugadoresmodalPage {
       jugador.capitan  = true;
       this.isCapitan = true;
       this.afdb.list("/jugador").update(jugador.key, jugador);
+      var mensaje = "Jugador " + jugador.nombre + " elegido como capitan";
+      this.mostrar_mensaje(mensaje);
     }else if(jugador.capitan){
       jugador.capitan  = false;
       this.isCapitan = false;
       this.afdb.list("/jugador").update(jugador.key, jugador);
-    
+      let mensaje = "Jugador " + jugador.nombre + " destituido como capitan";
+      this.mostrar_mensaje(mensaje);
     }
   }
 
