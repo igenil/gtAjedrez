@@ -7,6 +7,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { equipo } from '../../models/equipo';
 import { map } from 'rxjs/operators';
+import firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -16,6 +17,9 @@ import { map } from 'rxjs/operators';
 export class CalendariomodalPage {
   equipos: Observable<equipo[]>;
   listEquipos: AngularFireList<any>;
+  admin: {};
+  rolAdmin:boolean = false;
+  rolCapitan:boolean = false;
   jornada: jornadas = {
     titulo: '',
     casa:false,
@@ -23,16 +27,23 @@ export class CalendariomodalPage {
     equipo:''
   };
 
-  constructor(private toastCtrl: ToastController,private afdb: AngularFireDatabase,public listajornadas:ListajornadasProvider,public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
+  constructor(private prov: ListajugadoresProvider, private toastCtrl: ToastController,private afdb: AngularFireDatabase,public listajornadas:ListajornadasProvider,public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
     this.listEquipos = afdb.list("/equipo");
     this.equipos =  this.listEquipos.snapshotChanges().pipe(
        map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
     );
   }
-  añadir(){
+  
+  add(){
     this.afdb.list("/jornada").push(this.jornada);
     this.viewCtrl.dismiss();
     this.mostrar_mensaje("Jornada " + this.jornada.titulo + " añadida correctamente.");
+  }
+
+  eliminar(jornada){
+    var id = jornada.key;
+    this.afdb.database.ref('/jornada/'+ jornada.key).remove();
+    this.mostrar_mensaje("Jornada " + jornada.nombre + " eliminada con exito.");
   }
 
   mostrar_mensaje( mensaje:string ){
@@ -43,18 +54,18 @@ export class CalendariomodalPage {
     });
     toast.present();
    }
-
-  //  save(){
-  //   this.jorna.titulo = this.title;
-  //   if (this.event.Casa) {
-  //     this.jorna.casa = true;
-  //   }else{
-  //     this.jorna.casa = false;
-  //   }
-  //   this.jorna.fecha = new Date();
-  //   this.afdb.list("/jornada/").push(this.jorna);
-  //   this.mostrar_mensaje(this.jorna.titulo + " añadida correctamente.");
-  //   this.viewCtrl.dismiss();
-  // }
-  
+   
+   ionViewDidLoad() {
+    console.log('ionViewDidLoad JugadoresPage');
+    var user = firebase.auth().currentUser;
+    this.prov.verificarUsuario(user.email).then(existe =>{
+      if(existe) {
+        if (this.prov.admin[0].admin) {
+          this.rolAdmin = true;
+        }
+      }else if(this.prov.admin[0].capitan){
+          this.rolCapitan = true;
+      }
+    })
+  }
 }

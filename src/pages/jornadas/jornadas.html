@@ -21,12 +21,31 @@
 
 
 <ion-content padding>
-  <ion-buttons end>
-    
-  </ion-buttons>
   <ion-list>
-    <ion-item *ngFor="let jornada of jornadas | async">
-      {{jornada.titulo}}
-    </ion-item>
+    <span *ngFor="let jornada of jornadas | async">
+      <ion-list >
+        <ion-item-sliding #item>
+          <ion-item>
+            {{jornada.titulo}}
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button (click)="mostrar_modal(jugador)" color="secondary">
+              <ion-icon name="eye" ></ion-icon>
+              Ver
+            </button>
+            <span *ngIf="rolAdmin==true">
+              <button ion-button (click)="mostrar_modal_editar(jugador)" color="primary">
+                <ion-icon name="build" ></ion-icon>
+                Editar
+              </button>
+              <button ion-button (click)="eliminar_jugador(jugador)" color="danger">
+                <ion-icon name="trash" ></ion-icon>
+                Eliminar
+              </button>
+            </span>
+          </ion-item-options>
+        </ion-item-sliding>
+        </ion-list>
+      </span>
   </ion-list>
 </ion-content>

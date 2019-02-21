@@ -21,10 +21,10 @@
 <ion-content>
   <ion-item>
     <ion-label floating>Titulo</ion-label>
-    <ion-input type="number" label="jornada.titulo" [(ngModel)]="jornada.titulo"></ion-input>
+    <ion-input type="text" label="jornada.titulo" [(ngModel)]="jornada.titulo"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label floating>Fecha</ion-label>
+    <ion-label>Fecha</ion-label>
     <ion-input type="date" label="jornada.fecha" [(ngModel)]="jornada.fecha"></ion-input>
   </ion-item>
   <ion-item>
@@ -34,13 +34,12 @@
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label floating>Casa</ion-label>
-    <ion-input type="number" label="jornada.casa" [(ngModel)]="jornada.casa"></ion-input>
+    <ion-label>Casa</ion-label>
+        <ion-checkbox [(ngModel)]="jornada.casa"></ion-checkbox>
   </ion-item>
-  <ion-item>
-    <button ion-button color="dark" full icon-left (click)="save()">
-      <ion-icon > Añadir Jornada </ion-icon>
-    </button>
-    <button ion-button color="dark" full (click)="viewCtrl.dismiss()">Cancelar</button>
-  </ion-item>
+  <button ion-button color="dark" full icon-left (click)="add()">
+    <ion-icon > Añadir Jornada </ion-icon>
+  </button>
+  <button ion-button color="dark" full (click)="viewCtrl.dismiss()">Cancelar</button>
+  
 </ion-content>

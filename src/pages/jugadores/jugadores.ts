@@ -9,7 +9,6 @@ import { jugador } from '../../models/jugador';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import firebase from 'firebase';
-import { Pipe, PipeTransform } from '@angular/core';
 
 /**
  * Generated class for the JugadoresPage page.
@@ -72,10 +71,8 @@ export class JugadoresPage {
   }
 
   eliminar_jugador(jugador){
-    var id = jugador.key;
-    console.log(jugador.key);
     this.afdb.database.ref('/jugador/'+ jugador.key).remove();
-    this.mostrar_mensaje("Jugador " + jugador.nombre + " elimanado con exito.");
+    this.mostrar_mensaje("Jugador " + jugador.nombre + " eliminado con exito.");
   }
 
   ionViewDidLoad() {
