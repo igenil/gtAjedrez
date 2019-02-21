@@ -9,7 +9,7 @@
   <ion-navbar color="dark">
     <ion-title>Jornadas</ion-title>
     <ion-buttons end>
-    <button end ion-button icon-only (click)="anadirJornada()" color="white">
+    <button end ion-button icon-only (click)="mostrar_modal_add()" color="white">
       <ion-icon name="add"></ion-icon>
     </button>
       <button ion-button (click)="signOut()" color="light">
@@ -38,7 +38,7 @@
                 <ion-icon name="build" ></ion-icon>
                 Editar
               </button>
-              <button ion-button (click)="eliminar_jugador(jugador)" color="danger">
+              <button ion-button (click)="eliminar(jornada)" color="danger">
                 <ion-icon name="trash" ></ion-icon>
                 Eliminar
               </button>

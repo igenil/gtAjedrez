@@ -24,7 +24,8 @@
   <span *ngFor="let equipo of equipos | async">
          <ion-list>
           <ion-item-sliding #item> 
-            <ion-item >
+            <ion-item>  
+              <ion-icon name="contacts" item-start></ion-icon>
               <h2>{{equipo.nombre}}</h2> 
             </ion-item>
             <ion-item-options side="right">
