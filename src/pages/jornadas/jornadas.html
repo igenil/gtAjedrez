@@ -25,21 +25,22 @@
     <span *ngFor="let jornada of jornadas | async">
       <ion-list >
         <ion-item-sliding #item>
-          <ion-item>
-            {{jornada.titulo}}
-          </ion-item>
+            <ion-item>  
+              <ion-icon name="calendar" item-start></ion-icon>
+              <h2>{{jornada.titulo}}</h2> 
+            </ion-item>
           <ion-item-options side="right">
-            <button ion-button (click)="mostrar_modal(jornada)" color="secondary">
-              <ion-icon name="eye" ></ion-icon>
+            <button ion-button (click)="mostrar_modal(jornada)" style="background-color: transparent; border:none">
+              <ion-icon color="secondary" name="eye" ></ion-icon>
               Ver
             </button>
             <span *ngIf="rolAdmin==true">
-              <button ion-button (click)="mostrar_modal_editar(jornada)" color="primary">
-                <ion-icon name="build" ></ion-icon>
+              <button ion-button (click)="mostrar_modal_editar(jornada)" style="background-color: transparent; border:none">
+                <ion-icon color="primary" name="build" ></ion-icon>
                 Editar
               </button>
-              <button ion-button (click)="eliminar(jornada)" color="danger">
-                <ion-icon name="trash" ></ion-icon>
+              <button ion-button (click)="eliminar(jornada)" style="background-color: transparent; border:none" >
+                <ion-icon name="trash" color="danger" ></ion-icon>
                 Eliminar
               </button>
             </span>

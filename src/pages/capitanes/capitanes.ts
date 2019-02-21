@@ -23,9 +23,8 @@ export class CapitanesPage {
     console.log('ionViewDidLoad CapitanesPage');
   }
 
-  mostrar_modal(capitan){
-    this.listEquipos = this.afdb.list("/equipo").valueChanges();
-    let modal=this.modalCtrl.create(CapitanesmodalPage,{'listEquipos':this.listEquipos, 'capitan':capitan});
-    modal.present();
+  destituir(capitan){
+    capitan.capitan=false;
+    this.afdb.list("/jugador").update(capitan.key, capitan);
   }
 }

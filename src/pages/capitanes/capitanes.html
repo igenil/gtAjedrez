@@ -18,13 +18,14 @@
          <ion-list>
           <ion-item-sliding #item>
             <ion-item>
-              <ion-icon name="contact" item-start></ion-icon>
+              <ion-icon name="ribbon" item-start></ion-icon>
               <h2>{{capitan.nombre}}</h2> 
             </ion-item>
             <ion-item-options side="right">
-              <button ion-button (click)="mostrar_modal(capitan)" color="secondary">
-                <ion-icon name="eye" ></ion-icon>
-                Ver
+              <button ion-button (click)="destituir(capitan)" style="background-color: transparent; border:none">
+                <ion-icon color="danger" name="close" ></ion-icon>
+
+
               </button>
             </ion-item-options>
           </ion-item-sliding>
