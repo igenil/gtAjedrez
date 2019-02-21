@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ListajornadasProvider } from '../../providers/listajornadas/listajornadas';
 import { JornadasmodalPage } from '../jornadasmodal/jornadasmodal';
@@ -30,7 +30,7 @@ export class JornadasPage {
   rolAdmin:boolean = false;
   rolCapitan:boolean = false;
 
-  constructor(private prov: ListajugadoresProvider, private afdb: AngularFireDatabase, private modalCtrl:ModalController ,public navCtrl: NavController, public navParams: NavParams, public AfAuth: AngularFireAuth,public listajornadas:ListajornadasProvider) {
+  constructor(private prov: ListajugadoresProvider,private toastCtrl: ToastController, private afdb: AngularFireDatabase, private modalCtrl:ModalController ,public navCtrl: NavController, public navParams: NavParams, public AfAuth: AngularFireAuth,public listajornadas:ListajornadasProvider) {
     
     this.listJornadas = afdb.list("/jornada");
     this.jornadas =  this.listJornadas.snapshotChanges().pipe(
@@ -61,8 +61,23 @@ export class JornadasPage {
     return this.AfAuth.auth.signOut();
 	}
 
-  anadirJornada(){
+  mostrar_modal_add(){
     let modal = this.modalCtrl.create(CalendariomodalPage);
     modal.present();
   }
+
+  eliminar(jornada){
+    var id = jornada.key;
+    this.mostrar_mensaje("Jornada  eliminada con exito.");
+    this.afdb.database.ref('/jornada/'+ jornada.key).remove();
+  }
+
+  mostrar_mensaje( mensaje:string ){
+    let toast = this.toastCtrl.create({
+    message: mensaje,
+    duration: 3500,
+    cssClass: "toast"
+    });
+    toast.present();
+   }
 }
