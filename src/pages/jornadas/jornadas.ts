@@ -7,6 +7,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { jornadas } from '../../models/jornadas';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CalendariomodalPage } from '../calendariomodal/calendariomodal';
 /**
  * Generated class for the JornadasPage page.
  *
@@ -45,4 +46,8 @@ export class JornadasPage {
     return this.AfAuth.auth.signOut();
 	}
 
+  anadirPartida(){
+    let modal = this.modalCtrl.create(CalendariomodalPage);
+    modal.present();
+  }
 }

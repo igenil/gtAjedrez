@@ -51,7 +51,7 @@ export class CalendariomodalPage {
     this.jorna.fecha = new Date(this.event.startTime);
     this.afdb.list("/jornada/").push(this.jorna);
     this.mostrar_mensaje(this.jorna.titulo + " añadida correctamente.");
-    this.viewCtrl.dismiss(this.event);
+    this.viewCtrl.dismiss();
   }
 
   mostrar_mensaje( mensaje:string ){
