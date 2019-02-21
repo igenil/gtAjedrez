@@ -38,6 +38,7 @@ export class EditjugadormodalPage {
     this.jugador.elo = Number(this.jugador.elo);
     if (this.jugador.equipo!=this.equipo){
       this.jugador.juega=false;
+      this.jugador.capitan=false;
     };
     this.afdb.list("/jugador").update(this.jugador.key, this.jugador);
     this.viewCtrl.dismiss();
