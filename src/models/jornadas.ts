@@ -3,4 +3,5 @@ export interface jornadas{
     fecha:Date,
     casa:Boolean,
     titulo:string,
+    equipo: string,
 }
