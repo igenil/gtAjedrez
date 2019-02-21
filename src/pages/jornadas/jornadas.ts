@@ -54,7 +54,12 @@ export class JornadasPage {
 
   mostrar_modal(jornada){
     var equipo = this.afdb.list('/equipo', ref => ref.orderByKey().equalTo(jornada.equipo)).valueChanges();
-    let modal = this.modalCtrl.create(JornadasmodalPage,{jornada, equipo});
+    var titular1 = this.afdb.list('/jugador', ref => ref.orderByChild('email').equalTo(jornada.titular1)).valueChanges();
+    var titular2 = this.afdb.list('/jugador', ref => ref.orderByChild('email').equalTo(jornada.titular2)).valueChanges();
+    var titular3 = this.afdb.list('/jugador', ref => ref.orderByChild('email').equalTo(jornada.titular3)).valueChanges();
+    var titular4 = this.afdb.list('/jugador', ref => ref.orderByChild('email').equalTo(jornada.titular4)).valueChanges();
+    var titular5 = this.afdb.list('/jugador', ref => ref.orderByChild('email').equalTo(jornada.titular5)).valueChanges();
+    let modal = this.modalCtrl.create(JornadasmodalPage,{jornada, equipo, titular1, titular2, titular3, titular4, titular5});
     modal.present();
   }
   

@@ -30,8 +30,32 @@
       <span *ngFor="let equip of equipo | async">
         <p><span style="font-weight: bold;"> Equipo: </span> {{ equip.nombre }}</p>
       </span>
+
+      <span *ngFor="let titularUno of titular1 | async">
+        <p>
+          <span style="font-weight: bold;"> Titular 1: </span> {{ titularUno.nombre }},
+          <span *ngIf="jornada.resultado1 == 0">Sin asignar</span>
+          <span color="secondary" *ngIf="jornada.resultado1 == 1">Victoria</span>
+          <span color="primary" *ngIf="jornada.resultado1 == 2">Empate</span>
+          <span color="danger" *ngIf="jornada.resultado1 == 3">Derrota</span>
+        </p>
+      </span>
+
+      <span *ngFor="let titularDos of titular2 | async">
+        <p><span style="font-weight: bold;"> Titular 2: </span> {{ titularDos.nombre }}, <span *ngIf="jornada.resultado2 == 0">Sin asignar</span></p>
+      </span>
       
-      
+      <span *ngFor="let titularTres of titular3 | async">
+        <p><span style="font-weight: bold;"> Titular 3: </span> {{ titularTres.nombre }}, <span *ngIf="jornada.resultado3 == 0">Sin asignar</span></p>
+      </span>
+
+      <span *ngFor="let titularCuatro of titular4 | async">
+        <p><span style="font-weight: bold;"> Titular 4: </span> {{ titularCuatro.nombre }}, <span *ngIf="jornada.resultado4 == 0">Sin asignar</span></p>
+      </span>
+
+      <span *ngFor="let titularCinco of titular5 | async">
+        <p><span style="font-weight: bold;"> Titular 5: </span> {{ titularCinco.nombre }}, <span *ngIf="jornada.resultado5 == 0">Sin asignar</span></p>
+      </span>
       <!--
       <p>
         <ion-label> 

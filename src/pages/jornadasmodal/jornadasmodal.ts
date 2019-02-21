@@ -4,6 +4,7 @@ import { ListajugadoresProvider } from '../../providers/listajugadores/listajuga
 import { equipo } from '../../models/equipo';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
+import { jugador } from '../../models/jugador';
 /**
  * Generated class for the JornadasmodalPage page.
  *
@@ -19,14 +20,12 @@ import { Observable } from 'rxjs';
 export class JornadasmodalPage {
   jornada:any={};
   equipo:equipo;
-  // titular1 = 0
-  // titular2= 0
-  // titular3 = 0
-  // titular4 = 0
-  // nombre1:string;
-  // nombre2:string;
-  // nombre3:string;
-  // nombre4:string;
+  titular1:any;
+  titular2:any;
+  titular3:any;
+  titular4:any;
+  titular5:any;
+
   constructor(private afdb: AngularFireDatabase, private listajugadores: ListajugadoresProvider,public navCtrl: NavController, public navParams: NavParams,  public viewCtrl:ViewController) {
   }
 
@@ -34,6 +33,12 @@ export class JornadasmodalPage {
     console.log('ionViewDidLoad JornadasmodalPage');
     this.jornada=this.navParams.get('jornada');
     this.equipo = this.navParams.get('equipo');
+    this.equipo = this.navParams.get('equipo');
+    this.titular1 = this.navParams.get('titular1');
+    this.titular2 = this.navParams.get('titular2');
+    this.titular3 = this.navParams.get('titular3');
+    this.titular4 = this.navParams.get('titular4');
+    this.titular5 = this.navParams.get('titular5');
     console.log(this.jornada);
     // this.nombre1 = this.jornada.titular1.nombre;
     // this.nombre2 = this.jornada.titular2.nombre;
