@@ -19,13 +19,12 @@
 
 <ion-content padding>
   <ion-list>
-      <span *ngFor="let jugador of jugadores | async ">
-         <ion-list>
+       <span *ngFor="let jugador of jugadores | async ">
+          <ion-list>
           <ion-item-sliding #item>
             <ion-item>
               <ion-icon name="contact" item-start></ion-icon>
-
-              <h2>{{jugador.nombre}}, {{jugador.elo}}</h2> 
+              <h2><b>{{jugador.nombre}} - {{jugador.elo}}</b></h2> 
             </ion-item>
             <ion-item-options side="right">
               <button ion-button (click)="mostrar_modal(jugador)" style="background-color: transparent; border:none">
@@ -46,7 +45,7 @@
           </ion-item-sliding>
         </ion-list>
       </span>
-  </ion-list>
+  </ion-list> 
    <ion-refresher (ionRefresh)="recargar_jugadores($event)">
  <ion-refresher-content></ion-refresher-content>
  </ion-refresher>

@@ -8,36 +8,39 @@
 </ion-header>
 
 <ion-content class="bg-image">
-	<form (ngSubmit)="login()" [formGroup]="loginForm">
-		<ion-list inset>
+	<div style="background-color:white;">
+		<form (ngSubmit)="login()" [formGroup]="loginForm">
+			<ion-list inset>
+				<label><b>Email</b></label>
+				<ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }">
+					<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+				</ion-item>
 
-			<ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }">
-				<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
-			</ion-item>
+				<div ngxErrors="email" #emailErrors="ngxErrors">
+					<div [ngxError]="['email', 'required']" [when]="['touched', 'dirty']"><span style="color:red">Debes introducir un email válido</span></div>
+				</div>
+				<br>
+				<label><b>Contraseña</b></label>
+				<ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
+					<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+				</ion-item>
 
-			<div ngxErrors="email" #emailErrors="ngxErrors">
-				<div [ngxError]="['email', 'required']" [when]="['touched', 'dirty']">It should be a valid email</div>
+				<div ngxErrors="password" #passwordErrors="ngxErrors">
+					<div [ngxError]="['minlength', 'required']" [when]="['touched']"><span style="color:red">La contraseña debe tener al menos 5 caracteres</span></div>
+				</div>
+
+			</ion-list>
+
+			<div padding-horizontal>
+				<div class="form-error">{{loginError}}</div>
+
+				<button ion-button full type="submit" [disabled]="!loginForm.valid">Entrar</button>
 			</div>
-
-			<ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
-				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-			</ion-item>
-
-			<div ngxErrors="password" #passwordErrors="ngxErrors">
-				<div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be at least 5 characters</div>
-			</div>
-
-			<button ion-button icon-left block clear (click)="signup()">
-					<ion-icon name="person-add"></ion-icon>
+			<div padding-horizontal>
+				<button ion-button full (click)="signup()" style="background-color:green">
 					Registrarse
-			</button>
-		</ion-list>
-
-		<div padding-horizontal>
-			<div class="form-error">{{loginError}}</div>
-
-			<button ion-button full type="submit" [disabled]="!loginForm.valid">Log in</button>
-		</div>
-
-	</form>
+				</button>
+			</div>
+		</form>
+	</div>
 </ion-content>
