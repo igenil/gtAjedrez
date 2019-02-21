@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController, Refresher } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { DatosjugadormodalPage } from '../datosjugadormodal/datosjugadormodal'
 import { EditjugadormodalPage } from '../editjugadormodal/editjugadormodal';
@@ -73,6 +73,19 @@ export class JugadoresPage {
   eliminar_jugador(jugador){
     this.afdb.database.ref('/jugador/'+ jugador.key).remove();
     this.mostrar_mensaje("Jugador " + jugador.nombre + " eliminado con exito.");
+  }
+
+  recargar_jugadores(event:any){
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.listaJugadores = this.afdb.list("/jugador", ref => ref.orderByChild('elo'));
+        this.jugadores = this.listaJugadores.snapshotChanges().pipe(
+          map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })).reverse())
+      );;
+      event.complete();
+    }, 500);
   }
 
   ionViewDidLoad() {
