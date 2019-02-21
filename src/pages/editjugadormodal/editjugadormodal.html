@@ -19,47 +19,12 @@
           <ion-input type="text" [(ngModel)]="jugador.nombre"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label floating>Partidos Jugados</ion-label>
-          <ion-input type="number" [(ngModel)]="jugador.jugados"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Partidos Ganados</ion-label>
-          <ion-input type="number" [(ngModel)]="jugador.ganado"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Partidos Empatados</ion-label>
-          <ion-input type="number" label="jugador.e" [(ngModel)]="jugador.empate"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Partidos Perdidos</ion-label>
-          <ion-input type="number" label="jugador.p" [(ngModel)]="jugador.perdidos"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Jugados en Casa</ion-label>
-          <ion-input type="number" label="jugador.c" [(ngModel)]="jugador.casa"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Elo</ion-label>
-          <ion-input type="number" label="jugador.elo" [(ngModel)]="jugador.elo"></ion-input>
-        </ion-item>
-        <ion-item>
           <ion-label floating>Equipo</ion-label>
           <ion-select value="" [(ngModel)]="jugador.equipo" okText="Aceptar" cancelText="Cancelar">
             <ion-option *ngFor="let equipo of equipos | async" value="{{equipo.key}}">{{equipo.nombre}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-item>
-          <ion-label floating>Capitan</ion-label>
-          <ion-input type="number" label="jugador.capitan" [(ngModel)]="jugador.capitan"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Admin</ion-label>
-          <ion-input type="number" label="jugador.admin" [(ngModel)]="jugador.admin"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Juega</ion-label>
-          <ion-input type="number" label="jugador.juega" [(ngModel)]="jugador.juega"></ion-input>
-        </ion-item>
+
       </ion-list>
       <br> 
       <button ion-button color="dark" (click)="editarjugador()">Editar</button>
