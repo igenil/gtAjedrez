@@ -1,19 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
-import { Jornada } from '../../interface/jornada.interfaces';
 import { ListajornadasProvider } from '../../providers/listajornadas/listajornadas';
 import { ListajugadoresProvider } from '../../providers/listajugadores/listajugadores';
-import * as moment from 'moment';
 import { jornadas } from '../../models/jornadas';
-import { AngularFireDatabase } from 'angularfire2/database';
-
-
-/**
- * Generated class for the CalendariomodalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs';
+import { equipo } from '../../models/equipo';
+import { map } from 'rxjs/operators';
 
 @IonicPage()
 @Component({
@@ -21,37 +14,25 @@ import { AngularFireDatabase } from 'angularfire2/database';
   templateUrl: 'calendariomodal.html',
 })
 export class CalendariomodalPage {
-  event = { startTime: new Date().toISOString(), endTime: new Date().toISOString(), Casa: false, Fuera: false, title:''}
-  minDate = new Date().toISOString();
-  jornada:Jornada;
-  titulares:any = [];
-  titular1:any;
-  titular2:any;
-  tirtular3:any;
-  titular4:any;
-  jorna: jornadas = {
+  equipos: Observable<equipo[]>;
+  listEquipos: AngularFireList<any>;
+  jornada: jornadas = {
     titulo: '',
     casa:false,
-    fecha:null
+    fecha:null,
+    equipo:''
   };
 
   constructor(private toastCtrl: ToastController,private afdb: AngularFireDatabase,public listajornadas:ListajornadasProvider,public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, public listajugadores:ListajugadoresProvider) {
-    let preselectedDate = moment(this.navParams.get('selectedDay')).format();
-    this.event.startTime = preselectedDate;
-    this.event.endTime = preselectedDate;
-    console.log( this.event.startTime)
+    this.listEquipos = afdb.list("/equipo");
+    this.equipos =  this.listEquipos.snapshotChanges().pipe(
+       map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() })))
+    );
   }
-  save(){
-    this.jorna.titulo = this.event.title;
-    if (this.event.Casa) {
-      this.jorna.casa = true;
-    }else{
-      this.jorna.casa = false;
-    }
-    this.jorna.fecha = new Date(this.event.startTime);
-    this.afdb.list("/jornada/").push(this.jorna);
-    this.mostrar_mensaje(this.jorna.titulo + " añadida correctamente.");
+  añadir(){
+    this.afdb.list("/jornada").push(this.jornada);
     this.viewCtrl.dismiss();
+    this.mostrar_mensaje("Jornada " + this.jornada.titulo + " añadida correctamente.");
   }
 
   mostrar_mensaje( mensaje:string ){
@@ -62,5 +43,18 @@ export class CalendariomodalPage {
     });
     toast.present();
    }
+
+  //  save(){
+  //   this.jorna.titulo = this.title;
+  //   if (this.event.Casa) {
+  //     this.jorna.casa = true;
+  //   }else{
+  //     this.jorna.casa = false;
+  //   }
+  //   this.jorna.fecha = new Date();
+  //   this.afdb.list("/jornada/").push(this.jorna);
+  //   this.mostrar_mensaje(this.jorna.titulo + " añadida correctamente.");
+  //   this.viewCtrl.dismiss();
+  // }
   
 }

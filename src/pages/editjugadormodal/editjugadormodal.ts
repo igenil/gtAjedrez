@@ -7,13 +7,6 @@ import { map } from 'rxjs/operators';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { equipo } from '../../models/equipo';
 
-/**
- * Generated class for the EditjugadormodalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-editjugadormodal',
@@ -21,17 +14,6 @@ import { equipo } from '../../models/equipo';
 })
 export class EditjugadormodalPage {
   jugador:jugador;
-  // nombre:string;
-  // email:string;
-  // casa:number;
-  // fuera:number;
-  // empate:number;
-  // ganado:number;
-  // perdidos:number;
-  // jugados:number;
-  // elo:number;
-  // capitan:boolean;
-  // admin:boolean;
   equipo:string;
   juega:boolean;
 
@@ -53,7 +35,6 @@ export class EditjugadormodalPage {
   }
 
   editarjugador(){
-
     this.jugador.elo = Number(this.jugador.elo);
     if (this.jugador.equipo!=this.equipo){
       this.jugador.juega=false;

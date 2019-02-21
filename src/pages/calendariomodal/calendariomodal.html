@@ -19,37 +19,27 @@
 
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-input type="text" placeholder="Titulo" [(ngModel)]="event.title"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Comienzo</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY HH:mm"  pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="event.startTime" [min]="minDate"></ion-datetime>
-    </ion-item>
-    <ion-item>
-        <ion-label>Fin</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY HH:mm"  pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="event.endTime" [min]="minDate"></ion-datetime>
-    </ion-item>
-  </ion-list>
-<ion-item *ngIf="!event.Fuera">
-<ion-label>Casa</ion-label>
-  <ion-checkbox [(ngModel)]="event.Casa"></ion-checkbox>
-</ion-item>
-<ion-item *ngIf="event.Fuera">
-    <ion-label>Casa</ion-label>
-      <ion-checkbox disabled='true' [(ngModel)]="event.Casa"></ion-checkbox>
-</ion-item>
-<ion-item *ngIf="event.Casa">
-  <ion-label>Fuera</ion-label>
-  <ion-checkbox disabled='true' [(ngModel)]="event.Fuera"></ion-checkbox>
-</ion-item>
-<ion-item *ngIf="!event.Casa">
-    <ion-label>Fuera</ion-label>
-    <ion-checkbox [(ngModel)]="event.Fuera"></ion-checkbox>
+  <ion-item>
+    <ion-label floating>Titulo</ion-label>
+    <ion-input type="number" label="jornada.titulo" [(ngModel)]="jornada.titulo"></ion-input>
   </ion-item>
+  <ion-item>
+    <ion-label floating>Fecha</ion-label>
+    <ion-input type="date" label="jornada.fecha" [(ngModel)]="jornada.fecha"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Equipo</ion-label>
+    <ion-select value="" [(ngModel)]="jornada.equipo" okText="Aceptar" cancelText="Cancelar">
+      <ion-option *ngFor="let equipo of equipos | async" value="{{equipo.key}}">{{equipo.nombre}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Casa</ion-label>
+    <ion-input type="number" label="jornada.casa" [(ngModel)]="jornada.casa"></ion-input>
+  </ion-item>
+  <ion-item>
   <button ion-button color="dark" full icon-left (click)="save()">
-    <ion-icon > Añadir Fecha </ion-icon>
-</button>
-<button ion-button color="dark" full (click)="viewCtrl.dismiss()">Cancelar</button>
+    <ion-icon > Añadir Jornada </ion-icon>
+  </button>
+  <button ion-button color="dark" full (click)="viewCtrl.dismiss()">Cancelar</button>
 </ion-content>

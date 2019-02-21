@@ -46,7 +46,7 @@ export class JornadasPage {
     return this.AfAuth.auth.signOut();
 	}
 
-  anadirPartida(){
+  anadirJornada(){
     let modal = this.modalCtrl.create(CalendariomodalPage);
     modal.present();
   }
